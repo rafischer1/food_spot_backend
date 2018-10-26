@@ -23,5 +23,4 @@ app.use('/posts', postsRouter);
 app.use('/tags', tagsRouter);
 app.use('/posts_tags', posts_tagsRouter);
 
-
 module.exports = app;

@@ -4,6 +4,7 @@ return knex.schema.createTable('posts', function(table) {
  table.increments()
  table.string(foodName).notNullable()
  table.integer('user_id')
+ table.foreign('user_id').references('users.id').onDelete('CASCADE')
  table.string('address').notNullable()
  table.string('city').notNullable()
  table.string('state').notNullable()

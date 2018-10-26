@@ -1,6 +1,6 @@
 exports.up = (knex, Promise) => {
   return knex.schema.createTable('posts_tags', (table) => {
-    table.increments() // id field, auto PK
+    table.increments('id') // id field, auto PK
     table.integer('post_id').notNullable()
     table.integer('tag_id').notNullable()
     table.foreign('post_id').references('posts.id').onDelete('CASCADE')

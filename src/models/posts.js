@@ -1,5 +1,7 @@
 // Model
 const knex = require('../../knex')
+
+//get all works!
 const getAll = () => {
   return knex('posts')
     .then(posts => {
@@ -9,6 +11,7 @@ const getAll = () => {
     .catch(err => Promise.reject(err))
 }
 
+//create works!
 const create = (body) => {
   console.log('model posts create body:', body)
   return knex('posts')

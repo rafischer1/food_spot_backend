@@ -1,6 +1,7 @@
 // Model
 const knex = require('../../knex')
 
+//getAll works!
 const getAll = (limit) => {
   return knex('users')
     .then(users => {
@@ -10,6 +11,7 @@ const getAll = (limit) => {
     .catch(err => Promise.reject(err))
 }
 
+//create works!
 const create = (body) => {
 
   return knex('users')
@@ -19,24 +21,6 @@ const create = (body) => {
     .then(user => user[0])
     .catch(err => Promise.reject(err))
 }
-// const errors = []
-// let userData = {
-//   firstName: body.firstName,
-//   lastName: body.lastName,
-//   location: body.location,
-//   promoter: body.promoter,
-//   avatar: body.avatar
-// }
-// 
-// let response = {}
-// if (!name) {
-//   errors.push('name is required')
-//   response = { errors }
-// } else {
-//   response = userData
-// }
-// 
-// return response
 
 
 const deleteOne = (body) => {

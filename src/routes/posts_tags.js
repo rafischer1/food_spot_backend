@@ -3,8 +3,5 @@ var router = express.Router();
 const knex = require('../../knex')
 
 router.get('/', ctrl.getAll)
-router.post('/', ctrl.create)
-router.patch('/', ctrl.patch)
-router.delete('/', ctrl.delete)
 
 module.exports = router;

@@ -8,9 +8,6 @@ exports.up = function(knex, Promise) {
     table.boolean('promoter').notNullable().defaultTo('')
     table.string('avatar').defaultTo('')
     table.timestamps(true, true)
-    // OR
-    // table.dateTime('created_at').notNullable().defaultTo(knex.raw('now()'))
-    // table.dateTime('updated_at').notNullable().defaultTo(knex.raw('now()'))
   })
 }
 exports.down = function(knex, Promise) {

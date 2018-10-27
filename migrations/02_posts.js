@@ -15,9 +15,6 @@ exports.up = function(knex, Promise) {
     table.dateTime('startTime')
     table.dateTime('endTime')
     table.timestamps(true, true)
-    // OR
-    // table.dateTime('created_at').notNullable().defaultTo(knex.raw('now()'))
-    // table.dateTime('updated_at').notNullable().defaultTo(knex.raw('now()'))
   })
 }
 exports.down = function(knex, Promise) {

@@ -8,13 +8,17 @@ const getAll = (req, res, next) => {
 }
 
 const create = (req, res, next) => {
-  const result = model.create(req.body)
-
-  if (result.errors) {
-    return next({ status: 400, message: `Could not create new post`, errors: result.errors })
-  }
-
-  res.status(201).json({ data: result })
+  return model.create(req.body)
+    .catch(errors => {
+      return next({
+        status: 400,
+        message: `Could not create new post`,
+        errors: errors
+      })
+    })
+    .then(data => {
+      res.status(201).json(data)
+    })
 }
 
 const patch = (req, res, next) => {

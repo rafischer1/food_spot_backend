@@ -18,12 +18,10 @@ const getOneTag = (id) => {
 }
 
 const create = (body) => {
-  return parseBody(body)
-    .then(fields => {
-      return knex('tags')
-        .insert(fields)
-        .returning('*')
-    })
+  return knex('tags')
+    .insert(body)
+    .returning('*')
+
     .then(tag => tag[0])
     .catch(err => Promise.reject(err))
 }

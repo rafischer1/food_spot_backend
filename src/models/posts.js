@@ -11,6 +11,14 @@ const getAll = () => {
     .catch(err => Promise.reject(err))
 }
 
+//works!
+const getOnePost = (id) => {
+  return knex('posts')
+    .where('id', id)
+    .then(post => post[0])
+    .catch(err => Promise.reject(err))
+}
+
 //create works!
 const create = (body) => {
   console.log('model posts create body:', body)
@@ -27,4 +35,4 @@ const deleteOne = (body) => {
   console.log('Gotta write a delete')
 }
 
-module.exports = { getAll, create, deleteOne }
+module.exports = { getAll, getOnePost, create, deleteOne }

@@ -8,6 +8,20 @@ const getAll = (req, res, next) => {
     })
 }
 
+//works!
+const getOneUser = (req, res, next) => {
+  return model.getOneUser(req.params.id)
+    .catch(error => {
+      return next({
+        status: 404,
+        message: error
+      })
+    })
+    .then(data => {
+      res.status(200).json(data)
+    })
+}
+
 const create = (req, res, next) => {
   return model.create(req.body)
     .catch(errors => {
@@ -30,4 +44,4 @@ const deleteOne = (req, res, next) => {
   //write these
 }
 
-module.exports = { getAll, create, patch, deleteOne }
+module.exports = { getAll, create, patch, getOneUser, deleteOne }

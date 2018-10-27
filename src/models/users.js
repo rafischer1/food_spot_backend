@@ -22,9 +22,16 @@ const create = (body) => {
     .catch(err => Promise.reject(err))
 }
 
+//works!
+const getOneUser = (id) => {
+  return knex('users')
+    .where('id', id)
+    .then(user => user[0])
+    .catch(err => Promise.reject(err))
+}
 
 const deleteOne = (body) => {
   console.log('Users route delete')
 }
 
-module.exports = { getAll, create, deleteOne } // Model
+module.exports = { getAll, create, deleteOne, getOneUser } // Model

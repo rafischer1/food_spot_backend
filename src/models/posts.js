@@ -1,7 +1,12 @@
 // Model
 const knex = require('../../knex')
-const getAll = (limit) => {
-  return limit ? posts.slice(0, limit) : posts
+const getAll = () => {
+  return knex('posts')
+    .then(posts => {
+      console.log('model posts:', posts)
+      return posts
+    })
+    .catch(err => Promise.reject(err))
 }
 
 const create = (body) => {

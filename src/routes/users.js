@@ -5,6 +5,6 @@ const ctrl = require('../controllers/tags')
 
 router.get('/', ctrl.getAll)
 router.post('/', ctrl.create)
-router.delete('/', ctrl.delete)
+router.delete('/', ctrl.deleteOne)
 
 module.exports = router;

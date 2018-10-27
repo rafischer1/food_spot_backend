@@ -24,4 +24,8 @@ const create = (body) => {
   return response
 }
 
-module.exports = { getAll, create } // Model
+const deleteOne = (body) => {
+  console.log('Users route delete')
+}
+
+module.exports = { getAll, create, deleteOne } // Model

@@ -6,6 +6,6 @@ const ctrl = require('../controllers/posts')
 router.get('/', ctrl.getAll)
 router.post('/', ctrl.create)
 router.patch('/', ctrl.patch)
-router.delete('/', ctrl.delete)
+router.delete('/', ctrl.deleteOne)
 
 module.exports = router;

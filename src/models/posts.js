@@ -29,4 +29,8 @@ const create = (body) => {
   return response
 }
 
-module.exports = { getAll, create }
+const deleteOne = (body) => {
+  console.log('Gotta write a delete')
+}
+
+module.exports = { getAll, create, deleteOne }

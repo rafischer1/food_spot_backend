@@ -2,9 +2,10 @@
 const model = require('../models/users')
 
 const getAll = (req, res, next) => {
-  const limit = req.query.limit
-  const data = model.getAll(limit)
-  res.status(200).json({ data })
+  return model.getAll()
+    .then((users) => {
+      res.status(200).json(users)
+    })
 }
 const create = (req, res, next) => {
   const result = model.create(req.body)

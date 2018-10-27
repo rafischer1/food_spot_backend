@@ -1,9 +1,10 @@
 const model = require('../models/posts')
 
 const getAll = (req, res, next) => {
-  const limit = req.query.limit
-  const data = model.getAll(limit)
-  res.status(200).json({ data })
+  return model.getAll()
+    .then((posts) => {
+      res.status(200).json(posts)
+    })
 }
 
 const create = (req, res, next) => {

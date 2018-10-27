@@ -3,12 +3,10 @@ const model = require('../models/tags')
 
 
 const getAll = (req, res, next) => {
-
   return model.getAll()
     .then((tags) => {
       res.status(200).json(tags)
     })
-
 }
 
 const create = (req, res, next) => {

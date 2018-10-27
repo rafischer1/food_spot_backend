@@ -1,4 +1,8 @@
+const knex = require('../../knex')
 const getAll = (limit) => {
-  return limit ? posts_tags.slice(0, limit) : posts_tags
+  return knex('posts_tags')
+    .then(data => data)
+    .catch(err => Promise.reject(err))
 }
+
 module.exports = { getAll }

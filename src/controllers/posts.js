@@ -5,6 +5,7 @@ const getAll = (req, res, next) => {
   const data = model.getAll(limit)
   res.status(200).json({ data })
 }
+
 const create = (req, res, next) => {
   const result = model.create(req.body)
 

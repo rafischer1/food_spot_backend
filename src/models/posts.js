@@ -1,4 +1,5 @@
 // Model
+const knex = require('../../knex')
 const getAll = (limit) => {
   return limit ? posts.slice(0, limit) : posts
 }

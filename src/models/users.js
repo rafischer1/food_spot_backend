@@ -1,4 +1,5 @@
 // Model
+const knex = require('../../knex')
 const getAll = (limit) => {
   return limit ? users.slice(0, limit) : users
 }

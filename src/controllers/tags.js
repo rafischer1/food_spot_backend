@@ -1,10 +1,16 @@
+//controller tags
 const model = require('../models/tags')
 
+
 const getAll = (req, res, next) => {
-  const limit = req.query.limit
-  const data = model.getAll(limit)
-  res.status(200).json({ data })
+
+  return model.getAll()
+    .then((tags) => {
+      res.status(200).json(tags)
+    })
+
 }
+
 const create = (req, res, next) => {
   const result = model.create(req.body)
 

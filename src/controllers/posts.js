@@ -39,9 +39,16 @@ const patch = (req, res, next) => {
 
 }
 
-const deleteOne = (req, res, next) => {
-
+const deletePost = (req, res, next) => {
+  return model.deletePost(req.params.id)
+    .then(post => res.status(200).json(post))
+    .catch(err => {
+      const error = new Error('Failed to delete post')
+      error.status = 503
+      error.caught = err
+      return next(error)
+    })
 }
 
-module.exports = { getAll, create, patch, getOnePost, deleteOne }
+module.exports = { getAll, create, patch, getOnePost, deletePost }
 // Controller

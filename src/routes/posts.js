@@ -7,6 +7,6 @@ router.get('/', ctrl.getAll)
 router.get('/:id', ctrl.getOnePost)
 router.post('/', ctrl.create)
 router.patch('/', ctrl.patch)
-router.delete('/', ctrl.deleteOne)
+router.delete('/', ctrl.deletePost)
 
 module.exports = router;

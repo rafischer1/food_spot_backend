@@ -34,6 +34,10 @@ exports.seed = (knex, Promise) => {
           {
             id: 8,
             name: "Flash Event"
+          },
+          {
+            id: 9,
+            name: "College/University"
           }
         ])
         .then(() => {

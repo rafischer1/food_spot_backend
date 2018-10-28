@@ -39,14 +39,21 @@ passport.use(new GitHubStrategy(
   function onSuccessfulLogin(token, refreshToken, profile, done) {
 
     // got user from GitHub
-    // profile._json
-    // console.log(profile._json)
+
+    // Check if user is in DB by GitHub id
     const promise = usersModel.checkUser(profile._json.id)
     promise.then((result) => {
       console.log('result in promise 45:', result)
+      if(result){
+        // log in if yes, create new user and login if new record
+        // This happens once
+      }else{
+        // Create user
+        
+      }
+
     })
-    // console.log('true or false? line 44:', promise)
-    // check to see if they exist
+
     // log in if yes, create new user and login if new record
     // This happens once
     // console.log('after serialize profile:', profile._json)

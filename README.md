@@ -2,7 +2,8 @@
 
 
 # Installation 
-npm install 
+npm install
+
 check for a listening server with 'npm test' to run nodemon
 
 # Working model ERD

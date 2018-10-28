@@ -34,8 +34,16 @@ const updatePost = () => {
   console.log('updatePost')
 }
 
-const deleteOne = (body) => {
-  console.log('Users route delete')
+// works!
+const deleteOne = (id) => {
+  return knex('users')
+    .where('id', id)
+    .del()
+    .returning('*')
+    .then(user => {
+      return user[0]
+    })
+    .catch(err => Promise.reject(err))
 }
 
 module.exports = { getAll, create, deleteOne, getOneUser, updatePost } // Model

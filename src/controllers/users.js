@@ -36,12 +36,16 @@ const create = (req, res, next) => {
     })
 }
 
-const patch = (req, res, next) => {
-  //write these
-}
-
+// works!
 const deleteOne = (req, res, next) => {
-  //write these
+  return model.deleteOne(req.params.id)
+    .then(user => res.status(200).json(user))
+    .catch(err => {
+      const error = new Error('Failed to delete user')
+      error.status = 503
+      error.caught = err
+      return next(error)
+    })
 }
 
-module.exports = { getAll, create, patch, getOneUser, deleteOne }
+module.exports = { getAll, create, getOneUser, deleteOne }

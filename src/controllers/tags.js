@@ -42,4 +42,3 @@ const deleteOne = (req, res, next) => {
 }
 
 module.exports = { getAll, create, getOneTag, deleteOne }
-// Controller// Controller

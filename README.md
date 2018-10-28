@@ -1,7 +1,7 @@
 # food_spot_backend
 
 
-#Installation
+# Installation 
 npm install 
 check for a listening server with 'npm test' to run nodemon
 

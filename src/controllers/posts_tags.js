@@ -17,6 +17,22 @@ const getPostFromTag = (req, res, next) => {
     })
 }
 
+//works!
+const create = (req, res, next) => {
+  return model.create(req.body.tag_id, req.body.post_id)
+    .catch(errors => {
+      return next({
+        status: 400,
+        message: `Could not create new post_tag object`,
+        errors: errors
+      })
+    })
+    .then(data => {
+      res.status(201).json(data)
+    })
+}
 
 
-module.exports = { getAll, getPostFromTag }
+
+
+module.exports = { getAll, getPostFromTag, create }

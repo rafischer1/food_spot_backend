@@ -15,9 +15,13 @@ const getAll = (req, res, next) => {
 const getOneTag = (id) => {
   return knex('tags')
     .where('id', id)
-    .then(tag => tag[0])
+    .then(tag => {
+      return tag[0]
+    })
     .catch(err => Promise.reject(err))
 }
+
+
 
 //create works!
 const create = (body) => {

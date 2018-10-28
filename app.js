@@ -40,6 +40,7 @@ passport.use(new GitHubStrategy(
 
     // got user from GitHub
     // profile._json
+    // console.log(profile._json)
     const promise = usersModel.checkUser(profile._json.id)
     promise.then((result) => {
       console.log('result in promise 45:', result)

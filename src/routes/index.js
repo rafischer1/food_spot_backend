@@ -4,7 +4,7 @@ const knex = require('../../knex')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { session: req.session, user: req.user });
 });
 
 module.exports = router;

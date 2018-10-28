@@ -13,8 +13,9 @@ router.use(bodyParser.json());
 // 
 // { token: 'd99e19848a23dda208f22773a2b1fff5aad8f39d' }
 
-router.post('/', (req, res) => {
-  return console.log('cookies:', req.user)
+router.get('/', (req, res) => {
+  console.log('cookies:', req.cookies)
+  return res.status(200).send('HOME: req.user: ' + JSON.stringify(req.user))
 
   // let token
   // const jwtObj = {

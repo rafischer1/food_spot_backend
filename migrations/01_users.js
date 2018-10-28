@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.string('location', 255).defaultTo('')
     table.boolean('promoter').notNullable().defaultTo('')
     table.string('avatar').defaultTo('')
+    table.integer('oauthId')
     table.timestamps(true, true)
   })
 }

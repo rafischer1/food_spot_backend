@@ -49,7 +49,13 @@ passport.use(new GitHubStrategy(
         // This happens once
       }else{
         // Create user
-        
+        let newUser ={
+          name : profile._json.name,
+          location : profile._json.location,
+          avatar : profile._json.avatar_url,
+          oauthId: profile._json.id
+        }
+        usersMode.create(newUser)
       }
 
     })

@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.varchar('name').notNullable().defaultTo('')
     // table.varchar('lastName').notNullable().defaultTo('')
     table.string('location', 255).defaultTo('')
-    table.boolean('promoter').notNullable().defaultTo('')
+    table.boolean('promoter').notNullable().defaultTo(false)
     table.string('avatar').defaultTo('')
     table.integer('oauthId')
     table.timestamps(true, true)

@@ -55,7 +55,7 @@ passport.use(new GitHubStrategy(
           avatar : profile._json.avatar_url,
           oauthId: profile._json.id
         }
-        usersMode.create(newUser)
+        usersModel.create(newUser)
       }
 
     })

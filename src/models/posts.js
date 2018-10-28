@@ -39,6 +39,6 @@ const deleteOne = (id) => {
     .then(post => post[0])
     .catch(err => Promise.reject(err))
 }
-}
 
-module.exports = { getAll, getOnePost, create, deletePost }
+
+module.exports = { getAll, getOnePost, create, deleteOne }

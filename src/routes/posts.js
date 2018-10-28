@@ -6,7 +6,7 @@ const ctrl = require('../controllers/posts')
 router.get('/', ctrl.getAll)
 router.get('/:id', ctrl.getOnePost)
 router.post('/', ctrl.create)
-router.patch('/', ctrl.patch)
-router.delete('/', ctrl.deletePost)
+router.patch('/:id', ctrl.updateOne)
+router.delete('/:id', ctrl.deletePost)
 
 module.exports = router;

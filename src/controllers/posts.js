@@ -1,6 +1,7 @@
 const model = require('../models/posts')
 
 const getAll = (req, res, next) => {
+  console.log('getAll')
   return model.getAll()
     .then((posts) => {
       res.status(200).json(posts)
@@ -35,12 +36,23 @@ const create = (req, res, next) => {
     })
 }
 
-const patch = (req, res, next) => {
-
+// Works!
+const updateOne = (req, res, next) => {
+  return model.updateOne(req.params.id, req.body)
+    .then(data => {
+      res.status(200).json(data)
+    })
+    .catch(err => {
+      const error = new Error('Failed to update post')
+      error.status = 503
+      error.caught = err
+      return next(error)
+    })
 }
 
+// works!
 const deletePost = (req, res, next) => {
-  return model.deletePost(req.params.id)
+  return model.deleteOne(req.params.id)
     .then(post => res.status(200).json(post))
     .catch(err => {
       const error = new Error('Failed to delete post')
@@ -50,5 +62,11 @@ const deletePost = (req, res, next) => {
     })
 }
 
-module.exports = { getAll, create, patch, getOnePost, deletePost }
+module.exports = {
+  getAll,
+  create,
+  getOnePost,
+  updateOne,
+  deletePost
+}
 // Controller

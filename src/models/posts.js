@@ -31,6 +31,54 @@ const create = (body) => {
     })
 }
 
+//works!
+const updateOne = (id, body) => {
+  let newPost = {}
+  if(body.foodName){
+    newPost.foodName = body.foodName
+  }
+  if(body.address){
+    newPost.address = body.address
+  }
+  if(body.state){
+    newPost.state = body.state
+  }
+  if(body.zipcode){
+    newPost.zipcode = body.zipcode
+  }
+  if(body.country){
+    newPost.country = body.country
+  }
+  if(body.imageUrl){
+    newPost.imageUrl = body.imageUrl
+  }
+  if(body.promoted){
+    newPost.promoted = body.promoted
+  }
+  if(body.startTime){
+    newPost.startTime = body.startTime
+  }
+  if(body.endTime){
+    newPost.endTime = body.endTime
+  }
+  return knex('posts')
+    .where('id', id)
+    .then(data => {
+      knex('posts')
+        .where('id', id)
+        .limit(1)
+        .update(newPost)
+        .returning("*")
+        .then(data => {
+          res.json(data[0])
+        })
+    })
+    .catch(err => {
+      next(err)
+    })
+}
+
+// works!
 const deleteOne = (id) => {
   return knex('posts')
     .where('id', id)
@@ -41,4 +89,10 @@ const deleteOne = (id) => {
 }
 
 
-module.exports = { getAll, getOnePost, create, deleteOne }
+module.exports = {
+  getAll,
+  getOnePost,
+  create,
+  updateOne,
+  deleteOne
+}

@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
           id: 1,
           foodName: 'Pizza',
           user_id: 1,
-          address: '1023 Walnut St'
+          address: '1023 Walnut St',
           city: 'Boulder',
           state: 'Colorado',
           zipcode: '80302',
@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
           id: 2,
           foodName: 'Bagels',
           user_id: 2,
-          address: '1023 Walnut St'
+          address: '1023 Walnut St',
           city: 'Boulder',
           state: 'Colorado',
           zipcode: '80302',
@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
           id: 3,
           foodName: 'Pancakes',
           user_id: 3,
-          address: '1023 Walnut St'
+          address: '1023 Walnut St',
           city: 'Boulder',
           state: 'Colorado',
           zipcode: '80302',

@@ -1,30 +1,25 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+var express = require('express')
+var path = require('path')
+var cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-var logger = require('morgan');
+var logger = require('morgan')
 const passport = require('passport')
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
 const cookieSession = require('cookie-session')
 
-var indexRouter = require('./src/routes/index');
-var usersRouter = require('./src/routes/users');
-var postsRouter = require('./src/routes/posts');
-var loginRouter = require('./src/routes/login');
-var tagsRouter = require('./src/routes/tags');
-var posts_tagsRouter = require('./src/routes/posts_tags');
-var tags_postsRouter = require('./src/routes/tags_posts');
-
-var app = express();
-
+var indexRouter = require('./src/routes/index')
+var usersRouter = require('./src/routes/users')
+var postsRouter = require('./src/routes/posts')
+var loginRouter = require('./src/routes/login')
+var tagsRouter = require('./src/routes/tags')
+var posts_tagsRouter = require('./src/routes/posts_tags')
+var tags_postsRouter = require('./src/routes/tags_posts')
+var app = express()
 // this gives me req.session
 app.use(cookieSession({ secret: 'sdkfhk' }))
-
 const GitHubStrategy = require('passport-github').Strategy
-
 // Tells passport to use that github-specific data structure
 passport.use(new GitHubStrategy(
-
   // filling in the blanks on the GitHub strategy
   {
     clientID: 'd5fc6e4b03b45fc8c875',
@@ -32,55 +27,53 @@ passport.use(new GitHubStrategy(
     callbackURL: 'http://localhost:3000/auth/github/callback',
     userAgent: 'lunch-demo.example.com'
   },
-
   // after both API calls were made
   function onSuccessfulLogin(token, refreshToken, profile, done) {
-    // I've processed the initial login of the user
+
+    // got user from GitHub
+    // check to see if they exist
+    // log in if yes, create new user and login if new record
     // This happens once
-    done(null, { token, profile });
+    console.log('after serialize profile:', profile)
+    done(null, { token, profile })
   }
+))
 
-));
-
-
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize())
+app.use(passport.session())
 
 // take in whatever was passed into `done` inside the GitHubStrategy config
 passport.serializeUser((object, done) => {
-  console.log("Serialize User", { token: object })
-
+  // console.log("Serialize User", { token: object })
   // when I call `done` _here_, I am passing in the data to be saved to the session
   done(null, { token: object.token })
 })
 
 passport.deserializeUser((object, done) => {
-  console.log("Deserialize User", object)
+  // console.log("Deserialize User:", object)
   done(null, object)
 })
 
 // Just redirects to github
-app.get('/auth/github', passport.authenticate('github'));
+app.get('/auth/github', passport.authenticate('github'))
 
 // makes 2 api calls to github
 app.get('/auth/github/callback',
-  passport.authenticate('github', { successRedirect: '/ok.html', failureRedirect: '/login' }));
+  passport.authenticate('github', { successRedirect: '/index.html', failureRedirect: '/login' }))
 
-
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(logger('dev'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/posts', postsRouter);
-app.use('/login', loginRouter);
-app.use('/tags', tagsRouter);
-app.use('/posts_tags', posts_tagsRouter);
-app.use('/tags_posts', tags_postsRouter);
+app.use('/', indexRouter)
+app.use('/users', usersRouter)
+app.use('/posts', postsRouter)
+app.use('/login', loginRouter)
+app.use('/tags', tagsRouter)
+app.use('/posts_tags', posts_tagsRouter)
+app.use('/tags_posts', tags_postsRouter)
 
-module.exports = app;
+module.exports = app

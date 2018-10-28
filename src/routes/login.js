@@ -2,20 +2,39 @@ const express = require('express');
 const router = express.Router();
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser');
+const passport = require('passport')
+const cookieSession = require('cookie-session')
+const model = require('../models/users')
 
 const jwt = require('jsonwebtoken')
 
 
 // const { TOKEN_SECRET } = process.env;
 router.use(cookieParser())
-
 router.use(bodyParser.json());
+router.use(passport.session());
 // 
-// { token: 'd99e19848a23dda208f22773a2b1fff5aad8f39d' }
 
 router.get('/', (req, res) => {
-  console.log('cookies:', req.cookies)
-  return res.status(200).send('HOME: req.user: ' + JSON.stringify(req.user))
+  console.log('I am in the login get route')
+  passport.serializeUser((object, done) => {
+    let rawDataObj = {}
+    // let rawData = object.token._raw
+    // rawData = rawData.substring(1, rawData.length - 1)
+    console.log('rawData:', object.token._raw)
+    // console.log("Serialize User", { token: object })
+  })
+
+  // let authBody = {
+  //   firstName: ,
+  //   lastName: ,
+  //   location: ,
+  //   avatar: ,
+  //   oauthId: object.token.profile.id
+  // }
+  // model.create(authBody)
+  // return res.status(200).send()
+
 
   // let token
   // const jwtObj = {
@@ -35,13 +54,15 @@ router.get('/', (req, res) => {
 
 
 function verifyLogin(req, res, next) {
-  let username = req.body.username
-  let password = req.body.password
-  if (!username || !password) {
-    res.status(401).send('No username or password entered')
-  } else {
-    next()
-  }
+  let authObj = {}
+  passport.serializeUser((object, done) => {
+    console.log("Serialize User", { token: object })
+    authObj = {
+      username: object.token.profile.username,
+      id: object.token.profile.id
+    }
+    return authObj
+  })
 }
 
 function checkIfUser(req, res, next) {

@@ -13,7 +13,6 @@ const getAll = (limit) => {
 
 //create works!
 const create = (body) => {
-
   return knex('users')
     .insert(body)
     .returning('*')

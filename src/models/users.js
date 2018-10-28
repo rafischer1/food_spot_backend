@@ -30,8 +30,12 @@ const getOneUser = (id) => {
     .catch(err => Promise.reject(err))
 }
 
+const updatePost = () => {
+  console.log('updatePost')
+}
+
 const deleteOne = (body) => {
   console.log('Users route delete')
 }
 
-module.exports = { getAll, create, deleteOne, getOneUser } // Model
+module.exports = { getAll, create, deleteOne, getOneUser, updatePost } // Model

@@ -13,7 +13,7 @@ const getPostFromTag = (req, res, next) => {
     .then((data) => {
       console.log('controller call:',
         data)
-      res.status(200)
+      res.status(200).json(data)
     })
 }
 

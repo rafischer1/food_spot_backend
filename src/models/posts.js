@@ -13,9 +13,12 @@ const getAll = () => {
 
 //works!
 const getOnePost = (id) => {
+
   return knex('posts')
     .where('id', id)
-    .then(post => post[0])
+    .then(post => {
+      return post[0]
+    })
     .catch(err => Promise.reject(err))
 }
 
@@ -34,31 +37,31 @@ const create = (body) => {
 //works!
 const updateOne = (id, body) => {
   let newPost = {}
-  if(body.foodName){
+  if (body.foodName) {
     newPost.foodName = body.foodName
   }
-  if(body.address){
+  if (body.address) {
     newPost.address = body.address
   }
-  if(body.state){
+  if (body.state) {
     newPost.state = body.state
   }
-  if(body.zipcode){
+  if (body.zipcode) {
     newPost.zipcode = body.zipcode
   }
-  if(body.country){
+  if (body.country) {
     newPost.country = body.country
   }
-  if(body.imageUrl){
+  if (body.imageUrl) {
     newPost.imageUrl = body.imageUrl
   }
-  if(body.promoted){
+  if (body.promoted) {
     newPost.promoted = body.promoted
   }
-  if(body.startTime){
+  if (body.startTime) {
     newPost.startTime = body.startTime
   }
-  if(body.endTime){
+  if (body.endTime) {
     newPost.endTime = body.endTime
   }
   return knex('posts')

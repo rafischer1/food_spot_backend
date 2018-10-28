@@ -8,4 +8,15 @@ const getAll = (req, res, next) => {
     })
 }
 
-module.exports = { getAll }
+const getPostFromTag = (req, res, next) => {
+  return model.getPostFromTag(req.params.id)
+    .then((data) => {
+      console.log('controller call:',
+        data)
+      res.status(200)
+    })
+}
+
+
+
+module.exports = { getAll, getPostFromTag }

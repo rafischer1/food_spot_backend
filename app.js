@@ -7,16 +7,24 @@ const passport = require('passport')
 const jwt = require('jsonwebtoken')
 const cookieSession = require('cookie-session')
 
-var indexRouter = require('./src/routes/index')
-var usersRouter = require('./src/routes/users')
-var postsRouter = require('./src/routes/posts')
-var loginRouter = require('./src/routes/login')
-var tagsRouter = require('./src/routes/tags')
-var posts_tagsRouter = require('./src/routes/posts_tags')
-var tags_postsRouter = require('./src/routes/tags_posts')
+//models
+const usersModel = require('./src/models/users')
+
+//routers
+const indexRouter = require('./src/routes/index')
+const usersRouter = require('./src/routes/users')
+const postsRouter = require('./src/routes/posts')
+const loginRouter = require('./src/routes/login')
+const tagsRouter = require('./src/routes/tags')
+const posts_tagsRouter = require('./src/routes/posts_tags')
+const tags_postsRouter = require('./src/routes/tags_posts')
+
+//express
 var app = express()
-// this gives me req.session
+
+//session
 app.use(cookieSession({ secret: 'sdkfhk' }))
+
 const GitHubStrategy = require('passport-github').Strategy
 // Tells passport to use that github-specific data structure
 passport.use(new GitHubStrategy(
@@ -31,10 +39,16 @@ passport.use(new GitHubStrategy(
   function onSuccessfulLogin(token, refreshToken, profile, done) {
 
     // got user from GitHub
+    // profile._json
+    const promise = usersModel.checkUser(profile._json.id)
+    promise.then((result) => {
+      console.log('result in promise 45:', result)
+    })
+    // console.log('true or false? line 44:', promise)
     // check to see if they exist
     // log in if yes, create new user and login if new record
     // This happens once
-    console.log('after serialize profile:', profile)
+    // console.log('after serialize profile:', profile._json)
     done(null, { token, profile })
   }
 ))

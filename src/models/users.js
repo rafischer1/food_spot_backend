@@ -29,6 +29,15 @@ const getOneUser = (id) => {
     .catch(err => Promise.reject(err))
 }
 
+const checkUser = (githubId) => {
+  return knex('users')
+    .where('oauthId', githubId)
+    .then(user => {
+      console.log('user in user model:', user)
+      return user[0]
+    })
+}
+
 const updatePost = () => {
   console.log('updatePost')
 }
@@ -45,4 +54,4 @@ const deleteOne = (id) => {
     .catch(err => Promise.reject(err))
 }
 
-module.exports = { getAll, create, deleteOne, getOneUser, updatePost } // Model
+module.exports = { getAll, create, deleteOne, getOneUser, updatePost, checkUser } // Model

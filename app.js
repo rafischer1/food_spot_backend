@@ -1,17 +1,17 @@
-var express = require('express')
-var path = require('path')
-var cookieParser = require('cookie-parser')
+require('dotenv').config();
+// Express
+const express = require('express')
+const path = require('path')
 const bodyParser = require('body-parser')
-var logger = require('morgan')
+const logger = require('morgan')
+// Auth
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 const cookieSession = require('cookie-session')
-
-
-//models
+const cookieParser = require('cookie-parser')
+// Models
 const usersModel = require('./src/models/users')
-
-//routers
+// Routers
 const indexRouter = require('./src/routes/index')
 const usersRouter = require('./src/routes/users')
 const postsRouter = require('./src/routes/posts')
@@ -20,34 +20,35 @@ const tagsRouter = require('./src/routes/tags')
 const posts_tagsRouter = require('./src/routes/posts_tags')
 const tags_postsRouter = require('./src/routes/tags_posts')
 
-//express
+// Express
 var app = express()
 require('dotenv').config();
 
-//session
-app.use(cookieSession({ secret: 'sdkfhk' }))
+// Session
+app.use(cookieSession({
+  secret: process.env.COOKIE_SECRET
+}))
 
 const GitHubStrategy = require('passport-github').Strategy
 // Tells passport to use that github-specific data structure
 passport.use(new GitHubStrategy(
-  // filling in the blanks on the GitHub strategy
+  // GitHub strategy
   {
-    clientID: 'd5fc6e4b03b45fc8c875',
-    clientSecret: '42e0b68cf795ae0ef2a25dce0cefd1c6b0e36cf3',
-    callbackURL: 'http://localhost:3000/auth/github/callback',
-    userAgent: 'lunch-demo.example.com'
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK,
+    userAgent: process.env.DOMAIN
   },
-  // after both API calls were made
+  // After both API calls were made
   function onSuccessfulLogin(token, refreshToken, profile, done) {
-
-    // got user from GitHub
-
+    // Got user from GitHub
     // Check if user is in DB by GitHub id
     const promise = usersModel.checkUser(profile._json.id)
     promise.then((result) => {
-      console.log('result in promise 45:', result)
+      // console.log('result in promise 45:', result)
       if (result) {
-        // log in if yes, create new user and login if new record
+        // Log in if yes, create new user and login if new record
+        // !! Need work !!
         // This happens once
       } else {
         // Create user
@@ -59,24 +60,25 @@ passport.use(new GitHubStrategy(
         }
         usersModel.create(newUser)
       }
-
     })
-
-    // log in if yes, create new user and login if new record
-    // This happens once
     // console.log('after serialize profile:', profile._json)
-    done(null, { token, profile })
+    done(null, {
+      token,
+      profile
+    })
   }
 ))
 
 app.use(passport.initialize())
 app.use(passport.session())
 
-// take in whatever was passed into `done` inside the GitHubStrategy config
+// Take in whatever was passed into `done` inside the GitHubStrategy config
 passport.serializeUser((object, done) => {
   // console.log("Serialize User", { token: object })
-  // when I call `done` _here_, I am passing in the data to be saved to the session
-  done(null, { token: object.token })
+  // When I call `done` _here_, I am passing in the data to be saved to the session
+  done(null, {
+    token: object.token
+  })
 })
 
 passport.deserializeUser((object, done) => {
@@ -87,17 +89,23 @@ passport.deserializeUser((object, done) => {
 // Just redirects to github
 app.get('/auth/github', passport.authenticate('github'))
 
-// makes 2 api calls to github
+// Makes 2 api calls to github
 app.get('/auth/github/callback',
-  passport.authenticate('github', { successRedirect: '/index.html', failureRedirect: '/login' }))
+  passport.authenticate('github', {
+    successRedirect: '/index.html',
+    failureRedirect: '/login'
+  }))
 
 app.use(logger('dev'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(express.json())
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.urlencoded({
+  extended: false
+}))
 
+// Routes
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/posts', postsRouter)

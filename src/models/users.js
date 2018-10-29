@@ -34,7 +34,12 @@ const checkUser = (githubId) => {
     .where('oauthId', githubId)
     .then(user => {
       console.log('user in user model:', user)
-      return user[0]
+      // return user[0]
+      if(user.length > 0){
+        return true
+      } else {
+        return false
+      }
     })
 }
 

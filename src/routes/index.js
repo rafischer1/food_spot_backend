@@ -3,8 +3,8 @@ var router = express.Router();
 const knex = require('../../knex')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { session: req.session, user: req.user });
+router.get('/', (req, res, next) => {
+  res.render('../public/index.html', { session: req.session, user: req.user });
 });
 
 module.exports = router;

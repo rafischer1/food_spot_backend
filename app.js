@@ -88,15 +88,15 @@ passport.deserializeUser((object, done) => {
 
 app.use(cors())
 
-// // Just redirects to github
-// app.get('/auth/github', passport.authenticate('github'))
-// 
-// // Makes 2 api calls to github
-// app.get('/auth/github/callback',
-//   passport.authenticate('github', {
-//     successRedirect: '/index.html',
-//     failureRedirect: '/login'
-//   }))
+// Just redirects to github
+app.get('/auth/github', passport.authenticate('github'))
+
+// Makes 2 api calls to github
+app.get('/auth/github/callback',
+  passport.authenticate('github', {
+    successRedirect: '/index.html',
+    failureRedirect: '/login'
+  }))
 
 app.use(logger('dev'))
 app.use(cookieParser())

@@ -42,7 +42,7 @@ passport.use(new GitHubStrategy(
     // Check if user is in DB by GitHub id
     const promise = usersModel.checkUser(profile._json.id)
     promise.then((result) => {
-      console.log('result in promise 45:', result)
+      // console.log('result in promise 45:', result)
       if(result){
         // log in if yes, create new user and login if new record
         // This happens once

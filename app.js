@@ -92,7 +92,7 @@ app.get('/auth/github', passport.authenticate('github'))
 // Makes 2 api calls to github
 app.get('/auth/github/callback',
   passport.authenticate('github', {
-    successRedirect: '/index.html',
+    successRedirect: 'sfldjflkafjsurge.sh/index.html',
     failureRedirect: '/login'
   }))
 

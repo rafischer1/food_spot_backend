@@ -1,31 +1,80 @@
 body {
     font-family: "Quicksand";
     text-align: center;
-    padding-top: 20px;
     overflow: hidden;
-    background-image: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ea7aeb5fc4e3623a3f16af817ec12129&auto=format&fit=crop&w=1510&q=80")
-  }
+    background-image: url("http://www.egrafis.com/images/cute-food-wallpapers-58-images.jpg");   
+}
+  
+h1 {
+  font-size: 50px;
+  color: rgb(29, 29, 29);
+}
 
 a {
-  color: #00B7FF;
+  color: #38bf7f;
+  font-family: "Quicksand";
+  font-size: 50px;
+  text-shadow: 4px 3px 30px rgba(255, 255, 255, 1);
 }
 
 a:visited {
-  color: #00B7FF;
+  color: #38bf7f;
 }
 
-.food {
-  font-family: "Economica";
-  font-size: 50px;
-
+a:hover {
+  color: #38be7e;
 }
 
-.seen {
-    font-family: "Economica";
-    font-size: 50px;
+#homePageLink {
+  border-radius: 10px;
+  border: 1px inset hsla(47, 43%, 44%, 0.48);
+  background-color: hsla(47, 82%, 54%, 0.69);
 }
 
-a {
-  font-family: "Quicksand";
-  font-size: 50px;
+#homePageLink:hover {
+    background-color: hsla(46, 82%, 54%, 0.93);
 }
+
+.heading-primary--sub {
+  display: block;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out; }
+  
+.heading-primary {
+    color: rgb(51, 51, 51);
+    backface-visibility: hidden;
+    margin-bottom: 3rem; 
+  }
+    
+.heading-primary--main {
+      display: block;
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 3.5rem;
+      animation-name: moveInLeft;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+}
+          
+          
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+              
+@keyframes moveInLeft {
+  0% {
+   opacity: 0;
+   transform: translateX(-10rem); }
+  80% {
+   transform: translateX(1rem); }
+  100% {
+   opacity: 1;
+   transform: translate(0); } }

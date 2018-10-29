@@ -1,4 +1,4 @@
-# food_spot_backend
+# food seen backend databse repo
 
 
 # Installation 

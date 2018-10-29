@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser')
 // Models
 const usersModel = require('./src/models/users')
 // Routers
-const indexRouter = require('./src/routes/index')
+// const indexRouter = require('./src/routes/index')
 const usersRouter = require('./src/routes/users')
 const postsRouter = require('./src/routes/posts')
 const loginRouter = require('./src/routes/login')
@@ -108,7 +108,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // }))
 
 // Routes
-app.use('/', indexRouter)
+// app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/posts', postsRouter)
 app.use('/login', loginRouter)

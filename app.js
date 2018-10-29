@@ -60,7 +60,11 @@ passport.use(new GitHubStrategy(
         // Add JWT to Cookie?
         console.log(token)
         let newUrl = `food-seen.surge.sh/#${token}`
-        window.location.replace(newUrl)
+        app.get('https://food-seen.herokuapp.com/', (req, res) => {
+          console.log(res.body)
+          return app.redirect(newUrl)
+        })
+
         // res.cookie({foodJWT: token})
         // console.log(req.cookies)
       } else {
@@ -116,7 +120,7 @@ app.get('/auth/github', passport.authenticate('github'))
 // Makes 2 api calls to github
 app.get('/auth/github/callback',
   passport.authenticate('github', {
-    successRedirect: 'sfldjflkafjsurge.sh/index.html',
+    successRedirect: 'http://food-seen.surge.sh/',
     failureRedirect: '/login'
   }))
 

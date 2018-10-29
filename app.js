@@ -1,15 +1,14 @@
-var express = require('express')
-var path = require('path')
-var cookieParser = require('cookie-parser')
+require('dotenv').config();
+const express = require('express')
+const path = require('path')
+const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-var logger = require('morgan')
+const logger = require('morgan')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 const cookieSession = require('cookie-session')
-
 //models
 const usersModel = require('./src/models/users')
-
 //routers
 const indexRouter = require('./src/routes/index')
 const usersRouter = require('./src/routes/users')
@@ -30,10 +29,10 @@ const GitHubStrategy = require('passport-github').Strategy
 passport.use(new GitHubStrategy(
   // filling in the blanks on the GitHub strategy
   {
-    clientID: 'd5fc6e4b03b45fc8c875',
-    clientSecret: '42e0b68cf795ae0ef2a25dce0cefd1c6b0e36cf3',
-    callbackURL: 'http://localhost:3000/auth/github/callback',
-    userAgent: 'lunch-demo.example.com'
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: process.env.CALLBACK,
+      userAgent: process.env.DOMAIN
   },
   // after both API calls were made
   function onSuccessfulLogin(token, refreshToken, profile, done) {
@@ -59,9 +58,6 @@ passport.use(new GitHubStrategy(
       }
 
     })
-
-    // log in if yes, create new user and login if new record
-    // This happens once
     // console.log('after serialize profile:', profile._json)
     done(null, { token, profile })
   }

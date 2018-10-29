@@ -22,34 +22,7 @@ router.get('/', (req, res) => {
     // let rawData = object.token._raw
     // rawData = rawData.substring(1, rawData.length - 1)
     console.log('rawData:', object.token._raw)
-    // console.log("Serialize User", { token: object })
   })
-
-  // let authBody = {
-  //   firstName: ,
-  //   lastName: ,
-  //   location: ,
-  //   avatar: ,
-  //   oauthId: object.token.profile.id
-  // }
-  // model.create(authBody)
-  // return res.status(200).send()
-
-
-  // let token
-  // const jwtObj = {
-  //   sub: {
-  //     id: req.user.id
-  //   },
-  //   loggedIn: true
-  // }
-  // try {
-  //   token = jwt.sign(jwtObj, TOKEN_SECRET, { expiresIn: '1d' })
-  //   req.user.token = token
-  // } catch (err) {
-  //   res.status(500).send('Error setting token')
-  // }
-  // res.set('Auth', `Bearer: ${token}`).send('JWT')
 });
 
 

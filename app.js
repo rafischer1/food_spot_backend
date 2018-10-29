@@ -7,7 +7,7 @@ const logger = require('morgan')
 // Auth
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
-// const cookieSession = require('cookie-session')
+const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser')
 // Models
 const usersModel = require('./src/models/users')
@@ -24,9 +24,9 @@ const tags_postsRouter = require('./src/routes/tags_posts')
 var app = express()
 
 // Session
-// app.use(cookieSession({
-//   secret: process.env.COOKIE_SECRET
-// }))
+app.use(cookieSession({
+  secret: process.env.COOKIE_SECRET
+}))
 
 const GitHubStrategy = require('passport-github').Strategy
 // Tells passport to use that github-specific data structure

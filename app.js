@@ -50,6 +50,19 @@ passport.use(new GitHubStrategy(
         // Log in if yes, create new user and login if new record
         // !! Need work !!
         // This happens once
+        let payLoad = {
+          id: profile._json.id,
+          loggedIn: true,
+        }
+        let token = jwt.sign(payLoad, process.env.TOKEN_SECRET, {
+          expiresIn: '1h'
+        })
+        // Add JWT to Cookie?
+        console.log(token)
+        let newUrl = `food-seen.surge.sh/#${token}`
+        window.location.replace(newUrl)
+        // res.cookie({foodJWT: token})
+        // console.log(req.cookies)
       } else {
         // Create user
         let newUser = {

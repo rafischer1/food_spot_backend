@@ -22,11 +22,16 @@ const create = (body) => {
 }
 
 //works!
-const getOneUser = (id) => {
+const getOneUser = (oauthId) => {
   return knex('users')
-    .where('id', id)
-    .then(user => user[0])
-    .catch(err => Promise.reject(err))
+    .where('oauthId', oauthId)
+    .then(user => {
+      return user[0]
+    })
+    .catch(err => {
+      console.log(`Model route error: ${err}`)
+      Promise.reject(err)
+    })
 }
 
 const checkUser = (githubId) => {
@@ -35,7 +40,7 @@ const checkUser = (githubId) => {
     .then(user => {
       console.log('user in user model:', user)
       // return user[0]
-      if(user.length > 0){
+      if (user.length > 0) {
         return true
       } else {
         return false
@@ -43,8 +48,8 @@ const checkUser = (githubId) => {
     })
 }
 
-const updatePost = () => {
-  console.log('updatePost')
+const getPostsByUser = () => {
+  console.log('getPostsByUser')
 }
 
 // works!
@@ -59,4 +64,4 @@ const deleteOne = (id) => {
     .catch(err => Promise.reject(err))
 }
 
-module.exports = { getAll, create, deleteOne, getOneUser, updatePost, checkUser } // Model
+module.exports = { getAll, create, deleteOne, getOneUser, checkUser } // Model

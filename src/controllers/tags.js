@@ -41,4 +41,9 @@ const deleteOne = (req, res, next) => {
   //tags stretch goal for tag creation
 }
 
-module.exports = { getAll, create, getOneTag, deleteOne }
+module.exports = {
+  getAll,
+  create,
+  getOneTag,
+  deleteOne
+}

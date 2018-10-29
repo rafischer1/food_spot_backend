@@ -1,10 +1,9 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('posts').del()
-    .then(function () {
+    .then(function() {
       // Inserts seed entries
-      return knex('posts').insert([
-        {
+      return knex('posts').insert([{
           id: 1,
           foodName: 'Pizza',
           user_id: 1,
@@ -18,7 +17,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 2,
           foodName: 'Bagels',
-          user_id: 2,
+          user_id: 3,
           address: '1023 Walnut St',
           city: 'Boulder',
           state: 'Colorado',
@@ -29,7 +28,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 3,
           foodName: 'Pancakes',
-          user_id: 3,
+          user_id: 2,
           address: '1023 Walnut St',
           city: 'Boulder',
           state: 'Colorado',
@@ -39,8 +38,8 @@ exports.seed = function(knex, Promise) {
         },
       ]);
     })
-.then(() => {
-     return knex.raw(
-       `SELECT setval('posts_id_seq', (SELECT MAX(id) FROM posts));`)
-   })
+    .then(() => {
+      return knex.raw(
+        `SELECT setval('posts_id_seq', (SELECT MAX(id) FROM posts));`)
+    })
 };

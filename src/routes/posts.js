@@ -4,7 +4,7 @@ var router = express.Router();
 const ctrl = require('../controllers/posts')
 
 router.get('/', ctrl.getAll)
-router.get('/:id', ctrl.getOnePost)
+router.get('/:user_id', ctrl.getPostsByUserId)
 router.post('/', ctrl.create)
 router.patch('/:id', ctrl.updateOne)
 router.delete('/:id', ctrl.deletePost)

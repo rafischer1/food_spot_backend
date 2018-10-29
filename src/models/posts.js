@@ -12,10 +12,10 @@ const getAll = () => {
 }
 
 //works!
-const getOnePost = (id) => {
+const getPostsByUserId = (user_id) => {
 
   return knex('posts')
-    .where('id', id)
+    .where('user_id', user_id)
     .then(post => {
       return post[0]
     })
@@ -94,7 +94,7 @@ const deleteOne = (id) => {
 
 module.exports = {
   getAll,
-  getOnePost,
+  getPostsByUserId,
   create,
   updateOne,
   deleteOne

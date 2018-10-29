@@ -1,6 +1,7 @@
 // Controller
 const model = require('../models/users')
 
+//works!
 const getAll = (req, res, next) => {
   return model.getAll()
     .then((users) => {
@@ -10,7 +11,7 @@ const getAll = (req, res, next) => {
 
 //works!
 const getOneUser = (req, res, next) => {
-  return model.getOneUser(req.params.id)
+  return model.getOneUser(req.params.oauthId)
     .catch(error => {
       return next({
         status: 404,
@@ -21,6 +22,7 @@ const getOneUser = (req, res, next) => {
       res.status(200).json(data)
     })
 }
+
 
 const create = (req, res, next) => {
   return model.create(req.body)
@@ -39,6 +41,7 @@ const create = (req, res, next) => {
 
 // works!
 const deleteOne = (req, res, next) => {
+  console.log(req.params)
   return model.deleteOne(req.params.id)
     .then(user => res.status(200).json(user))
     .catch(err => {
@@ -49,4 +52,9 @@ const deleteOne = (req, res, next) => {
     })
 }
 
-module.exports = { getAll, create, getOneUser, deleteOne }
+module.exports = {
+  getAll,
+  create,
+  getOneUser,
+  deleteOne
+}

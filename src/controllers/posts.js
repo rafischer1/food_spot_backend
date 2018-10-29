@@ -1,3 +1,4 @@
+// Controller
 const model = require('../models/posts')
 
 const getAll = (req, res, next) => {
@@ -9,8 +10,8 @@ const getAll = (req, res, next) => {
 }
 
 //works!
-const getOnePost = (req, res, next) => {
-  return model.getOnePost(req.params.id)
+const getPostsByUserId = (req, res, next) => {
+  return model.getPostsByUserId(req.params.user_id)
     .catch(error => {
       return next({
         status: 404,
@@ -65,8 +66,7 @@ const deletePost = (req, res, next) => {
 module.exports = {
   getAll,
   create,
-  getOnePost,
+  getPostsByUserId,
   updateOne,
   deletePost
 }
-// Controller

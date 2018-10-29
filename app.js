@@ -22,7 +22,7 @@ const tags_postsRouter = require('./src/routes/tags_posts')
 var app = express()
 
 //session
-app.use(cookieSession({ secret: 'sdkfhk' }))
+app.use(cookieSession({ secret: process.env.COOKIE_SECRET }))
 
 const GitHubStrategy = require('passport-github').Strategy
 // Tells passport to use that github-specific data structure

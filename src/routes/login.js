@@ -71,7 +71,6 @@ function tryLogin(req, res, next) {
     })
 }
 
-router.render('')
 
 
 module.exports = router;

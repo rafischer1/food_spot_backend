@@ -9,4 +9,5 @@ router.post('/', ctrl.create)
 router.patch('/:id', ctrl.updateOne)
 router.delete('/:id', ctrl.deletePost)
 
+
 module.exports = router;

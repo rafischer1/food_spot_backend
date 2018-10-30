@@ -5,7 +5,6 @@ const knex = require('../../knex')
 const getAll = () => {
   return knex('posts')
     .then(posts => {
-      console.log('model posts getALL:', posts)
       return posts
     })
     .catch(err => Promise.reject(err))

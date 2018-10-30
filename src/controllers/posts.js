@@ -2,7 +2,6 @@
 const model = require('../models/posts')
 
 const getAll = (req, res, next) => {
-  console.log('getAll')
   return model.getAll()
     .then((posts) => {
       res.status(200).json(posts)
@@ -11,6 +10,7 @@ const getAll = (req, res, next) => {
 
 //works!
 const getPostsByUserId = (req, res, next) => {
+  console.log(req.cookies)
   return model.getPostsByUserId(req.params.user_id)
     .catch(error => {
       return next({

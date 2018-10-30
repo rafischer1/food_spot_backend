@@ -25,6 +25,7 @@ const getPostsByUserId = (req, res, next) => {
 
 const create = (req, res, next) => {
   return model.create(req.body)
+  console.log('post ctrl req.body:', req.body)
     .catch(errors => {
       return next({
         status: 400,
@@ -33,6 +34,7 @@ const create = (req, res, next) => {
       })
     })
     .then(data => {
+      console.log('sending ctrl data')
       res.status(201).json(data)
     })
 }

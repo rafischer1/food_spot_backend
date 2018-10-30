@@ -130,6 +130,27 @@ hr {
   border: 4px solid rgb(222, 197, 123);
 }
 
+.card-content {
+    margin: -8%;
+    height: 100%;
+}
+
+.foodName {
+    margin: 1%;
+}
+
+.date {
+    padding: 5%;
+}
+
+.times {
+    padding: 5%;
+}
+
+.location {
+    margin: 3%;
+}
+
 form {
   color: rgb(222, 197, 123);
 }

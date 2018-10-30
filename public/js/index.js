@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
   //general function calls
-  // getAll()
-  // buttons()
+  getPosts()
   formSubmit()
 
 

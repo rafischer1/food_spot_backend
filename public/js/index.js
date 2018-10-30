@@ -1,69 +1,30 @@
 var token = document.location.href.split('#')[1]
 document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed"); <<
-    << << < HEAD
+  console.log("DOM fully loaded and parsed");
+  axios.get('/posts/1')
+    .then((res) => {
+      console.log(res)
+    })
+  //materialize stuff
+  M.AutoInit()
+  setCookie()
+  //general function calls
+  // getAll()
+  // buttons()
+  formSubmit()
+
+  let cookieBtn = document.getElementById('cookie')
+  cookieBtn.addEventListener('click', () => {
     axios.get('/posts/1')
       .then((res) => {
         console.log(res)
       })
 
-      ===
-      === = >>>
-      >>> > Artie - frontend
-    //materialize stuff
-    M.AutoInit()
-    setCookie()
-    //general function calls
-    // getAll()
-    // buttons()
-    formSubmit()
-
-
-      <<
-      << << < HEAD
-    //cookies and login and all the terrible things
-    // check the cookie with:
-    //1. axios.get to /users
-    // 2. Set-Cookie: id=token; expires=..., secure; HttpOnly
-    let cookieBtn = document.getElementById('cookie')
-    cookieBtn.addEventListener('click', () => {
-      axios.get('/posts/1')
-        .then((res) => {
-          console.log(res)
-        })
-
-    })
   })
-
-  // function setCookie() {
-  //
-  //
-  //   document.cookie = `token=${token}`
-  //   console.log('in the setCookie:', token)
-  //
-  // }
-  //
-  // function getCookie() {
-  //   let x = document.cookie
-  //   alert(x);
-  // }
-
-
-
-
-
-
-
-
-  //////should this be a getCardsforUserwithId()?\\\\\\\\
-
-
-  ===
-  === =
 })
 
->>>
->>> > Artie - frontend
+
+
 
 function getUsers() {
   axios.get('heroku address/users')

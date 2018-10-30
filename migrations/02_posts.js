@@ -15,6 +15,7 @@ exports.up = function(knex, Promise) {
     table.boolean('promoted')
     table.dateTime('startTime')
     table.dateTime('endTime')
+    table.date('date').notNullable()
     table.timestamps(true, true)
   })
 }

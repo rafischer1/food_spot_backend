@@ -13,14 +13,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // buttons()
   formSubmit()
 
-  let cookieBtn = document.getElementById('cookie')
-  cookieBtn.addEventListener('click', () => {
-    axios.get('/posts/1')
-      .then((res) => {
-        console.log(res)
-      })
-
-  })
 })
 
 

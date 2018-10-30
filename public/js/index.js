@@ -1,7 +1,7 @@
 var token = document.location.href.split('#')[1]
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  console.log("DOM fully loaded and parsed");
+  // console.log("DOM fully loaded and parsed")
 
   //materialize stuff
   M.AutoInit()
@@ -35,7 +35,7 @@ function setCookie() {
 
 
   document.cookie = `token=${token}`
-  console.log('in the setCookie:', token)
+  // console.log('in the setCookie:', token)
 
 }
 
@@ -57,7 +57,7 @@ function getCookie() {
 function getUsers() {
   axios.get('heroku address/users')
     .then((res) => {
-      console.log('users data:', res.data)
+      // console.log('users data:', res.data)
       res.data.forEach((users) => {
         /////// build profile card for users\\\\\\\
         // let userDiv = document.getElementById('userDiv')

@@ -22,11 +22,8 @@ const getPostsByUserId = (user_id) => {
 }
 
 //create works!
-<<<<<<< HEAD
-const create = (id, body) => {
-=======
-const create = (body, tags) => {
->>>>>>> Artie-frontend
+
+const create = (id, body, tags) => {
   console.log('model posts create body:', body)
   let myobj = body
   body.user_id = id

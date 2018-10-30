@@ -38,13 +38,13 @@ const checkUser = (githubId) => {
   return knex('users')
     .where('oauthId', githubId)
     .then(user => {
-      console.log('user in user model:', user)
-      // return user[0]
-      if (user.length > 0) {
-        return true
-      } else {
-        return false
-      }
+      // console.log('user in user model:', user)
+      return user[0]
+      // if (user.length > 0) {
+      //   return true
+      // } else {
+      //   return false
+      // }
     })
 }
 

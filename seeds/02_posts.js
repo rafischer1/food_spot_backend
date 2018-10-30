@@ -5,6 +5,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('posts').insert([{
           id: 1,
+          eventName: 'Free Food',
           foodName: 'Pizza',
           user_id: 1,
           address: '1023 Walnut St',
@@ -16,6 +17,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 2,
+          eventName: 'Breakfast on Walnut',
           foodName: 'Bagels',
           user_id: 3,
           address: '1023 Walnut St',
@@ -27,6 +29,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
+          eventName: 'Cooking Classes and Pancakes',
           foodName: 'Pancakes',
           user_id: 2,
           address: '1023 Walnut St',

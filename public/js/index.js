@@ -89,10 +89,10 @@ function getPosts() {
 
         let card = document.createElement('div')
         card.className = 'card medium hoverable'
-        let mainCardTitle = document.createElement('span')
-        mainCardTitle.className = 'card-title grey-text text-darken-4'
-        let mainCardImage = document.createElement('div')
-        mainCardImage.className = 'card-image'
+        let cardTitle = document.createElement('span')
+        cardTitle.className = 'card-title grey-text text-darken-4'
+        let cardImage = document.createElement('div')
+        cardImage.className = 'card-image'
         let imgSrc = document.createElement('img')
         let foodName = document.createElement('div')
         foodName.className = 'foodName'
@@ -117,7 +117,7 @@ function getPosts() {
         
 
         /////////Generate info for cards and append Elements\\\\\\\\\\
-        mainCardTitle.innerText = posts.eventName
+        cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
         dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
@@ -127,21 +127,21 @@ function getPosts() {
         parentContainer.appendChild(cardRow)
         cardRow.appendChild(cardCol)
         cardCol.appendChild(card)
-        card.appendChild(mainCardTitle)
-        card.appendChild(mainCardImage)
+        card.appendChild(cardTitle)
+        card.appendChild(cardImage)
         card.appendChild(foodName)
         card.appendChild(dateOnCard)
         card.appendChild(startTime)
         card.appendChild(endTime)
         card.appendChild(location)
-        mainCardImage.appendChild(imgSrc)
+        cardImage.appendChild(imgSrc)
 
 
         card.addEventListener('click', (ev) => {
           if (ev) {
-          
-//populate the fields on the bigCard here 
-//and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
+          console.log(`clicked mothafucka`)
+          //populate the fields on the bigCard here 
+          //and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
           } else {
             alert(`That didn't work for some reason`)
           }

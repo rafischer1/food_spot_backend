@@ -87,8 +87,8 @@ function getPosts() {
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
 
-        let mainCard = document.createElement('div')
-        mainCard.className = 'card medium hoverable'
+        let card = document.createElement('div')
+        card.className = 'card medium hoverable'
         let mainCardTitle = document.createElement('span')
         mainCardTitle.className = 'card-title grey-text text-darken-4'
         let mainCardImage = document.createElement('div')
@@ -126,18 +126,18 @@ function getPosts() {
         location.innerText = posts.address + ', ' + posts.city + ', ' + posts.zipcode
         parentContainer.appendChild(cardRow)
         cardRow.appendChild(cardCol)
-        cardCol.appendChild(mainCard)
-        mainCard.appendChild(mainCardTitle)
-        mainCard.appendChild(mainCardImage)
-        mainCard.appendChild(foodName)
-        mainCard.appendChild(dateOnCard)
-        mainCard.appendChild(startTime)
-        mainCard.appendChild(endTime)
-        mainCard.appendChild(location)
+        cardCol.appendChild(card)
+        card.appendChild(mainCardTitle)
+        card.appendChild(mainCardImage)
+        card.appendChild(foodName)
+        card.appendChild(dateOnCard)
+        card.appendChild(startTime)
+        card.appendChild(endTime)
+        card.appendChild(location)
         mainCardImage.appendChild(imgSrc)
 
 
-        mainCard.addEventListener('click', (ev) => {
+        card.addEventListener('click', (ev) => {
           if (ev) {
           
 //populate the fields on the bigCard here 

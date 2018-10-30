@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   //materialize stuff
   M.AutoInit()
-  setCookie()
+  // setCookie()
 
 
   //general function calls
@@ -32,18 +32,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
   })
 })
 
-function setCookie() {
-
-
-  document.cookie = `token=${token}`
-  console.log('in the setCookie:', token)
-
-}
-
-function getCookie() {
-  let x = document.cookie
-  alert(x);
-}
+// function setCookie() {
+// 
+// 
+//   document.cookie = `token=${token}`
+//   console.log('in the setCookie:', token)
+// 
+// }
+// 
+// function getCookie() {
+//   let x = document.cookie
+//   alert(x);
+// }
 
 
 
@@ -56,7 +56,7 @@ function getCookie() {
 
 
 function getUsers() {
-  axios.get('heroku address/users')
+  axios.get('/users')
     .then((res) => {
       console.log('users data:', res.data)
       res.data.forEach((users) => {
@@ -74,12 +74,12 @@ function getUsers() {
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
-  axios.get('https://food-seen.herokuapp.com/posts')
+  axios.get('/posts')
     .then((res) => {
       // handle success
       res.data.forEach((posts) => {
         ////////////set data into cards\\\\\\\\\\\\
-        
+
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
         let cardRow = document.createElement('div')
@@ -113,7 +113,7 @@ function getPosts() {
         // console.log(month)
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
-        
+
 
         /////////Generate info for cards and append Elements\\\\\\\\\\
         mainCardTitle.innerText = posts.eventName
@@ -151,7 +151,7 @@ function deletePost() {
     ev.preventDefault()
     //write better alerts for comfirm on foodseen
     if (confirm('Are you sure you want to delete this post?')) {
-      axios.delete(`heroku app/posts/${posts.id}`)
+      axios.delete(`posts/${posts.id}`)
         .then((res) => {
           console.log(`deleted`)
           ev.target.parentElement.parentElement.remove()
@@ -170,7 +170,7 @@ function deletePost() {
 
 function getAllTags() {
   let tagsArray = []
-  axios.get('https://food-seen.herokuapp.com/tags')
+  axios.get('/tags')
     .then((tags) => {
       tags.data.forEach((tag) => {
         tagsArray.push(tag)
@@ -229,7 +229,7 @@ function formSubmit() {
 
     console.log('post object:', newPostObj)
     // axios.post that data to the correct backend route
-    axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
+    axios.post('/posts', newPostObj)
       .then((res) => {
         console.log('create post res:', res)
         if (res) {
@@ -239,7 +239,7 @@ function formSubmit() {
       .catch((error) => {
         console.log(error)
       })
-    axios.post('https://food-seen.herokuapp.com/posts_tags')
+    axios.post('/posts_tags')
     alert('Check your console logs!')
   })
 }

@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken')
 
 // auth login ✔️
 router.get('/login', (req, res) => {
-    // res.render('login', { user: req.user });
-    res.sendfile('./public/index.html');
+  // res.render('login', { user: req.user });
+  res.sendfile('./public/index.html');
 
 });
 
@@ -38,8 +38,11 @@ router.get('/github/redirect', passport.authenticate('github'), (req, res) => {
   let token = jwt.sign(payLoad, process.env.TOKEN_SECRET, {
     expiresIn: '1h'
   })
-  // console.log(token)
-  res.redirect(`http://food-seen.surge.sh/#${token}`)
+
+  res.cookie("token", token, {
+    maxAge: 500000
+  })
+  // res.redirect(`/#${token}`)
 });
 
 module.exports = router;

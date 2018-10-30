@@ -185,7 +185,7 @@ function formSubmit() {
 
     console.log('post object:', newPostObj)
     // axios.post that data to the correct backend route
-    axios.post('https://food-seen.herokuapp.com/posts', newPostObj, newTags)
+    axios.post('/posts', newPostObj, newTags)
       .then((res) => {
         console.log('create post res:', res)
         if (res) {

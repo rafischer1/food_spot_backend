@@ -2,6 +2,10 @@ var token = document.location.href.split('#')[1]
 
 document.addEventListener("DOMContentLoaded", function(event) {
   console.log("DOM fully loaded and parsed");
+  axios.get('/posts/1')
+    .then((res) => {
+      console.log(res)
+    })
 
   //materialize stuff
   M.AutoInit()
@@ -16,15 +20,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   //cookies and login and all the terrible things
   // check the cookie with:
-  //1. axios.get to /users 
+  //1. axios.get to /users
   // 2. Set-Cookie: id=token; expires=..., secure; HttpOnly
   let cookieBtn = document.getElementById('cookie')
   cookieBtn.addEventListener('click', () => {
-    axios.request({
-        url: '/posts',
-        method: 'get',
-        withCredentials: true
-      })
+    axios.get('/posts/1')
       .then((res) => {
         console.log(res)
       })
@@ -32,18 +32,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
   })
 })
 
-function setCookie() {
-
-
-  document.cookie = `token=${token}`
-  console.log('in the setCookie:', token)
-
-}
-
-function getCookie() {
-  let x = document.cookie
-  alert(x);
-}
+// function setCookie() {
+//
+//
+//   document.cookie = `token=${token}`
+//   console.log('in the setCookie:', token)
+//
+// }
+//
+// function getCookie() {
+//   let x = document.cookie
+//   alert(x);
+// }
 
 
 
@@ -79,7 +79,7 @@ function getPosts() {
       // handle success
       res.data.forEach((posts) => {
         ////////////set data into cards\\\\\\\\\\\\
-        
+
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
         let cardRow = document.createElement('div')
@@ -113,7 +113,7 @@ function getPosts() {
         // console.log(month)
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
-        
+
 
         /////////Generate info for cards and append Elements\\\\\\\\\\
         mainCardTitle.innerText = posts.eventName
@@ -179,7 +179,7 @@ function getAllTags() {
     })
 }
 
-//event listener on create btn that does an axios call to get total # of 
+//event listener on create btn that does an axios call to get total # of
 //function for submitting create new post form
 function formSubmit() {
   let createBtn = document.getElementById('createSubmit')

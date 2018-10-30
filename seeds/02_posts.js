@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
           id: 3,
           eventName: 'Cooking Classes and Pancakes',
           foodName: 'Pancakes',
-          user_id: 2,
+          user_id: 4,
           address: '1023 Walnut St',
           city: 'Boulder',
           state: 'Colorado',

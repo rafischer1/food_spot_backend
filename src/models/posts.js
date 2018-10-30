@@ -16,14 +16,16 @@ const getPostsByUserId = (user_id) => {
   return knex('posts')
     .where('user_id', user_id)
     .then(post => {
-      return post[0]
+      return post
     })
     .catch(err => Promise.reject(err))
 }
 
 //create works!
-const create = (body) => {
+const create = (id, body) => {
   console.log('model posts create body:', body)
+  let myobj = body
+  body.user_id = id
   return knex('posts')
     .insert(body)
     .returning('*')

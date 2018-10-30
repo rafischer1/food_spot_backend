@@ -71,6 +71,11 @@ function getUsers() {
     })
 }
 
+let cardCol = document.createElement('div')
+cardCol.className = 'col s7 mainCard offset-s3'
+let cardRow = document.createElement('div')
+cardRow.className = 'row'
+
 ////////////get posts\\\\\\\\\\
 function getPosts() {
   axios.get('https://food-seen.herokuapp.com/posts')
@@ -81,10 +86,7 @@ function getPosts() {
         
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
-        let cardRow = document.createElement('div')
-        cardRow.className = 'row'
-        let cardCol = document.createElement('div')
-        cardCol.className = 'col s7 mainCard'
+
         let mainCard = document.createElement('div')
         mainCard.className = 'card medium hoverable'
         let mainCardTitle = document.createElement('span')
@@ -133,6 +135,17 @@ function getPosts() {
         mainCard.appendChild(endTime)
         mainCard.appendChild(location)
         mainCardImage.appendChild(imgSrc)
+
+
+        mainCard.addEventListener('click', (ev) => {
+          if (ev) {
+          
+//populate the fields on the bigCard here 
+//and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
+          } else {
+            alert(`That didn't work for some reason`)
+          }
+        })
       })
     })
     .catch((error) => {

@@ -22,14 +22,21 @@ const getPostsByUserId = (user_id) => {
 }
 
 //create works!
+<<<<<<< HEAD
 const create = (id, body) => {
+=======
+const create = (body, tags) => {
+>>>>>>> Artie-frontend
   console.log('model posts create body:', body)
   let myobj = body
   body.user_id = id
   return knex('posts')
     .insert(body)
-    .returning('*')
-    .then(post => post[0])
+    .returning('id')
+    .then(post => {
+      console.log('model .then post:', post[0])
+      return post[0]
+    })
     .catch(err => {
       console.log(`posts post ${err}`)
     })

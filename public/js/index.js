@@ -1,59 +1,69 @@
 var token = document.location.href.split('#')[1]
-
 document.addEventListener("DOMContentLoaded", function(event) {
-  console.log("DOM fully loaded and parsed");
-  axios.get('/posts/1')
-    .then((res) => {
-      console.log(res)
-    })
-
-  //materialize stuff
-  M.AutoInit()
-  setCookie()
-
-
-  //general function calls
-  // getAll()
-  // buttons()
-  formSubmit()
-
-
-  //cookies and login and all the terrible things
-  // check the cookie with:
-  //1. axios.get to /users
-  // 2. Set-Cookie: id=token; expires=..., secure; HttpOnly
-  let cookieBtn = document.getElementById('cookie')
-  cookieBtn.addEventListener('click', () => {
+    console.log("DOM fully loaded and parsed"); <<
+    << << < HEAD
     axios.get('/posts/1')
       .then((res) => {
         console.log(res)
       })
 
+      ===
+      === = >>>
+      >>> > Artie - frontend
+    //materialize stuff
+    M.AutoInit()
+    setCookie()
+    //general function calls
+    // getAll()
+    // buttons()
+    formSubmit()
+
+
+      <<
+      << << < HEAD
+    //cookies and login and all the terrible things
+    // check the cookie with:
+    //1. axios.get to /users
+    // 2. Set-Cookie: id=token; expires=..., secure; HttpOnly
+    let cookieBtn = document.getElementById('cookie')
+    cookieBtn.addEventListener('click', () => {
+      axios.get('/posts/1')
+        .then((res) => {
+          console.log(res)
+        })
+
+    })
   })
+
+  // function setCookie() {
+  //
+  //
+  //   document.cookie = `token=${token}`
+  //   console.log('in the setCookie:', token)
+  //
+  // }
+  //
+  // function getCookie() {
+  //   let x = document.cookie
+  //   alert(x);
+  // }
+
+
+
+
+
+
+
+
+  //////should this be a getCardsforUserwithId()?\\\\\\\\
+
+
+  ===
+  === =
 })
 
-// function setCookie() {
-//
-//
-//   document.cookie = `token=${token}`
-//   console.log('in the setCookie:', token)
-//
-// }
-//
-// function getCookie() {
-//   let x = document.cookie
-//   alert(x);
-// }
-
-
-
-
-
-
-
-
-//////should this be a getCardsforUserwithId()?\\\\\\\\
-
+>>>
+>>> > Artie - frontend
 
 function getUsers() {
   axios.get('heroku address/users')
@@ -207,7 +217,6 @@ function formSubmit() {
     let newPromoted = document.getElementById('tagCheckbox').checked
 
     let newPostObj = {
-      // id: postId.length + 1
       eventName: newEventName,
       foodName: newFoodName,
       address: newAddress,
@@ -223,13 +232,13 @@ function formSubmit() {
     }
 
     //logic to have a promoted login
-    // if (newPromoted === true) {
-    //   alert('Please login with your promoter code to enable promotion ________')
-    // }
+    if (newPromoted === true) {
+      alert('Please login with your promoter code to enable promotion ________')
+    }
 
     console.log('post object:', newPostObj)
     // axios.post that data to the correct backend route
-    axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
+    axios.post('/posts', newPostObj, newTags)
       .then((res) => {
         console.log('create post res:', res)
         if (res) {
@@ -239,7 +248,19 @@ function formSubmit() {
       .catch((error) => {
         console.log(error)
       })
-    axios.post('https://food-seen.herokuapp.com/posts_tags')
+    //tags to be dealt with here
+    // axios.post('https://food-seen.herokuapp.com/posts_tags')
     alert('Check your console logs!')
   })
+}
+
+
+/////////COOKIE FUNCTIONS!!!!\\\\\\\\\
+function setCookie() {
+  document.cookie = `token=${token}`
+}
+
+function getCookie() {
+  let x = document.cookie
+  console.log(x)
 }

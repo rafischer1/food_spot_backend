@@ -29,11 +29,16 @@ const getPostsByUserId = (req, res, next) => {
 }
 
 const create = (req, res, next) => {
+<<<<<<< HEAD
   let myId
   if(jwt.verify(req.cookies.token,process.env.TOKEN_SECRET)){
     myId = jwt.verify(req.cookies.token,process.env.TOKEN_SECRET).id
   }
   return model.create(myId, req.body)
+=======
+  return model.create(req.body)
+  console.log('post ctrl req.body:', req.body)
+>>>>>>> Artie-frontend
     .catch(errors => {
       return next({
         status: 400,
@@ -42,6 +47,7 @@ const create = (req, res, next) => {
       })
     })
     .then(data => {
+      console.log('sending ctrl data')
       res.status(201).json(data)
     })
 }

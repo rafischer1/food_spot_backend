@@ -13,8 +13,8 @@ const getAll = (req, res, next) => {
 //works!
 const getPostsByUserId = (req, res, next) => {
   // console.log(req.cookies.token)
-  let myId = jwt.verify(req.cookies.token,process.env.TOKEN_SECRET).id
-  console.log(jwt.verify(req.cookies.token,process.env.TOKEN_SECRET).id);
+  let myId = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id
+  console.log(jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id);
   return model.getPostsByUserId(myId)
     .catch(error => {
       return next({
@@ -29,16 +29,12 @@ const getPostsByUserId = (req, res, next) => {
 }
 
 const create = (req, res, next) => {
-<<<<<<< HEAD
   let myId
-  if(jwt.verify(req.cookies.token,process.env.TOKEN_SECRET)){
-    myId = jwt.verify(req.cookies.token,process.env.TOKEN_SECRET).id
+  if (jwt.verify(req.cookies.token, process.env.TOKEN_SECRET)) {
+    myId = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id
   }
   return model.create(myId, req.body)
-=======
-  return model.create(req.body)
   console.log('post ctrl req.body:', req.body)
->>>>>>> Artie-frontend
     .catch(errors => {
       return next({
         status: 400,

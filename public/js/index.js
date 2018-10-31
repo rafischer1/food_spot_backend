@@ -80,7 +80,7 @@ function getPosts() {
 
         ////tags for posts\\\\
         let tags = document.createElement('div')
-        axios.get('/tags_posts', res.data.id)
+        axios.get(`/tags_posts/${res.data.id}`)
           .then((res) => {
             console.log('in the tagsposts res:', res)
           })

@@ -1,6 +1,7 @@
 const knex = require('../../knex')
 const postsModel = require('../models/posts')
 const tagsModel = require('../models/tags')
+
 //get post from tag - -works!
 const getTagsFromPost = (id) => {
   let tags = []
@@ -22,4 +23,12 @@ const getTagsFromPost = (id) => {
     })
 }
 
-module.exports = { getTagsFromPost }
+const getAll = () => {
+  return knex('posts_tags')
+    .then(posts => {
+      return posts
+    })
+    .catch(err => Promise.reject(err))
+}
+
+module.exports = { getTagsFromPost, getAll }

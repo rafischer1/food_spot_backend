@@ -7,4 +7,11 @@ const getTagsFromPost = (req, res, next) => {
     })
 }
 
-module.exports = { getTagsFromPost }
+const getAll = (req, res, next) => {
+  return model.getAll()
+    .then((tags_posts) => {
+      res.status(200).json(posts_tags)
+    })
+}
+
+module.exports = { getTagsFromPost, getAll }

@@ -86,11 +86,8 @@ function getPosts() {
         ////////////set data into cards\\\\\\\\\\\\
         
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
-        let parentContainer = document.getElementById('parentContainer')
-        let miniCardsColumn = document.getElementById('miniCards')
-        
         let card = document.createElement('div')
-        card.className = 'card hoverable'
+        card.className = 'card hoverable mainCard'
         let cardTitle = document.createElement('span')
         cardTitle.className = 'grey-text text-darken-4'
         let cardImage = document.createElement('div')
@@ -118,10 +115,20 @@ function getPosts() {
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
         
+        ///////MINI CARDS\\\\\\
+        let parentContainer = document.getElementById('parentContainer')
+        let miniCardsColumn = document.getElementById('miniCards')
+        let secondMiniCardsColumn = document.getElementById('miniCards2')
+
+        cardRow.appendChild(miniCardsColumn)
+        cardRow.appendChild(secondMiniCardsColumn)
+        miniCardsColumn.appendChild(card)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        cardRow.appendChild(miniCardsColumn)
-        miniCardsColumn.appendChild(card)
+        console.log(miniCardsColumn.childNodes)
+        if(miniCardsColumn.childNodes.length > 4){
+          secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
+        }
 
         ////////APPEND INFO TO CARDS\\\\\\\\\\
         parentContainer.appendChild(cardRow)
@@ -141,7 +148,6 @@ function getPosts() {
         card.addEventListener('click', (ev) => {
 
           while(cardCol.hasChildNodes()){
-            console.log(cardCol.firstChild.childNodes)
             cardCol.firstChild.childNodes[3].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[4].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[5].setAttribute('style', 'display:none');

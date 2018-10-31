@@ -117,6 +117,14 @@ hr {
     background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
 }
 
+.mainCard {
+    position: static;
+}
+
+.miniCards2 {
+    position: relative;
+}
+
 /* start of create modal css */
 .createPostModal {
   background: linear-gradient(to left, rgb(238, 215, 213), rgb(237, 240, 252));

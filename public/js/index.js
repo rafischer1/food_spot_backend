@@ -1,5 +1,3 @@
-const editDeleteModule = require('./editDelete')
-
 var token = document.location.href.split('#')[1]
 document.addEventListener("DOMContentLoaded", function(event) {
   console.log("DOM fully loaded and parsed")

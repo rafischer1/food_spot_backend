@@ -84,9 +84,9 @@ function getPosts() {
         ////tags for posts\\\\
         let tags = document.createElement('div')
         console.log('res.data.id:', tagPostId)
-        axios.get(`/tags_posts/${tagPostId}`)
+        axios.get(`/posts_tags/${tagPostId}`)
           .then((res) => {
-            console.log('in the tagsposts res:', res)
+            console.log('in the tagsposts res:', res.data)
           })
         // card.appendChild('tags')
 

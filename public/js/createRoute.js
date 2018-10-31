@@ -58,10 +58,12 @@ function formSubmit() {
         console.log('create post res:', res)
         if (res) {
           post_id = res.data
+          console.log('in the set post id:', post_id)
           alert(`Created New Event!`)
         }
       })
-      .then((tags) => {
+      .then(() => {
+        console.log('started tag route')
         //tags to be dealt with here
         //deal with tag tagsArray
         let newTags = e.target.elements[12].value

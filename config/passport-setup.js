@@ -21,7 +21,7 @@ passport.use(
   new GitHubStrategy({
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: '/auth/github/redirect'
+      callbackURL: 'http2://feed-seen.herokuapp.com/auth/github/redirect'
     },
     // passport call back function
     (accessToken, refreshToken, profile, done) => {

@@ -5,7 +5,7 @@ const tagsModel = require('../models/tags')
 //get post from tag - -works!
 const getTagsFromPost = (id) => {
   let tags = []
-  return knex('posts_tags')
+  return knex('tags_posts')
     .select('tag_id')
     .where('post_id', id)
     .then(tagIds => {
@@ -24,7 +24,7 @@ const getTagsFromPost = (id) => {
 }
 
 const getAll = () => {
-  return knex('posts_tags')
+  return knex('tags_posts')
     .then(posts => {
       return posts
     })

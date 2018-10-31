@@ -3,17 +3,17 @@ const passport = require('passport')
 const GitHubStrategy = require('passport-github').Strategy
 const userModel = require('../src/models/users.js')
 
-passport.serializeUser((user,done) => {
+passport.serializeUser((user, done) => {
   console.log("in serializeUser ", user)
   done(null, user.id) // go to deserializeUser 🙀
 })
 
 // Get user to store in req.user 💯
-passport.deserializeUser((id,done)=>{
+passport.deserializeUser((id, done) => {
   console.log('inside deser user : ', id)
   userModel.getOneUser(id)
-    .then((user) =>{
-      done(null,user)
+    .then((user) => {
+      done(null, user)
     })
 })
 
@@ -21,7 +21,7 @@ passport.use(
   new GitHubStrategy({
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: '/auth/github/redirect'
+      callbackURL: 'http2://feed-seen.herokuapp.com/auth/github/redirect'
     },
     // passport call back function
     (accessToken, refreshToken, profile, done) => {

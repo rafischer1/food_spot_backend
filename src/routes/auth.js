@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken')
 
 // auth login ✔️
 router.get('/login', (req, res) => {
-    // res.render('login', { user: req.user });
-    res.sendfile('./public/index.html');
+  // res.render('login', { user: req.user });
+  res.sendfile('./public/index.html');
 
 });
 
@@ -31,15 +31,23 @@ router.get('/github/redirect', passport.authenticate('github'), (req, res) => {
   // Probably a good place for JWT stuff
   // res.redirect('/profile/');
   let payLoad = {
-    id: req.user.oauthId,
+    id: req.user.id,
+    oauthid: req.user.oauthId,
     loggedIn: true,
   }
-  // console.log(process.env.TOKEN_SECRET,)
+
   let token = jwt.sign(payLoad, process.env.TOKEN_SECRET, {
-    expiresIn: '1h'
+    expiresIn: '8h'
   })
   // console.log(token)
-  res.redirect(`http://food-seen.surge.sh/#${token}`)
+  // res.redirect(`http://food-seen.surge.sh/#${token}`)
+  console.log('token in redir :', token)
+
+  res.cookie("token", token, {
+    maxAge: 900000
+  })
+  res.redirect('/')
+
 });
 
 module.exports = router;

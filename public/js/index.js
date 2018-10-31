@@ -1,57 +1,18 @@
 var token = document.location.href.split('#')[1]
-
 document.addEventListener("DOMContentLoaded", function(event) {
-  // console.log("DOM fully loaded and parsed")
-
+  console.log("DOM fully loaded and parsed");
+  axios.get('/posts/1')
+    .then((res) => {
+      console.log(res)
+    })
   //materialize stuff
   M.AutoInit()
   setCookie()
-
-
   //general function calls
   getPosts()
   formSubmit()
 
-
-  //cookies and login and all the terrible things
-  // check the cookie with:
-  //1. axios.get to /users 
-  // 2. Set-Cookie: id=token; expires=..., secure; HttpOnly
-  let cookieBtn = document.getElementById('cookie')
-  cookieBtn.addEventListener('click', () => {
-    axios.request({
-        url: '/posts',
-        method: 'get',
-        withCredentials: true
-      })
-      .then((res) => {
-        console.log(res)
-      })
-
-  })
 })
-
-function setCookie() {
-
-
-  document.cookie = `token=${token}`
-  // console.log('in the setCookie:', token)
-
-}
-
-function getCookie() {
-  let x = document.cookie
-  alert(x);
-}
-
-
-
-
-
-
-
-
-//////should this be a getCardsforUserwithId()?\\\\\\\\
 
 
 function getUsers() {
@@ -84,7 +45,7 @@ function getPosts() {
       // handle success
       res.data.forEach((posts) => {
         ////////////set data into cards\\\\\\\\\\\\
-        
+
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
         let miniCardsColumn = document.getElementById('miniCards')
@@ -117,7 +78,7 @@ function getPosts() {
         // console.log(month)
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
-        
+
 
         /////////Generate info for cards and append Elements\\\\\\\\\\
         cardTitle.innerText = posts.eventName
@@ -200,7 +161,7 @@ function getAllTags() {
     })
 }
 
-//event listener on create btn that does an axios call to get total # of 
+//event listener on create btn that does an axios call to get total # of
 //function for submitting create new post form
 function formSubmit() {
   let createBtn = document.getElementById('createSubmit')
@@ -228,7 +189,6 @@ function formSubmit() {
     let newPromoted = document.getElementById('tagCheckbox').checked
 
     let newPostObj = {
-      // id: postId.length + 1
       eventName: newEventName,
       foodName: newFoodName,
       address: newAddress,
@@ -244,9 +204,9 @@ function formSubmit() {
     }
 
     //logic to have a promoted login
-    // if (newPromoted === true) {
-    //   alert('Please login with your promoter code to enable promotion ________')
-    // }
+    if (newPromoted === true) {
+      alert('Please login with your promoter code to enable promotion ________')
+    }
 
     console.log('post object:', newPostObj)
     // axios.post that data to the correct backend route
@@ -260,7 +220,19 @@ function formSubmit() {
       .catch((error) => {
         console.log(error)
       })
-    axios.post('/posts_tags')
+    //tags to be dealt with here
+    // axios.post('https://food-seen.herokuapp.com/posts_tags')
     alert('Check your console logs!')
   })
+}
+
+
+/////////COOKIE FUNCTIONS!!!!\\\\\\\\\
+function setCookie() {
+  document.cookie = `token=${token}`
+}
+
+function getCookie() {
+  let x = document.cookie
+  console.log(x)
 }

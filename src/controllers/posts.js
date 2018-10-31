@@ -1,5 +1,7 @@
 // Controller
+require('dotenv').config()
 const model = require('../models/posts')
+const jwt = require('jsonwebtoken')
 
 const getAll = (req, res, next) => {
   return model.getAll()
@@ -10,8 +12,10 @@ const getAll = (req, res, next) => {
 
 //works!
 const getPostsByUserId = (req, res, next) => {
-  console.log(req.cookies)
-  return model.getPostsByUserId(req.params.user_id)
+  // console.log(req.cookies.token)
+  let myId = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id
+  console.log(jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id);
+  return model.getPostsByUserId(myId)
     .catch(error => {
       return next({
         status: 404,
@@ -19,12 +23,18 @@ const getPostsByUserId = (req, res, next) => {
       })
     })
     .then(data => {
-      res.status(200).json(data)
+      console.log(data)
+      res.json(data)
     })
 }
 
 const create = (req, res, next) => {
-  return model.create(req.body)
+  let myId
+  if (jwt.verify(req.cookies.token, process.env.TOKEN_SECRET)) {
+    myId = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id
+  }
+  return model.create(myId, req.body)
+  console.log('post ctrl req.body:', req.body)
     .catch(errors => {
       return next({
         status: 400,
@@ -33,6 +43,7 @@ const create = (req, res, next) => {
       })
     })
     .then(data => {
+      console.log('sending ctrl data')
       res.status(201).json(data)
     })
 }

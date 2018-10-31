@@ -24,9 +24,10 @@ const getPostsByUserId = (user_id) => {
 //create works!
 
 const create = (id, body, tags) => {
-  console.log('model posts create body:', body)
+
   let myobj = body
   body.user_id = id
+  console.log('model posts create body:', body)
   return knex('posts')
     .insert(body)
     .returning('id')

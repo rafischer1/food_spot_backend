@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //   })
   //materialize stuff
   M.AutoInit()
-  setCookie()
+  // setCookie()
   //general function calls
   // getAll()
   // buttons()
@@ -158,13 +158,13 @@ function formSubmit() {
     let newAddress = e.target.elements[5].value
     let newCity = e.target.elements[6].value
     let newState = e.target.elements[7].value
-    let newZip = e.target.elements[8].value
-    let newCountry = e.target.elements[9].value
-    let newImageUrl = e.target.elements[10].value
-    let newStartTime = e.target.elements[2].value
-    let newEndTime = e.target.elements[3].value
-    let newDate = e.target.elements[4].value
-    let newTags = e.target.elements[11].value
+    let newZip = e.target.elements[9].value
+    let newCountry = e.target.elements[10].value
+    let newImageUrl = e.target.elements[11].value
+    let newStartTime = `${e.target.elements[2].value} ${e.target.elements[3].value}:00 UTC`
+    let newEndTime = `${e.target.elements[2].value} ${e.target.elements[4].value}:00 UTC`
+    let newDate = e.target.elements[2].value
+    let newTags = e.target.elements[12].value
     console.log('newTags:', newTags)
     // e.target.elements[11].getAttribute('name')
     let newPromoted = document.getElementById('tagCheckbox').checked
@@ -191,7 +191,7 @@ function formSubmit() {
 
     console.log('post object:', newPostObj)
     // axios.post that data to the correct backend route
-    axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
+    axios.post('/posts', newPostObj)
       .then((res) => {
         console.log('create post res:', res)
         if (res) {

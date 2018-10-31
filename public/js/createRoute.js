@@ -49,7 +49,7 @@ function formSubmit() {
 
     console.log('post object:', newPostObj)
     // axios.post that data to the correct backend route
-    axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
+    axios.post('/posts', newPostObj)
       .then((res) => {
         console.log('create post res:', res)
         if (res) {
@@ -103,7 +103,7 @@ function formSubmit() {
         post_id: post_id,
         tag_id: tag
       }
-      axios.post('https://food-seen.herokuapp.com/posts_tags', tagPostBody)
+      axios.post('/posts_tags', tagPostBody)
         .then((res) => {
           console.log(`Posted tags for post id ${post_id}`)
         })

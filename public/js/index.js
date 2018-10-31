@@ -123,6 +123,11 @@ function getPosts() {
             startTime.innerText = 'Starts At: ' + posts.startTime
             endTime.innerText = 'Ends At: ' + posts.endTime
             location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
+
+
+
+            console.log('tgas in big card:', cardCol.firstChild.childNodes[7])
+            tags.style.display = "inline"
           } else {
             alert(`That didn't work for some reason`)
           }

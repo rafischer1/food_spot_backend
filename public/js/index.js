@@ -1,3 +1,5 @@
+const editDeleteModule = require('./editDelete')
+
 var token = document.location.href.split('#')[1]
 document.addEventListener("DOMContentLoaded", function(event) {
   console.log("DOM fully loaded and parsed")
@@ -142,19 +144,5 @@ function getPosts() {
     })
     .catch((error) => {
       console.log(error)
-    })
-}
-
-
-
-
-function getAllTags() {
-  let tagsArray = []
-  axios.get('/tags')
-    .then((tags) => {
-      tags.data.forEach((tag) => {
-        tagsArray.push(tag)
-      })
-      console.log('tags:', tagsArray)
     })
 }

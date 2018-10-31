@@ -1,6 +1,12 @@
+const editPost = () => {
+  console.log('editPost!')
+}
+
+
+let deleteBtn = document.querySelector('deleteBtn')
 //////////// DELETE THIS RECORD! \\\\\\\\\\\\\\\\
 function deletePost() {
-  del_button.addEventListener('click', (ev) => {
+  deleteBtn.addEventListener('click', (ev) => {
     ev.preventDefault()
     //write better alerts for comfirm on foodseen
     if (confirm('Are you sure you want to delete this post?')) {
@@ -19,3 +25,5 @@ function deletePost() {
     }
   })
 }
+
+module.exports = { deletePost, editPost }

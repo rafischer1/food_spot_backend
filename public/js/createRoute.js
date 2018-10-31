@@ -52,11 +52,11 @@ function formSubmit() {
     axios.post('/posts', newPostObj)
       .then((res) => {
         console.log('create post res:', res)
-        if (res) {
-          post_id = res.data
-          console.log('in the set post id:', post_id)
-          alert(`Created New Event!`)
-        }
+        // if (res) {
+        //   post_id = res.data
+        //   console.log('in the set post id:', post_id)
+        //   alert(`Created New Event!`)
+        // }
       })
       .then(() => {
         console.log('started tag route')

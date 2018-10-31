@@ -71,10 +71,11 @@ function getUsers() {
     })
 }
 
-let cardCol = document.createElement('div')
-cardCol.className = 'col s7 offset-s3'
+
 let cardRow = document.createElement('div')
 cardRow.className = 'row'
+let cardCol = document.createElement('div')
+cardCol.className = 'col s7'
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
@@ -105,6 +106,7 @@ function getPosts() {
         location.className = 'location'
         let dateOnCard = document.createElement('div')
         dateOnCard.className = 'date'
+        
 
         ///////DATE MANIPULATION\\\\\\\
         let date = new Date(posts.date)
@@ -122,13 +124,13 @@ function getPosts() {
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
 
-        parentContainer.appendChild(cardRow)
+        
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
         cardRow.appendChild(miniCardsColumn)
         miniCardsColumn.appendChild(card)
 
-        
+        parentContainer.appendChild(cardRow)
         card.appendChild(cardTitle)
         card.appendChild(cardImage)
         card.appendChild(foodName)
@@ -141,7 +143,7 @@ function getPosts() {
 
         card.addEventListener('click', (ev) => {
           if (ev) {
-            parentContainer.appendChild(cardCol)
+            cardRow.appendChild(cardCol)
             cardCol.appendChild(card)
             dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
             startTime.innerText = 'Starts At: ' + posts.startTime

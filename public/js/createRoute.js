@@ -104,8 +104,10 @@ function formSubmit() {
           axios.post('/posts_tags', tagPostBody)
             .then((res) => {
               console.log(`Posted tags for post id ${post_id}`)
+              return res
             })
         })
+        return tags
       })
       .catch((error) => {
         console.log(error)

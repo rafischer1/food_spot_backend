@@ -91,12 +91,10 @@ function getPosts() {
             tagsArray.forEach((post) => {
               let newTag = document.createElement('span')
               newTag.innerText = post.name
-              tags.appendChild('newTag')
+              tags.appendChild(newTag)
             })
             console.log('tags:', tags)
           })
-
-
 
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
@@ -105,7 +103,6 @@ function getPosts() {
         card.addEventListener('click', (ev) => {
 
           while (cardCol.hasChildNodes()) {
-            console.log(cardCol.firstChild.childNodes)
             cardCol.firstChild.childNodes[3].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[4].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[5].setAttribute('style', 'display:none');

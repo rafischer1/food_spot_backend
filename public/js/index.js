@@ -86,10 +86,12 @@ function getPosts() {
         
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
+        let miniCardsColumn = document.getElementById('miniCards')
+        
         let card = document.createElement('div')
-        card.className = 'card medium hoverable'
+        card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
-        cardTitle.className = 'card-title grey-text text-darken-4'
+        cardTitle.className = 'grey-text text-darken-4'
         let cardImage = document.createElement('div')
         cardImage.className = 'card-image'
         let imgSrc = document.createElement('img')
@@ -119,13 +121,14 @@ function getPosts() {
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
-        dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
-        startTime.innerText = 'Starts At: ' + posts.startTime
-        endTime.innerText = 'Ends At: ' + posts.endTime
-        location.innerText = posts.address + ', ' + posts.city + ', ' + posts.zipcode
+
         parentContainer.appendChild(cardRow)
-        cardRow.appendChild(cardCol)
-        cardCol.appendChild(card)
+
+        ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
+        cardRow.appendChild(miniCardsColumn)
+        miniCardsColumn.appendChild(card)
+
+        
         card.appendChild(cardTitle)
         card.appendChild(cardImage)
         card.appendChild(foodName)
@@ -138,6 +141,12 @@ function getPosts() {
 
         card.addEventListener('click', (ev) => {
           if (ev) {
+            parentContainer.appendChild(cardCol)
+            cardCol.appendChild(card)
+            dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
+            startTime.innerText = 'Starts At: ' + posts.startTime
+            endTime.innerText = 'Ends At: ' + posts.endTime
+            location.innerText = posts.address + ', ' + posts.city + ', ' + posts.zipcode
           //populate the fields on the bigCard here 
           //and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
           } else {

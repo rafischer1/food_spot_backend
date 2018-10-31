@@ -117,11 +117,11 @@ hr {
     background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
 }
   
-.rolodexCards {
-    width: 5em;
-    height: 6.25em;
+/* .rolodexCards {
+    width: 6em;
+    height: 7em;
     margin: .13em;
-}
+} */
 
 /* start of create modal css */
 .createPostModal {
@@ -178,10 +178,6 @@ font-size: 110%;
    margin-left: 10px;
  }
 /* end of create modal css */
-
-.location {
-    margin: 3%;
-}
 
 
 /* iphone 6+, 6s+, 7+, 8+ */

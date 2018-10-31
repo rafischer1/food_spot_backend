@@ -116,12 +116,6 @@ hr {
     background-image: -ms-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
 }
-  
-/* .rolodexCards {
-    width: 6em;
-    height: 7em;
-    margin: .13em;
-} */
 
 /* start of create modal css */
 .createPostModal {

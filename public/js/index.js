@@ -90,9 +90,11 @@ function getPosts() {
             let tagsArray = res.data
             tagsArray.forEach((post) => {
               let newTag = document.createElement('span')
+              newTag.className = "cardTags"
               newTag.innerText = post.name
               tags.appendChild(newTag)
             })
+            tags.style.display = "none"
             console.log('tags:', tags)
           })
 

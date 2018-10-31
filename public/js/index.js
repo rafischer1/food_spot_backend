@@ -44,7 +44,7 @@ function getPosts() {
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
         let miniCardsColumn = document.getElementById('miniCards')
-        
+
         let card = document.createElement('div')
         card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
@@ -62,7 +62,7 @@ function getPosts() {
         location.className = 'location'
         let dateOnCard = document.createElement('div')
         dateOnCard.className = 'date'
-        
+
 
         ///////DATE MANIPULATION\\\\\\\
         let date = new Date(posts.date)
@@ -80,7 +80,7 @@ function getPosts() {
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
 
-        
+
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
         cardRow.appendChild(miniCardsColumn)
@@ -99,7 +99,7 @@ function getPosts() {
 
         card.addEventListener('click', (ev) => {
 
-          while(cardCol.hasChildNodes()){
+          while (cardCol.hasChildNodes()) {
             cardCol.removeChild(cardCol.firstChild)
 
             // miniCardsColumn.appendChild(cardCol.firstChild)
@@ -112,8 +112,8 @@ function getPosts() {
             startTime.innerText = 'Starts At: ' + posts.startTime
             endTime.innerText = 'Ends At: ' + posts.endTime
             location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
-          //populate the fields on the bigCard here 
-          //and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
+            //populate the fields on the bigCard here 
+            //and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
           } else {
             alert(`That didn't work for some reason`)
           }
@@ -167,6 +167,21 @@ function getAllTags() {
 
 
 /////////COOKIE FUNCTIONS!!!!\\\\\\\\\
+
+let myCookie = document.cookie
+console.log('cookie: ', myCookie)
+let signInBtn = document.getElementById('signInBtn')
+let createBtn = document.getElementById('createBtn')
+
+if (myCookie == '') {
+  // console.log('nocookie')
+  signInBtn.setAttribute("style", "display:inline");
+  createBtn.setAttribute("style", "display:none");
+} else {
+  createBtn.setAttribute("style", "display:inline");
+  signInBtn.setAttribute("style", "display:none");
+}
+
 function setCookie() {
   document.cookie = `token=${token}`
 }

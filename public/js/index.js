@@ -83,10 +83,10 @@ function getPosts() {
 
         ////tags for posts\\\\
         let tags = document.createElement('div')
+        tags.innerHTML += "<br>"
         card.appendChild(tags)
         axios.get(`/tags_posts/${tagPostId}`)
           .then((res) => {
-            console.log('in the tagsposts res:', res.data)
             let tagsArray = res.data
             tagsArray.forEach((post) => {
               let newTag = document.createElement('span')
@@ -95,7 +95,6 @@ function getPosts() {
               tags.appendChild(newTag)
             })
             tags.style.display = "none"
-            console.log('tags:', tags)
           })
 
         cardTitle.innerText = posts.eventName
@@ -110,6 +109,7 @@ function getPosts() {
             cardCol.firstChild.childNodes[5].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[6].setAttribute('style', 'display:none');
             miniCardsColumn.appendChild(cardCol.firstChild)
+            tags.style.display = "none"
           }
 
           if (ev) {
@@ -123,10 +123,6 @@ function getPosts() {
             startTime.innerText = 'Starts At: ' + posts.startTime
             endTime.innerText = 'Ends At: ' + posts.endTime
             location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
-
-
-
-            console.log('tgas in big card:', cardCol.firstChild.childNodes[7])
             tags.style.display = "inline"
           } else {
             alert(`That didn't work for some reason`)
@@ -155,37 +151,4 @@ function getAllTags() {
       })
       console.log('tags:', tagsArray)
     })
-}
-
-
-
-
-
-
-
-
-
-/////////COOKIE FUNCTIONS!!!!\\\\\\\\\
-
-let myCookie = document.cookie
-console.log('cookie: ', myCookie)
-let signInBtn = document.getElementById('signInBtn')
-let createBtn = document.getElementById('createBtn')
-
-if (myCookie == '') {
-  // console.log('nocookie')
-  signInBtn.setAttribute("style", "display:inline");
-  createBtn.setAttribute("style", "display:none");
-} else {
-  createBtn.setAttribute("style", "display:inline");
-  signInBtn.setAttribute("style", "display:none");
-}
-
-function setCookie() {
-  document.cookie = `token=${token}`
-}
-
-function getCookie() {
-  let x = document.cookie
-  console.log(x)
 }

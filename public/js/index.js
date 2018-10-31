@@ -28,11 +28,13 @@ function getPosts() {
         ////////////set data into cards\\\\\\\\\\\\
 
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
-
         let parentContainer = document.getElementById('parentContainer')
         let miniCardsColumn = document.getElementById('miniCards')
-
-
+        let secondMiniCardsColumn = document.getElementById('miniCards2')
+        let cardRow = document.createElement('div')
+        cardRow.className = 'row'
+        let cardCol = document.createElement('div')
+        cardCol.className = 'col s7'
         let card = document.createElement('div')
         card.className = 'card hoverable mainCard'
         let cardTitle = document.createElement('span')
@@ -62,20 +64,12 @@ function getPosts() {
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
 
-
         /////////Generate info for cards and append Elements\\\\\\\\\\
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
 
-
-
-        ///////MINI CARDS\\\\\\
-        let parentContainer = document.getElementById('parentContainer')
-        let miniCardsColumn = document.getElementById('miniCards')
-        let secondMiniCardsColumn = document.getElementById('miniCards2')
-
-
+        ///////MINI CARDS\\\\\\    
         cardRow.appendChild(miniCardsColumn)
         cardRow.appendChild(secondMiniCardsColumn)
         miniCardsColumn.appendChild(card)
@@ -147,11 +141,7 @@ function getPosts() {
       })
     })
     .catch((error) => {
-      // handle error
-      console.log(error);
-    })
-    .then(() => {
-      // always executed
+      console.log(error)
     })
 }
 

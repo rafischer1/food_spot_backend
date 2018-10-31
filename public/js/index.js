@@ -98,12 +98,16 @@ function getPosts() {
         cardImage.appendChild(imgSrc)
 
         cardTitle.innerText = posts.eventName
-        imgSrc.src = posts.imageUrl
+        if (post.imageUrl === '') {
+          imgSrc.src = '../images/foodseenlogo.png'
+        } else {
+          imgSrc.src = posts.imageUrl
+        }
         foodName.innerText = posts.foodName
 
         card.addEventListener('click', (ev) => {
 
-          while(cardCol.hasChildNodes()){
+          while (cardCol.hasChildNodes()) {
             console.log(cardCol.firstChild.childNodes)
             cardCol.firstChild.childNodes[3].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[4].setAttribute('style', 'display:none');

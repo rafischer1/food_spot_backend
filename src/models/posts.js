@@ -10,6 +10,16 @@ const getAll = () => {
     .catch(err => Promise.reject(err))
 }
 
+
+const getOnePost = (id) => {
+  return knex('posts')
+    .select('*')
+    .where('id', id)
+    .then(res => res)
+    .catch(err => {
+      Promise.reject(err)
+    })
+}
 //works!
 const getPostsByUserId = (user_id) => {
 
@@ -103,5 +113,6 @@ module.exports = {
   getPostsByUserId,
   create,
   updateOne,
-  deleteOne
+  deleteOne,
+  getOnePost
 }

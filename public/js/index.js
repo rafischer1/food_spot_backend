@@ -123,6 +123,7 @@ function getPosts() {
         cardRow.appendChild(miniCardsColumn)
         miniCardsColumn.appendChild(card)
 
+        ////////APPEND INFO TO CARDS\\\\\\\\\\
         parentContainer.appendChild(cardRow)
         card.appendChild(cardTitle)
         card.appendChild(cardImage)
@@ -140,12 +141,21 @@ function getPosts() {
         card.addEventListener('click', (ev) => {
 
           while(cardCol.hasChildNodes()){
+            console.log(cardCol.firstChild.childNodes)
+            cardCol.firstChild.childNodes[3].setAttribute('style', 'display:none');
+            cardCol.firstChild.childNodes[4].setAttribute('style', 'display:none');
+            cardCol.firstChild.childNodes[5].setAttribute('style', 'display:none');
+            cardCol.firstChild.childNodes[6].setAttribute('style', 'display:none');
             miniCardsColumn.appendChild(cardCol.firstChild)
           }
 
           if (ev) {
             cardRow.appendChild(cardCol)
             cardCol.appendChild(card)
+            cardCol.firstChild.childNodes[3].setAttribute('style', 'display:inline');
+            cardCol.firstChild.childNodes[4].setAttribute('style', 'display:inline');
+            cardCol.firstChild.childNodes[5].setAttribute('style', 'display:inline');
+            cardCol.firstChild.childNodes[6].setAttribute('style', 'display:inline');
             dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
             startTime.innerText = 'Starts At: ' + posts.startTime
             endTime.innerText = 'Ends At: ' + posts.endTime

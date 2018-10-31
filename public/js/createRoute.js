@@ -105,7 +105,7 @@ function formSubmit() {
       }
       axios.post('https://food-seen.herokuapp.com/posts_tags', tagPostBody)
         .then((res) => {
-          console.log(`Posted tags for post id ${postId}`)
+          console.log(`Posted tags for post id ${post_id}`)
         })
     })
   })

@@ -30,9 +30,12 @@ const getPostsByUserId = (req, res, next) => {
 
 const create = (req, res, next) => {
   let myId
+  console.log('in create ctrl:')
+  console.log('req.cookies:', req.cookies)
   if (jwt.verify(req.cookies.token, process.env.TOKEN_SECRET)) {
     myId = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id
   }
+  console.log('post ctrl id:', myId)
   return model.create(myId, req.body)
   console.log('post ctrl req.body:', req.body)
     .catch(errors => {

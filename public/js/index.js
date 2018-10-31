@@ -45,12 +45,6 @@ function getCookie() {
 }
 
 
-
-
-
-
-
-
 //////should this be a getCardsforUserwithId()?\\\\\\\\
 
 
@@ -71,10 +65,11 @@ function getUsers() {
     })
 }
 
-
-let cardRow = document.createElement('div')
+let mainCard = document.createElement('div')
+mainCard.className = 'card hoverable'
+let cardRow = document.createElement('span')
 cardRow.className = 'row'
-let cardCol = document.createElement('div')
+let cardCol = document.createElement('span')
 cardCol.className = 'col s7'
 
 ////////////get posts\\\\\\\\\\
@@ -86,8 +81,9 @@ function getPosts() {
         ////////////set data into cards\\\\\\\\\\\\
         
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
+        
         let card = document.createElement('div')
-        card.className = 'card hoverable mainCard'
+        card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
         cardTitle.className = 'grey-text text-darken-4'
         let cardImage = document.createElement('div')
@@ -116,7 +112,7 @@ function getPosts() {
         // console.log(numberDate)
         
         ///////MINI CARDS\\\\\\
-        let parentContainer = document.getElementById('parentContainer')
+        let miniContainer = document.getElementById('miniContainer')
         let miniCardsColumn = document.getElementById('miniCards')
         let secondMiniCardsColumn = document.getElementById('miniCards2')
 
@@ -125,12 +121,12 @@ function getPosts() {
         miniCardsColumn.appendChild(card)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        if(miniCardsColumn.childNodes.length > 4){
-          secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
-        }
+        // if(miniCardsColumn.childNodes.length > 4){
+        //   secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
+        // }
 
         ////////APPEND INFO TO CARDS\\\\\\\\\\
-        parentContainer.appendChild(cardRow)
+        miniContainer.appendChild(cardRow)
         card.appendChild(cardTitle)
         card.appendChild(cardImage)
         card.appendChild(foodName)

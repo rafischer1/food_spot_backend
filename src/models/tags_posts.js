@@ -11,7 +11,7 @@ const getTagsFromPost = (id) => {
     .then(tagIds => {
       console.log(`tagIds`, tagIds)
       for (var i = 0; i < tagIds.length; i++) {
-        tags.push(tagIds[i])
+        tags.push(tagIds[i].id)
       }
       console.log('tags arr:', tags)
       return Promise.all(tags.map(data => {

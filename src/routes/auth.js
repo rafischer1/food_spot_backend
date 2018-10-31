@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken')
 
 // auth login ✔️
 router.get('/login', (req, res) => {
-    // res.render('login', { user: req.user });
-    res.sendfile('./public/index.html');
+  // res.render('login', { user: req.user });
+  res.sendfile('./public/index.html');
 
 });
 
@@ -35,7 +35,7 @@ router.get('/github/redirect', passport.authenticate('github'), (req, res) => {
     oauthid: req.user.oauthId,
     loggedIn: true,
   }
-  // console.log(process.env.TOKEN_SECRET,)
+
   let token = jwt.sign(payLoad, process.env.TOKEN_SECRET, {
     expiresIn: '8h'
   })

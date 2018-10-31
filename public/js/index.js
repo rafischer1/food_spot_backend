@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 })
 
-
 let cardRow = document.createElement('div')
 cardRow.className = 'row'
+cardRow.id = 'addtome'
 let cardCol = document.createElement('div')
-cardCol.className = 'col s7'
+cardCol.className = 'col s6 pull-s3'
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
@@ -36,9 +36,9 @@ function getPosts() {
         let cardCol = document.createElement('div')
         cardCol.className = 'col s7'
         let card = document.createElement('div')
-        card.className = 'card hoverable mainCard'
+        card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
-        cardTitle.className = 'grey-text text-darken-4'
+        cardTitle.className = 'grey-text textdarken-4'
         let cardImage = document.createElement('div')
         cardImage.className = 'card-image'
         let imgSrc = document.createElement('img')
@@ -72,6 +72,7 @@ function getPosts() {
         ///////MINI CARDS\\\\\\    
         cardRow.appendChild(miniCardsColumn)
         cardRow.appendChild(secondMiniCardsColumn)
+        cardRow.appendChild(miniCardsColumn)
         miniCardsColumn.appendChild(card)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\

@@ -72,7 +72,7 @@ function getUsers() {
 }
 
 let cardCol = document.createElement('div')
-cardCol.className = 'col s7 mainCard offset-s3'
+cardCol.className = 'col s7 offset-s3'
 let cardRow = document.createElement('div')
 cardRow.className = 'row'
 
@@ -86,7 +86,6 @@ function getPosts() {
         
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
-
         let card = document.createElement('div')
         card.className = 'card medium hoverable'
         let cardTitle = document.createElement('span')
@@ -139,7 +138,6 @@ function getPosts() {
 
         card.addEventListener('click', (ev) => {
           if (ev) {
-          console.log(`clicked mothafucka`)
           //populate the fields on the bigCard here 
           //and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
           } else {

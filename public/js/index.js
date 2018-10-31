@@ -10,23 +10,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 })
 
-function getUsers() {
-  axios.get('/users')
-    .then((res) => {
-      // console.log('users data:', res.data)
-      res.data.forEach((users) => {
-        /////// build profile card for users\\\\\\\
-        // let userDiv = document.getElementById('userDiv')
-        // let userH5 = document.createElement('h5')
-        // userH5.className = "usersText"
-        // userDiv.appendChild(userH5)
-        // userH5.innerText = `
-        // User: ${users.id}
-        // \n${users.first_name} ${users.last_name}\n ${users.location}  `
-      })
-    })
-}
-
 
 let cardRow = document.createElement('div')
 cardRow.className = 'row'
@@ -74,12 +57,10 @@ function getPosts() {
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
 
-
         /////////Generate info for cards and append Elements\\\\\\\\\\
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
-
 
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
@@ -96,6 +77,15 @@ function getPosts() {
         card.appendChild(endTime)
         card.appendChild(location)
         cardImage.appendChild(imgSrc)
+
+        ////tags for posts\\\\
+        let tags = document.createElement('div')
+        axios.get('/tags_posts', res.data.id)
+          .then((res) => {
+            console.log('in the tagsposts res:', res)
+          })
+        card.appendChild('tags')
+
 
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
@@ -138,27 +128,7 @@ function getPosts() {
     })
 }
 
-//////////// DELETE THIS RECORD! \\\\\\\\\\\\\\\\
-function deletePost() {
-  del_button.addEventListener('click', (ev) => {
-    ev.preventDefault()
-    //write better alerts for comfirm on foodseen
-    if (confirm('Are you sure you want to delete this post?')) {
-      axios.delete(`/posts/${posts.id}`)
-        .then((res) => {
-          console.log(`deleted`)
-          ev.target.parentElement.parentElement.remove()
-          alert(`Deleted!`)
-        })
-        .catch((err) => {
-          //better error handling
-          console.log(err)
-        })
-    } else {
-      alert('Delete avoided!')
-    }
-  })
-}
+
 
 
 function getAllTags() {
@@ -171,6 +141,11 @@ function getAllTags() {
       console.log('tags:', tagsArray)
     })
 }
+
+
+
+
+
 
 
 

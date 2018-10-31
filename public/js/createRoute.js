@@ -19,8 +19,8 @@ function formSubmit() {
     let newState = e.target.elements[7].value
     let newZip = e.target.elements[9].value
     let newCountry = e.target.elements[10].value
-    if (e.target.elements[11].value === '') {
-      let newImageUrl.src = '../images/foodseenlogo.png'
+    if (e.target.elements[11].value === "") {
+      let newImageUrl.src = 'https://www.flickr.com/photos/145857699@N08/31780527108/in/dateposted-public/'
     } else {
       newImageUrl = e.target.elements[11].value
     }

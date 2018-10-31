@@ -98,11 +98,7 @@ function getPosts() {
         cardImage.appendChild(imgSrc)
 
         cardTitle.innerText = posts.eventName
-        if (post.imageUrl === '') {
-          imgSrc.src = '../images/foodseenlogo.png'
-        } else {
-          imgSrc.src = posts.imageUrl
-        }
+        imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
 
         card.addEventListener('click', (ev) => {

@@ -1,10 +1,10 @@
 var token = document.location.href.split('#')[1]
 document.addEventListener("DOMContentLoaded", function(event) {
   console.log("DOM fully loaded and parsed");
-  axios.get('/posts/1')
-    .then((res) => {
-      console.log(res)
-    })
+  // axios.get('/posts/1')
+  //   .then((res) => {
+  //     console.log(res)
+  //   })
   //materialize stuff
   M.AutoInit()
   setCookie()

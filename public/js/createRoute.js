@@ -40,6 +40,7 @@ function formSubmit() {
       date: newDate,
       promoted: newPromoted
     }
+    let post_id
 
     //logic to have a promoted login
     if (newPromoted === true) {
@@ -52,6 +53,7 @@ function formSubmit() {
       .then((res) => {
         console.log('create post res:', res)
         if (res) {
+          post_id = res.data
           alert(`Created New Event!`)
         }
       })
@@ -98,7 +100,7 @@ function formSubmit() {
     //build up each post body using the converted tag array
     convertedTagsArr.forEach(tag => {
       let tagPostBody = {
-        post_id: 32,
+        post_id: post_id,
         tag_id: tag
       }
       axios.post('https://food-seen.herokuapp.com/posts_tags', tagPostBody)

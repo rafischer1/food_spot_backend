@@ -42,6 +42,84 @@ exports.seed = function(knex, Promise) {
           promoted: true,
           date: '2018-10-31'
         },
+        {
+          id: 4,
+          eventName: 'Free Food',
+          foodName: 'Pizza',
+          user_id: 1,
+          address: '1023 Walnut St',
+          city: 'Boulder',
+          state: 'CO',
+          zipcode: '80302',
+          imageUrl: 'https://www.cicis.com/media/1176/pizza_trad_pepperonibeef.png',
+          promoted: true,
+          date: '2017-01-13'
+        },
+        {
+          id: 5,
+          eventName: 'Breakfast on Walnut',
+          foodName: 'Bagels',
+          user_id: 3,
+          address: '1023 Walnut St',
+          city: 'Boulder',
+          state: 'CO',
+          zipcode: '80302',
+          imageUrl: 'https://prods3.imgix.net/images/articles/2017_09/non-feat-best-bagels-online-yom-kippur.jpg?auto=format%2Ccompress&ixjsv=2.2.3&w=670',
+          promoted: true,
+          date: '2018-02-03'
+        },
+        {
+          id: 6,
+          eventName: 'Cooking Classes and Pancakes',
+          foodName: 'Pancakes',
+          user_id: 4,
+          address: '1023 Walnut St',
+          city: 'Boulder',
+          state: 'CO',
+          zipcode: '80302',
+          imageUrl: 'https://static01.nyt.com/images/2017/03/24/dining/24COOKING-CLASSICPANCAKES/24COOKING-CLASSICPANCAKES-articleLarge.jpg',
+          promoted: true,
+          date: '2018-10-31'
+        },
+        {
+          id: 7,
+          eventName: 'Free Food',
+          foodName: 'Pizza',
+          user_id: 1,
+          address: '1023 Walnut St',
+          city: 'Boulder',
+          state: 'CO',
+          zipcode: '80302',
+          imageUrl: 'https://www.cicis.com/media/1176/pizza_trad_pepperonibeef.png',
+          promoted: true,
+          date: '2017-01-13'
+        },
+        {
+          id: 8,
+          eventName: 'Breakfast on Walnut',
+          foodName: 'Bagels',
+          user_id: 3,
+          address: '1023 Walnut St',
+          city: 'Boulder',
+          state: 'CO',
+          zipcode: '80302',
+          imageUrl: 'https://prods3.imgix.net/images/articles/2017_09/non-feat-best-bagels-online-yom-kippur.jpg?auto=format%2Ccompress&ixjsv=2.2.3&w=670',
+          promoted: true,
+          date: '2018-02-03'
+        },
+        {
+          id: 9,
+          eventName: 'Cooking Classes and Pancakes',
+          foodName: 'Pancakes',
+          user_id: 4,
+          address: '1023 Walnut St',
+          city: 'Boulder',
+          state: 'CO',
+          zipcode: '80302',
+          imageUrl: 'https://static01.nyt.com/images/2017/03/24/dining/24COOKING-CLASSICPANCAKES/24COOKING-CLASSICPANCAKES-articleLarge.jpg',
+          promoted: true,
+          date: '2018-10-31'
+        },
       ]);
     })
     .then(() => {

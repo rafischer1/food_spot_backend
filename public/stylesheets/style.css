@@ -117,12 +117,10 @@ hr {
     background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
 }
 
-/* .mainCard {
-    position: static;
-} */
 
 .miniCards2 {
     position: relative;
+    /* display:inline-block; */
 }
 
 /* start of create modal css */

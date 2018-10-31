@@ -21,9 +21,10 @@ function getPosts() {
   axios.get('https://food-seen.herokuapp.com/posts')
     .then((res) => {
       console.log('res in main post:', res)
-      var tagPostId = res.data.id
+
       // handle success
       res.data.forEach((posts) => {
+        var tagPostId = posts.id
         ////////////set data into cards\\\\\\\\\\\\
 
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\

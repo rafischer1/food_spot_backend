@@ -23,8 +23,6 @@ function formSubmit() {
     let newStartTime = `${e.target.elements[2].value} ${e.target.elements[3].value}:00 UTC`
     let newEndTime = `${e.target.elements[2].value} ${e.target.elements[4].value}:00 UTC`
     let newDate = e.target.elements[2].value
-    let newTags = e.target.elements[12].value
-    console.log('newTags:', newTags)
     // e.target.elements[11].getAttribute('name')
     let newPromoted = document.getElementById('tagCheckbox').checked
 
@@ -50,7 +48,7 @@ function formSubmit() {
 
     console.log('post object:', newPostObj)
     // axios.post that data to the correct backend route
-    axios.post('/posts', newPostObj)
+    axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
       .then((res) => {
         console.log('create post res:', res)
         if (res) {
@@ -61,7 +59,52 @@ function formSubmit() {
         console.log(error)
       })
     //tags to be dealt with here
-    // axios.post('https://food-seen.herokuapp.com/posts_tags')
-    alert('Check your console logs!')
+    //deal with tag tagsArray
+    let newTags = e.target.elements[12].value
+    let newTagsArr = newTags.split(`, `)
+    let convertedTagsArr = []
+
+    for (var i = 0; i < newTagsArr.length; i++) {
+      if (newTagsArr[i] === "OUTDOORS") {
+        convertedTagsArr.push(1)
+      }
+      if (newTagsArr[i] === "INDOORS") {
+        convertedTagsArr.push(2)
+      }
+      if (newTagsArr[i] === "21+") {
+        convertedTagsArr.push(3)
+      }
+      if (newTagsArr[i] === "BEER") {
+        convertedTagsArr.push(4)
+      }
+      if (newTagsArr[i] === "PIZZA") {
+        convertedTagsArr.push(5)
+      }
+      if (newTagsArr[i] === "RECURRING") {
+        convertedTagsArr.push(6)
+      }
+      if (newTagsArr[i] === "ICE CREAM") {
+        convertedTagsArr.push(7)
+      }
+      if (newTagsArr[i] === "FLASH EVENT") {
+        convertedTagsArr.push(8)
+      }
+      if (newTagsArr[i] === "COLLEGE/UNIVERSITY") {
+        convertedTagsArr.push(9)
+      }
+    }
+    console.log('convertedTagsArr', convertedTagsArr)
+
+    //build up each post body using the converted tag array
+    convertedTagsArr.forEach(tag => {
+      let tagPostBody = {
+        post_id: 32,
+        tag_id: tag
+      }
+      axios.post('https://food-seen.herokuapp.com/posts_tags', tagPostBody)
+        .then((res) => {
+          console.log(`Posted tags for post id ${postId}`)
+        })
+    })
   })
 }

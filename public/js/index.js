@@ -55,7 +55,7 @@ function getCookie() {
 
 
 function getUsers() {
-  axios.get('heroku address/users')
+  axios.get('/users')
     .then((res) => {
       // console.log('users data:', res.data)
       res.data.forEach((users) => {
@@ -79,7 +79,7 @@ cardCol.className = 'col s7'
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
-  axios.get('https://food-seen.herokuapp.com/posts')
+  axios.get('/posts')
     .then((res) => {
       // handle success
       res.data.forEach((posts) => {
@@ -148,7 +148,7 @@ function getPosts() {
             dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
             startTime.innerText = 'Starts At: ' + posts.startTime
             endTime.innerText = 'Ends At: ' + posts.endTime
-            location.innerText = posts.address + ', ' + posts.city + ', ' + posts.zipcode
+            location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
           //populate the fields on the bigCard here 
           //and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
           } else {
@@ -172,7 +172,7 @@ function deletePost() {
     ev.preventDefault()
     //write better alerts for comfirm on foodseen
     if (confirm('Are you sure you want to delete this post?')) {
-      axios.delete(`heroku app/posts/${posts.id}`)
+      axios.delete(`/posts/${posts.id}`)
         .then((res) => {
           console.log(`deleted`)
           ev.target.parentElement.parentElement.remove()
@@ -191,7 +191,7 @@ function deletePost() {
 
 function getAllTags() {
   let tagsArray = []
-  axios.get('https://food-seen.herokuapp.com/tags')
+  axios.get('/tags')
     .then((tags) => {
       tags.data.forEach((tag) => {
         tagsArray.push(tag)
@@ -250,7 +250,7 @@ function formSubmit() {
 
     console.log('post object:', newPostObj)
     // axios.post that data to the correct backend route
-    axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
+    axios.post('/posts', newPostObj)
       .then((res) => {
         console.log('create post res:', res)
         if (res) {
@@ -260,7 +260,7 @@ function formSubmit() {
       .catch((error) => {
         console.log(error)
       })
-    axios.post('https://food-seen.herokuapp.com/posts_tags')
+    axios.post('/posts_tags')
     alert('Check your console logs!')
   })
 }

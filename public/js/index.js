@@ -20,6 +20,7 @@ cardCol.className = 'col s7'
 function getPosts() {
   axios.get('https://food-seen.herokuapp.com/posts')
     .then((res) => {
+      var tagPostId = res.data.id
       // handle success
       res.data.forEach((posts) => {
         ////////////set data into cards\\\\\\\\\\\\
@@ -80,8 +81,8 @@ function getPosts() {
 
         ////tags for posts\\\\
         let tags = document.createElement('div')
-        console.log('res.data.id:', res.data.id)
-        axios.get(`/tags_posts/${res.data.id}`)
+        console.log('res.data.id:', tagPostId)
+        axios.get(`/tags_posts/${tagPostId}`)
           .then((res) => {
             console.log('in the tagsposts res:', res)
           })

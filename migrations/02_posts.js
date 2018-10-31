@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
     table.string('state').notNullable()
     table.integer('zipcode').notNullable()
     table.string('country').notNullable().defaultTo('USA')
-    table.string('imageUrl')
+    table.string('imageUrl').defaultTo('../images/foodseenlogo.png')
     table.boolean('promoted')
     table.dateTime('startTime')
     table.dateTime('endTime')

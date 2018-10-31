@@ -39,7 +39,7 @@ function formSubmit() {
       date: newDate,
       promoted: newPromoted
     }
-    let post_id
+    var post_id
 
     //logic to have a promoted login
     if (newPromoted === true) {
@@ -48,6 +48,7 @@ function formSubmit() {
 
     axios.post('/posts', newPostObj)
       .then((res) => {
+        post_id = res.data
         console.log('res:', res.data)
       })
       .then(() => {

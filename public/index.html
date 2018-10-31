@@ -50,17 +50,18 @@
           </nav>
         </span>
         <span class="col s3 buttons">
-          <a href="/auth/github" class="waves-effect waves-light btn" id="signInBtn">Sign In</a>
-          <a href="/auth/github" class="waves-effect waves-light btn">Sign Up</a>
+          <a href="/auth/github" class="waves-effect waves-light btn" id="signInBtn">Sign In/Sign Up</a>
           <a hidden>My Posts</a>
           <!-- Modal Trigger -->
-          <a class="waves-effect waves-light btn modal-trigger" href="#createModal">Create Post</a>
+          <a class="waves-effect waves-light btn modal-trigger" id="createBtn" href="#createModal">Create Post</a>
         </span>
       </div>
 
       <hr class="hr">
-      <div class="container" id="parentContainer">
-        <span class="col s3" id="miniCards">
+      <div class="container"
+        id="parentContainer">
+        <span class="col s3"
+          id="miniCards">
 
         </span>
       </div>
@@ -99,12 +100,14 @@
                   <input id="startTime"
                     type="time"
                     class="validate inputs">
-                  <label for="startTime">Start Time</label>
+                  <label for="startTime"
+                    required>Start Time</label>
                 </div>
                 <div class="input-field col s3">
                   <input id="endTime"
                     type="time"
-                    class="validate inputs">
+                    class="validate inputs"
+                    required>
                   <label for="endTime">End Time</label>
                 </div>
               </div>

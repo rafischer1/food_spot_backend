@@ -26,10 +26,10 @@ const getPostsByUserId = (user_id) => {
 const create = (id, body, tags) => {
 
   let myobj = body
-  body.user_id = id
-  console.log('model posts create body:', body)
+  myobj.user_id = id
+
   return knex('posts')
-    .insert(body)
+    .insert(myobj)
     .returning('id')
     .then(post => {
       console.log('model .then post:', post[0])

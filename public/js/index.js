@@ -103,7 +103,8 @@ function getPosts() {
 
         card.addEventListener('click', (ev) => {
 
-          while(cardCol.hasChildNodes()){
+          while (cardCol.hasChildNodes()) {
+            console.log(cardCol.firstChild.childNodes)
             cardCol.firstChild.childNodes[3].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[4].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[5].setAttribute('style', 'display:none');

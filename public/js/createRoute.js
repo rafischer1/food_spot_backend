@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   formSubmit()
 })
 
-//function for submitting create new post form
 function formSubmit() {
   let createBtn = document.getElementById('createSubmit')
   if (!createBtn) {
@@ -40,24 +39,20 @@ function formSubmit() {
       date: newDate,
       promoted: newPromoted
     }
-    let post_id
+    var post_id
 
     //logic to have a promoted login
     if (newPromoted === true) {
       alert('Please login with your promoter code to enable promotion ________')
     }
 
-    console.log('post object:', newPostObj)
-    // axios.post that data to the correct backend route
     axios.post('/posts', newPostObj)
       .then((res) => {
-        console.log('create post res:', res)
-        if (res) {
-          post_id = res.data
-          alert(`Created New Event!`)
-        }
+        post_id = res.data
+        console.log('res:', res.data)
       })
-      .then((tags) => {
+      .then(() => {
+        console.log('started tag route')
         //tags to be dealt with here
         //deal with tag tagsArray
         let newTags = e.target.elements[12].value
@@ -104,12 +99,12 @@ function formSubmit() {
           axios.post('/posts_tags', tagPostBody)
             .then((res) => {
               console.log(`Posted tags for post id ${post_id}`)
+              return res
             })
         })
       })
-      .catch((error) => {
-        console.log(error)
+      .catch((err) => {
+        console.log(err)
       })
-
   })
 }

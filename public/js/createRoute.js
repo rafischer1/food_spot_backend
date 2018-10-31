@@ -19,11 +19,7 @@ function formSubmit() {
     let newState = e.target.elements[7].value
     let newZip = e.target.elements[9].value
     let newCountry = e.target.elements[10].value
-    if (e.target.elements[11].value === "") {
-      let newImageUrl.src = 'https://www.flickr.com/photos/145857699@N08/31780527108/in/dateposted-public/'
-    } else {
-      newImageUrl = e.target.elements[11].value
-    }
+    let newImageUrl = e.target.elements[11].value
     let newStartTime = `${e.target.elements[2].value} ${e.target.elements[3].value}:00 UTC`
     let newEndTime = `${e.target.elements[2].value} ${e.target.elements[4].value}:00 UTC`
     let newDate = e.target.elements[2].value

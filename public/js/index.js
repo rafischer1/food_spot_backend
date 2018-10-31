@@ -79,7 +79,7 @@ cardCol.className = 'col s7'
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
-  axios.get('/posts')
+  axios.get('https://food-seen.herokuapp.com/posts')
     .then((res) => {
       // handle success
       res.data.forEach((posts) => {
@@ -119,13 +119,6 @@ function getPosts() {
         // console.log(numberDate)
         
 
-        /////////Generate info for cards and append Elements\\\\\\\\\\
-        cardTitle.innerText = posts.eventName
-        imgSrc.src = posts.imageUrl
-        foodName.innerText = posts.foodName
-
-        
-
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
         cardRow.appendChild(miniCardsColumn)
         miniCardsColumn.appendChild(card)
@@ -140,14 +133,14 @@ function getPosts() {
         card.appendChild(location)
         cardImage.appendChild(imgSrc)
 
+        cardTitle.innerText = posts.eventName
+        imgSrc.src = posts.imageUrl
+        foodName.innerText = posts.foodName
 
         card.addEventListener('click', (ev) => {
 
-
           while(cardCol.hasChildNodes()){
-            cardCol.removeChild(cardCol.firstChild)
-
-            // miniCardsColumn.appendChild(cardCol.firstChild)
+            miniCardsColumn.appendChild(cardCol.firstChild)
           }
 
           if (ev) {
@@ -157,8 +150,6 @@ function getPosts() {
             startTime.innerText = 'Starts At: ' + posts.startTime
             endTime.innerText = 'Ends At: ' + posts.endTime
             location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
-          //populate the fields on the bigCard here 
-          //and maybe (once it works) the eventListener can even change to a "mouseOver" or "onFocus" to smooth out the transition
           } else {
             alert(`That didn't work for some reason`)
           }

@@ -142,6 +142,14 @@ function getPosts() {
 
 
         card.addEventListener('click', (ev) => {
+
+
+          while(cardCol.hasChildNodes()){
+            cardCol.removeChild(cardCol.firstChild)
+
+            // miniCardsColumn.appendChild(cardCol.firstChild)
+          }
+
           if (ev) {
             cardRow.appendChild(cardCol)
             cardCol.appendChild(card)

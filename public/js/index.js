@@ -125,7 +125,6 @@ function getPosts() {
         miniCardsColumn.appendChild(card)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        console.log(miniCardsColumn.childNodes)
         if(miniCardsColumn.childNodes.length > 4){
           secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
         }

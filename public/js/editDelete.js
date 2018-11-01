@@ -25,5 +25,3 @@ function deletePost() {
     }
   })
 }
-
-module.exports = { deletePost, editPost }

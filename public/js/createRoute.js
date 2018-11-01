@@ -11,7 +11,6 @@ function formSubmit() {
   createBtn.addEventListener('submit', (e) => {
     e.preventDefault()
     // grab all values from the form
-    // let userID = ??????
     let successMessage = document.getElementById('createPostSuccessMessage')
     let promoterSubmit = document.getElementById('promoterSubmitPopup')
     let promoterSubmitBtn = document.getElementById('promoterSubmit')
@@ -61,10 +60,8 @@ function formSubmit() {
     axios.post('/posts', newPostObj)
       .then((res) => {
         post_id = res.data
-        console.log('res:', res.data)
       })
       .then(() => {
-        console.log('started tag route')
         //tags to be dealt with here
         //deal with tag tagsArray
         let newTags = e.target.elements[12].value
@@ -100,7 +97,6 @@ function formSubmit() {
             convertedTagsArr.push(9)
           }
         }
-        console.log('convertedTagsArr', convertedTagsArr)
 
         //build up each post body using the converted tag array
         convertedTagsArr.forEach(tag => {
@@ -113,31 +109,24 @@ function formSubmit() {
               if (res) {
                 setTimeout(() => {
                   successMessage.style.display = "inline"
-
                 }, 500)
                 successMessage.style.animation = "fade-out 5s linear 1 forwards"
-
               }
               return res
             })
         })
       })
       .catch((err) => {
-        let messageText = 'Create post error - please try again'
+        let messageText = `Create post error - please try again (${err})`
         errorMessageFunction(messageText)
-        console.log(err)
       })
   })
 }
-
-
-
 /////////error handler - - change message text input for situation\\\\\\\\\\\\\\
-function errorMessageFunction(messageText) {
+const errorMessageFunction = (messageText) => {
   setTimeout(() => {
     errorMessage.style.display = "inline"
     errorMessage.innerText = messageText
-
   }, 500)
   errorMessage.style.animation = "fade-out 5s linear 1 forwards"
 }

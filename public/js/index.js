@@ -69,7 +69,7 @@ let cardRow = document.createElement('div')
 cardRow.className = 'row'
 cardRow.id = 'addtome'
 let cardCol = document.createElement('div')
-cardCol.className = 'col s6 pull-s3 mainCard'
+cardCol.className = 'col s6 pull-s3 card mainCard'
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
@@ -120,6 +120,7 @@ function getPosts() {
         cardRow.appendChild(secondMiniCardsColumn)
         cardRow.appendChild(miniCardsColumn)
         miniCardsColumn.appendChild(card)
+        cardRow.appendChild(cardCol)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
         if (miniCardsColumn.childNodes.length > 4){
@@ -148,30 +149,45 @@ function getPosts() {
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
+        dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
+        startTime.innerText = 'Starts At: ' + posts.startTime
+        endTime.innerText = 'Ends At: ' + posts.endTime
+        location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
+
+        dateOnCard.style.display = 'none'
+        startTime.style.display = 'none'
+        endTime.style.display = 'none'
+        location.style.display = 'none'
+
+
+
+        // card.firstChild.childNodes[3].setAttribute('style', 'display:none');
+        // card.firstChild.childNodes[4].setAttribute('style', 'display:none');
+        // card.firstChild.childNodes[5].setAttribute('style', 'display:none');
+        // card.firstChild.childNodes[6].setAttribute('style', 'display:none');
+
 
         card.addEventListener('click', (ev) => {
 
-          while(cardCol.hasChildNodes()){
-            cardCol.firstChild.childNodes[3].setAttribute('style', 'display:none');
-            cardCol.firstChild.childNodes[4].setAttribute('style', 'display:none');
-            cardCol.firstChild.childNodes[5].setAttribute('style', 'display:none');
-            cardCol.firstChild.childNodes[6].setAttribute('style', 'display:none');
-            miniCardsColumn.appendChild(cardCol.firstChild)
-            secondMiniCardsColumn.appendChild(miniCardsColumn.firstChild)
-            thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.firstChild)
-          }
+          // while(cardCol.hasChildNodes()){
+
+          //   miniCardsColumn.appendChild(cardCol.firstChild)
+          //   secondMiniCardsColumn.appendChild(miniCardsColumn.firstChild)
+          //   thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.firstChild)
+          // }
 
           if (ev) {
-            cardRow.appendChild(cardCol)
-            cardCol.appendChild(card)
-            cardCol.firstChild.childNodes[3].setAttribute('style', 'display:inline');
-            cardCol.firstChild.childNodes[4].setAttribute('style', 'display:inline');
-            cardCol.firstChild.childNodes[5].setAttribute('style', 'display:inline');
-            cardCol.firstChild.childNodes[6].setAttribute('style', 'display:inline');
-            dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
-            startTime.innerText = 'Starts At: ' + posts.startTime
-            endTime.innerText = 'Ends At: ' + posts.endTime
-            location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
+            // cardRow.appendChild(cardCol)
+            // cardCol.appendChild(card)
+            // cardCol.firstChild.childNodes[3].setAttribute('style', 'display:inline');
+            // cardCol.firstChild.childNodes[4].setAttribute('style', 'display:inline');
+            // cardCol.firstChild.childNodes[5].setAttribute('style', 'display:inline');
+            // cardCol.firstChild.childNodes[6].setAttribute('style', 'display:inline');
+            dateOnCard.style.display = 'inline'
+            startTime.style.display = 'inline'
+            endTime.style.display = 'inline'
+            location.style.display = 'inline'
+            cardCol.innerHTML = ev.target.innerHTML
           } else {
             alert(`That didn't work for some reason`)
           }

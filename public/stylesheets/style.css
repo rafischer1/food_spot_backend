@@ -123,6 +123,11 @@ hr {
     border: 2px solid hsla(111, 30%, 20%, 0.05);
   }
 
+.mainCard {
+    display: inline;
+}
+
+
 .miniCards2 {
     position: relative;
     /* display:inline-block; */

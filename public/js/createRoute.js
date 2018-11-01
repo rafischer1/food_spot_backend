@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let createBtn = document.getElementById('createSubmit')
+
   formSubmit()
 
   /////////error handler - - change message text input for situation\\\\\\\\\\\\\\
@@ -11,13 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     errorMessage.style.animation = "fade-out 5s linear 1 forwards"
   }
 })
+let createSubmitBtn = document.getElementById('createSubmit')
 
 function formSubmit() {
-  if (!createBtn) {
-    let messageText = 'Please close create window and try again'
-    errorMessageFunction(messageText)
-  }
-  createBtn.addEventListener('submit', (e) => {
+  createSubmitBtn.addEventListener('submit', (e) => {
     e.preventDefault()
     // grab all values from the form
     let successMessage = document.getElementById('createPostSuccessMessage')
@@ -30,7 +27,12 @@ function formSubmit() {
     let newState = e.target.elements[7].value
     let newZip = e.target.elements[9].value
     let newCountry = e.target.elements[10].value
-    let newImageUrl = e.target.elements[11].value
+    let newImageUrl
+    if (e.target.elements[11].value === "") {
+      newImageUrl = "http://oi63.tinypic.com/zjjf2a.jpg"
+    } else {
+      newImageUrl = e.target.elements[11].value
+    }
     let newStartTime = `${e.target.elements[2].value} ${e.target.elements[3].value}:00 UTC`
     let newEndTime = `${e.target.elements[2].value} ${e.target.elements[4].value}:00 UTC`
     let newDate = e.target.elements[2].value
@@ -54,13 +56,14 @@ function formSubmit() {
     var post_id
 
     //logic to have a promoted login
-    if (newPromoted === true) {
-      confirm('Please enter promoter passcode to confirm event post___________')
-    }
+    // if (newPromoted === true) {
+    //   confirm('Please enter promoter passcode to confirm event post___________')
+    // }
 
-
-    axios.post('/posts', newPostObj)
+    console.log("new post object:", newPostObj)
+    axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
       .then((res) => {
+        console.log('in the post route')
         post_id = res.data
       })
       .then(() => {
@@ -106,14 +109,9 @@ function formSubmit() {
             post_id: post_id,
             tag_id: tag
           }
-          axios.post('/posts_tags', tagPostBody)
+          axios.post('https://food-seen.herokuapp.com/posts_tags', tagPostBody)
             .then((res) => {
-              if (res) {
-                setTimeout(() => {
-                  successMessage.style.display = "inline"
-                }, 500)
-                successMessage.style.animation = "fade-out 5s linear 1 forwards"
-              }
+              console.log('in the posts_tags route')
               return res
             })
         })
@@ -122,5 +120,10 @@ function formSubmit() {
         let messageText = `Create post error - please try again (${err})`
         errorMessageFunction(messageText)
       })
+    setTimeout(() => {
+      successMessage.style.display = "inline"
+    }, 500)
+    successMessage.style.animation = "fade-out 5s linear 1 forwards"
+    getPosts()
   })
 }

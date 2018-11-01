@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   M.AutoInit()
   //general function calls
   getPosts()
-  formSubmit()
 })
 
 ////Main Card\\\\\
@@ -48,6 +47,7 @@ function getPosts() {
 
         ///////DATE MANIPULATION\\\\\\\
         let date = new Date(posts.date)
+
         let newDate = date.toString().split(' ').slice(0, 3)
         let dayOfWeek = newDate[0].substr(0)
         // console.log(dayOfWeek)
@@ -112,8 +112,8 @@ function getPosts() {
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
         dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
-        startTime.innerText = 'Starts At: ' + posts.startTime
-        endTime.innerText = 'Ends At: ' + posts.endTime
+        startTime.innerText = 'Starts At: ' + posts.startTime.split('T')[1].split('.')[0].slice(0, -3)
+        endTime.innerText = 'Ends At: ' + posts.endTime.split('T')[1].split('.')[0].slice(0, -3)
         location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
 
         dateOnCard.style.display = 'none'

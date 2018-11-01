@@ -45,6 +45,9 @@ const create = (id, body, tags) => {
 
 const updateOne = (id, body) => {
   let newPost = {}
+  if (body.EventName) {
+    newPost.eventName = body.eventName
+  }
   if (body.foodName) {
     newPost.foodName = body.foodName
   }
@@ -71,6 +74,9 @@ const updateOne = (id, body) => {
   }
   if (body.endTime) {
     newPost.endTime = body.endTime
+  }
+  if (body.date) {
+    newPost.date = body.date
   }
   return knex('posts')
     .where('id', id)

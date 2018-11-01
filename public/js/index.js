@@ -19,6 +19,13 @@ cardRow.className = 'row'
 cardRow.id = 'addtome'
 let cardCol = document.createElement('div')
 cardCol.className = 'col s6 pull-s3 card mainCard'
+let defaultCardTitle = document.createElement('h4')
+defaultCardTitle.innerText = 'Welcome to'
+let defaultCardImg = document.createElement('img')
+defaultCardImg.className = 'defaultCardImg'
+defaultCardImg.src = 'http://oi63.tinypic.com/zjjf2a.jpg'
+cardCol.appendChild(defaultCardTitle)
+cardCol.appendChild(defaultCardImg)
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
@@ -47,6 +54,7 @@ function getPosts() {
         location.className = 'location'
         let dateOnCard = document.createElement('div')
         dateOnCard.className = 'date'
+        
 
 
         ///////DATE MANIPULATION\\\\\\\

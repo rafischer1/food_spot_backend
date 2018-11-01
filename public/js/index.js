@@ -138,13 +138,6 @@ function getPosts() {
             ////SET TARGET INFO TO MAIN CARD\\\\
             cardCol.innerHTML = ev.target.innerHTML
 
-            // card.forEach(card => {
-            //   if (ev.target.getAttribute('style', 'background-color:skyblue')){
-            //     ev.target.setAttribute('style', 'background-color:white')
-            //   }
-            //   ev.target.setAttribute('style', 'background-color:skyblue')
-            // })
-
             // console.log(cardCol.childNodes)
             let cardElements = cardCol.childNodes
             cardElements.forEach(ele => {

@@ -10,11 +10,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
 })
 
 ////Main Card\\\\\
-let cardRow = document.createElement('div')
-cardRow.className = 'row'
+let cardRow = document.createElement('span')
+cardRow.className = 'row cardRow'
 cardRow.id = 'addtome1'
-let cardCol = document.createElement('div')
-cardCol.className = 'col s6 pull-s3 card mainCard'
+let cardCol = document.createElement('span')
+cardCol.className = 'col s6 pull-s1 card mainCard'
+let defaultCardTitle = document.createElement('h4')
+defaultCardTitle.innerText = 'Welcome to'
+let defaultCardImg = document.createElement('img')
+defaultCardImg.className = 'defaultCardImg'
+defaultCardImg.src = 'http://oi63.tinypic.com/zjjf2a.jpg'
+cardCol.appendChild(defaultCardTitle)
+cardCol.appendChild(defaultCardImg)
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
@@ -30,7 +37,7 @@ function getPosts() {
         let card = document.createElement('div')
         card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
-        cardTitle.className = 'grey-text textdarken-4'
+        cardTitle.className = 'title'
         let cardImage = document.createElement('div')
         cardImage.className = 'card-image'
         let imgSrc = document.createElement('img')
@@ -44,6 +51,7 @@ function getPosts() {
         location.className = 'location'
         let dateOnCard = document.createElement('div')
         dateOnCard.className = 'date'
+        
 
         ///////DATE MANIPULATION\\\\\\\
         let date = new Date(posts.date)
@@ -124,24 +132,26 @@ function getPosts() {
 
         card.addEventListener('click', (ev) => {
           if (ev && ev.target.className === "card hoverable") {
+            ////SET TARGET INFO TO MAIN CARD\\\\
             cardCol.innerHTML = ev.target.innerHTML
-            console.log(cardCol.childNodes)
-            let myStuff = cardCol.childNodes
-            myStuff.forEach(ele => {
+
+            // console.log(cardCol.childNodes)
+            let cardElements = cardCol.childNodes
+            cardElements.forEach(ele => {
               ele.setAttribute('style', 'display:inline')
             })
           } else {
             if (ev.target.parentNode.className !== "card-image") {
               cardCol.innerHTML = ev.target.parentNode.innerHTML
-              console.log(cardCol.childNodes)
-              let myStuff = cardCol.childNodes
-              myStuff.forEach(ele => {
+              // console.log(cardCol.childNodes)
+              let cardElements = cardCol.childNodes
+              cardElements.forEach(ele => {
                 ele.setAttribute('style', 'display:inline')
               })
             } else {
               cardCol.innerHTML = ev.target.parentNode.parentNode.innerHTML
-              let myStuff = cardCol.childNodes
-              myStuff.forEach(ele => {
+              let cardElements = cardCol.childNodes
+              cardElements.forEach(ele => {
                 ele.setAttribute('style', 'display:inline')
               })
             }

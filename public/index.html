@@ -35,9 +35,8 @@
         <h1 class="food">food</h1>
         <h1 class="seen">seen</h1>
       </div>
-    </div>
-    <div class="row searchRow">
-      <span class="col s4 offset-s2">
+      <div class="row hrRow">
+        <span class="col s4 offset-s2">
 
       </span>
       <!-- Sign Up and Create Post -->
@@ -51,69 +50,81 @@
         <!-- <a class="btn" id="seeMyPostsBtn">See My Posts</a> -->
         <button class="btn" id="seeMyPostsBtn" onclick="showMyPosts()" type="button" name="button">See My Posts</button>
       </span>
-    </div>
+      </div>
 
-    <hr class="hr">
-    <!-- <div class="row"> -->
-    <!-- ALL -->
-    <div class="container" id="parentContainer">
-      <div class="col s2 pull-s3 miniCards3" id="miniCards3">
-      </div>
-      <div class="col s2 pull-s4 miniCards2" id="miniCards2">
-      </div>
-      <div class="col s2 pull-s5" id="miniCards">
-      </div>
-    </div>
-    <br>
-    <!-- MY -->
-    <div class="container" id="myPostsContainer">
-      <div class="col s2 pull-s3 miniCards3" id="myMiniCards3">
-      </div>
-      <div class="col s2 pull-s4 miniCards2" id="myMiniCards2">
-      </div>
-      <div class="col s2 pull-s5" id="myMiniCards">
-      </div>
-    </div>
-    <!-- </div> -->
-    <!-- Modal Structure -->
-    <div id="createModal" class="createPostModal modal modal-fixed-footer">
-      <div class="modal-content">
-        <div class="row">
-          <form class="col s12" id="createSubmit">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="event_name" type="text" class="validate inputs">
-                <label for="event_name">Event Name</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="foodName" type="text" class="validate inputs">
-                <label for="foodName">Food Type</label>
-              </div>
-            </div>
-            <div class="date"><input type="date" id="start" name="trip" value="2018-11-02" min="2018-10-20" max="2020-12-31" />
-            </div>
-            <!-- date! -->
-            <div class="row">
-              <div class="input-field col s3">
-                <input id="startTime" type="time" class="validate inputs">
-                <label for="startTime" required>Start Time</label>
-              </div>
-              <div class="input-field col s3">
-                <input id="endTime" type="time" class="validate inputs" required>
-                <label for="endTime">End Time</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="address" type="text" class="validate inputs">
-                <label for="address">Address</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="city" type="text" class="validate inputs">
-                <label for="city">City</label>
-              </div>
-              <div class="input-field col s12">
-                <select>
+      <hr class="hr">
+      <span class="container miniCardContainer" id="parentContainer">
+        <span class="col s2 miniCards" id="miniCards3">
+
+        </span>
+        <span class="col s2 pull-s1 miniCards" id="miniCards2">
+
+        </span>
+        <span class="col s2 pull-s2 miniCards" id="miniCards">
+
+        </span>
+      </span>
+
+          <!-- Modal Structure -->
+          <div id="createModal"
+            class="createPostModal modal modal-fixed-footer">
+            <div class="modal-content">
+              <div class="row">
+                <form class="col s12"
+                  id="createSubmit">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="event_name"
+                        type="text"
+                        class="validate inputs">
+                      <label for="event_name">Event Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input id="foodName"
+                        type="text"
+                        class="validate inputs">
+                      <label for="foodName">Food Type</label>
+                    </div>
+                  </div>
+                  <div class="date"><input type="date"
+                      id="start"
+                      name="trip"
+                      value="2018-11-02"
+                      min="2018-10-20"
+                      max="2020-12-31" />
+                  </div>
+                  <!-- date! -->
+                  <div class="row">
+                    <div class="input-field col s3">
+                      <input id="startTime"
+                        type="time"
+                        class="validate inputs">
+                      <label for="startTime"
+                        required>Start Time</label>
+                    </div>
+                    <div class="input-field col s3">
+                      <input id="endTime"
+                        type="time"
+                        class="validate inputs"
+                        required>
+                      <label for="endTime">End Time</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="address"
+                        type="text"
+                        class="validate inputs">
+                      <label for="address">Address</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <input id="city"
+                        type="text"
+                        class="validate inputs">
+                      <label for="city">City</label>
+                    </div>
+                    <div class="input-field col s12">
+                      <select>
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
                   <option value="AR">AR</option>

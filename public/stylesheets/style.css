@@ -126,9 +126,14 @@ hr {
   height: 9.5em;
 }
 
-.miniCards2 {
-  position: relative;
-  /* display:inline-block; */
+.card {
+  color: black;
+  border-radius: 10px;
+  border: 2px solid hsla(111, 30%, 20%, 0.05);
+}
+
+.mainCard {
+  display: inline;
 }
 
 /* start of create modal css */
@@ -315,7 +320,7 @@ form {
     border: 2px solid hsla(111, 30%, 20%, 0.05);
   }
 
-.mainCard {
+  .mainCard {
     display: inline;
 }
 

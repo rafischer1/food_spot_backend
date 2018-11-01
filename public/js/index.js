@@ -40,7 +40,7 @@ function getPosts() {
         let card = document.createElement('div')
         card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
-        cardTitle.className = 'grey-text textdarken-4'
+        cardTitle.className = 'textdarken-4'
         let cardImage = document.createElement('div')
         cardImage.className = 'card-image'
         let imgSrc = document.createElement('img')

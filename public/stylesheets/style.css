@@ -102,14 +102,8 @@ body {
   margin-top: -60%;
 }
 
-.searchbar {
-  height: 1.88em;
-  background-color: rgb(51, 140, 21);
-  border-radius: .13em;
-}
-
-.searchRow {
-  margin-bottom: -3em;
+.hrRow {
+  margin-bottom: -7%;
 }
 
 hr {
@@ -121,19 +115,40 @@ hr {
   background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
 }
 
+.miniCardContainer {
+  margin-top: -10%;
+}
+
+h4 {
+  font-weight: bolder;
+}
+
+.mainCard {
+
+}
+
 .defaultCardImg {
   width: 14em;
   height: 9.5em;
 }
 
 .card {
-  color: black;
+  color: white;
+  background-image: -webkit-linear-gradient(left, rgb(51, 140, 21), rgb(51, 140, 21), rgb(68, 185, 29));
+  background-image: -moz-linear-gradient(left, rgb(51, 140, 21), rgb(51, 140, 21), rgb(68, 185, 29));
+  background-image: -ms-linear-gradient(left, rgb(51, 140, 21), rgb(51, 140, 21), rgb(68, 185, 29));
+  background-image: -o-linear-gradient(left, rgb(51, 140, 21), rgb(51, 140, 21), rgb(68, 185, 29));
   border-radius: 10px;
-  border: 2px solid hsla(111, 30%, 20%, 0.05);
+  border: 3px solid rgb(240, 196, 1);
 }
 
-.mainCard {
-  display: inline;
+.cardTags {
+  color: rgb(255, 251, 0);
+  margin: 5%;
+}
+
+.title {
+  font-weight: bold;
 }
 
 /* start of create modal css */
@@ -317,7 +332,7 @@ form {
 .card {
     color: rgb(44, 48, 48);
     border-radius: 10px;
-    border: 2px solid hsla(111, 30%, 20%, 0.05);
+    border: 3px solid hsla(110, 91%, 49%, 0.05);
   }
 
   .mainCard {

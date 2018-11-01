@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 })
 
 ////Main Card\\\\\
-let cardRow = document.createElement('div')
+let cardRow = document.createElement('span')
 cardRow.className = 'row'
 cardRow.id = 'addtome'
-let cardCol = document.createElement('div')
+let cardCol = document.createElement('span')
 cardCol.className = 'col s6 pull-s3 card mainCard'
 let defaultCardTitle = document.createElement('h4')
 defaultCardTitle.innerText = 'Welcome to'
@@ -40,7 +40,7 @@ function getPosts() {
         let card = document.createElement('div')
         card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
-        cardTitle.className = 'textdarken-4'
+        cardTitle.className = 'title'
         let cardImage = document.createElement('div')
         cardImage.className = 'card-image'
         let imgSrc = document.createElement('img')

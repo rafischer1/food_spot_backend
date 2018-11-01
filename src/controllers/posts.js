@@ -10,11 +10,8 @@ const getAll = (req, res, next) => {
     })
 }
 
-//works!
 const getPostsByUserId = (req, res, next) => {
-  // console.log(req.cookies.token)
   let myId = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id
-  console.log(jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id);
   return model.getPostsByUserId(myId)
     .catch(error => {
       return next({
@@ -46,7 +43,6 @@ const create = (req, res, next) => {
     })
 }
 
-// Works!
 const updateOne = (req, res, next) => {
   return model.updateOne(req.params.id, req.body)
     .then(data => {
@@ -60,7 +56,6 @@ const updateOne = (req, res, next) => {
     })
 }
 
-// works!
 const deletePost = (req, res, next) => {
   return model.deleteOne(req.params.id)
     .then(post => res.status(200).json(post))

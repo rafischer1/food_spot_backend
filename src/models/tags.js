@@ -1,7 +1,6 @@
 // Model
 const knex = require('../../knex')
 
-//get all works!
 const getAll = (req, res, next) => {
   return knex('tags')
     .then(tags => {
@@ -11,7 +10,6 @@ const getAll = (req, res, next) => {
     .catch(err => Promise.reject(err))
 }
 
-//works!
 const getOneTag = (id) => {
   return knex('tags')
     .where('id', id)
@@ -21,9 +19,6 @@ const getOneTag = (id) => {
     .catch(err => Promise.reject(err))
 }
 
-
-
-//create works!
 const create = (body) => {
   return knex('tags')
     .insert(body)
@@ -32,7 +27,5 @@ const create = (body) => {
     .then(tag => tag[0])
     .catch(err => Promise.reject(err))
 }
-
-
 
 module.exports = { getAll, create, getOneTag }

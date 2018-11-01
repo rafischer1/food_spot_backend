@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //materialize stuff
   M.AutoInit()
   getPosts()
-  // setCookie()
   //general function calls
-
 })
 
 let cardRow = document.createElement('div')
@@ -58,18 +56,15 @@ function getPosts() {
         let date = new Date(posts.date)
         let newDate = date.toString().split(' ').slice(0, 3)
         let dayOfWeek = newDate[0].substr(0)
-        // console.log(dayOfWeek)
         let month = newDate.slice(1, 2)
-        // console.log(month)
         let numberDate = newDate.slice(2)
-        // console.log(numberDate)
 
         /////////Generate info for cards and append Elements\\\\\\\\\\
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
 
-        ///////MINI CARDS\\\\\\    
+        ///////MINI CARDS\\\\\\
         cardRow.appendChild(miniCardsColumn)
         cardRow.appendChild(secondMiniCardsColumn)
         cardRow.appendChild(miniCardsColumn)
@@ -113,7 +108,6 @@ function getPosts() {
 
         card.addEventListener('click', (ev) => {
 
-
           while (cardCol.hasChildNodes()) {
             cardCol.firstChild.childNodes[3].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[4].setAttribute('style', 'display:none');
@@ -122,7 +116,6 @@ function getPosts() {
             miniCardsColumn.appendChild(cardCol.firstChild)
             tags.style.display = "none"
           }
-
           if (ev) {
             cardRow.appendChild(cardCol)
             cardCol.appendChild(card)

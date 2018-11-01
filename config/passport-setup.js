@@ -25,15 +25,12 @@ passport.use(
     },
     // passport call back function
     (accessToken, refreshToken, profile, done) => {
-
       console.log('passport callback function fired')
-      // console.log(profile.login)
-
       // Check if user is in our psql db, if not, make them
       userModel.checkUser(profile._json.id)
         .then((currentUser) => {
           if (currentUser) {
-            // already ahve the user 👍
+            // already have the user 👍
             console.log('user is: ', currentUser)
             // null if error, or pass user
             done(null, currentUser) // when done is called, we go to passport.serializeUser

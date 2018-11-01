@@ -1,7 +1,6 @@
 // Model
 const knex = require('../../knex')
 
-//getAll works!
 const getAll = (limit) => {
   return knex('users')
     .then(users => {
@@ -11,7 +10,6 @@ const getAll = (limit) => {
     .catch(err => Promise.reject(err))
 }
 
-//create works!
 const create = (body) => {
   return knex('users')
     .insert(body)
@@ -21,7 +19,6 @@ const create = (body) => {
     .catch(err => Promise.reject(err))
 }
 
-//works!
 const getOneUser = (oauthId) => {
   return knex('users')
     .where('oauthId', oauthId)
@@ -38,13 +35,7 @@ const checkUser = (githubId) => {
   return knex('users')
     .where('oauthId', githubId)
     .then(user => {
-      // console.log('user in user model:', user)
       return user[0]
-      // if (user.length > 0) {
-      //   return true
-      // } else {
-      //   return false
-      // }
     })
 }
 
@@ -52,7 +43,6 @@ const getPostsByUser = () => {
   console.log('getPostsByUser')
 }
 
-// works!
 const deleteOne = (id) => {
   return knex('users')
     .where('id', id)

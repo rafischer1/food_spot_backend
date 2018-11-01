@@ -1,14 +1,13 @@
 //controller tags
 const model = require('../models/tags')
 
-//works!
 const getAll = (req, res, next) => {
   return model.getAll()
     .then((tags) => {
       res.status(200).json(tags)
     })
 }
-//works!
+
 const create = (req, res, next) => {
   return model.create(req.body)
     .catch(errors => {
@@ -23,7 +22,6 @@ const create = (req, res, next) => {
     })
 }
 
-//works!
 const getOneTag = (req, res, next) => {
   return model.getOneTag(req.params.id)
     .catch(error => {

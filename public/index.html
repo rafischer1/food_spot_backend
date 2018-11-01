@@ -236,6 +236,170 @@
           </form>
         </div>
       </div>
+
+      <!-- modal for edit -->
+      <div id="editModal"
+        class="editPostModal modal modal-fixed-footer">
+        <div class="modal-content">
+          <div class="row">
+            <form class="col s12"
+              id="editSubmit">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="editEvent_name"
+                    type="text"
+                    class="validate inputs">
+                  <label for="event_name">Event Name</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="editFoodName"
+                    type="text"
+                    class="validate inputs">
+                  <label for="foodName">Food Type</label>
+                </div>
+              </div>
+              <div class="date"><input type="date"
+                  id="editDate"
+                  name="trip"
+                  value="2018-11-02"
+                  min="2018-10-20"
+                  max="2020-12-31" />
+              </div>
+              <!-- date! -->
+              <div class="row">
+                <div class="input-field col s3">
+                  <input id="editStartTime"
+                    type="time"
+                    class="validate inputs">
+                  <label for="startTime"
+                    required>Start Time</label>
+                </div>
+                <div class="input-field col s3">
+                  <input id="editEndTime"
+                    type="time"
+                    class="validate inputs"
+                    required>
+                  <label for="endTime">End Time</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="editAddress"
+                    type="text"
+                    class="validate inputs">
+                  <label for="address">Address</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="editCity"
+                    type="text"
+                    class="validate inputs">
+                  <label for="city">City</label>
+                </div>
+                <div class="input-field col s12">
+                  <select id='editState'>
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AR">AR</option>
+                  <option value="AZ">AZ</option>
+                  <option value="CA">CA</option>
+                  <option value="CO" selected>CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DC">DC</option>
+                  <option value="DE">DE</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="IA">IA</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="MA">MA</option>
+                  <option value="MD">MD</option>
+                  <option value="ME">ME</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MO">MO</option>
+                  <option value="MS">MS</option>
+                  <option value="MT">MT</option>
+                  <option value="NC">NC</option>
+                  <option value="NE">NE</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NV">NV</option>
+                  <option value="NY">NY</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WI">WI</option>
+                  <option value="WV">WV</option>
+                  <option value="WY">WY</option>
+                </select>
+                  <label for="state">State</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="editZip"
+                    type="text"
+                    class="validate inputs">
+                  <label for="zip">Zipcode</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="editCountry"
+                    type="text"
+                    class="validate inputs">
+                  <label for="country">Country</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="editUrl"
+                    type="text"
+                    class="validate inputs">
+                  <label for="imageUrl">imageUrl</label>
+                </div>
+                <!-- multiple select for tags -->
+                <div class="input-field col s12">
+                  <select multiple>
+                  <option class="tagSelect" value=1 placeholder="1">OUTDOORS</option>
+                  <option class="tagSelect" value="2">INDOORS</option>
+                  <option class="tagSelect" value="3">21+</option>
+                  <option class="tagSelect" value="4">BEER</option>
+                  <option class="tagSelect" value="5">PIZZA</option>
+                  <option class="tagSelect" value="6">RECURRING</option>
+                  <option class="tagSelect" value="7">ICE CREAM</option>
+                  <option class="tagSelect" value="8">FLASH EVENT</option>
+                  <option class="tagSelect" value="9">COLLEGE/UNIVERSITY</option>
+                </select>
+                  <label>Select Tags for Your Event</label>
+                </div>
+                <!-- Switch -->
+                <div>
+                  <label>
+                  <input type="checkbox" id="tagCheckbox" />
+                  <span>Promoted</span>
+                </label>
+                </div>
+                <br>
+                <hr>
+                <button class="btn modal-close"
+                  id="modalSubmit">Edit Post</button>
+              </div>
+          </div>
+          </form>
+        </div>
+      </div>
       <!-- post succesfully created popup message -->
       <div class="alert-card card-panel purple darken-2"
         id="createPostSuccessMessage"> 🍕 New Event Created! 🍕</div>

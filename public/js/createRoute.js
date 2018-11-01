@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function formSubmit() {
   let createBtn = document.getElementById('createSubmit')
+  let successMessage = document.getElementById('createPostSuccessMessage')
   if (!createBtn) {
     throw new Error('no form present')
   }
@@ -43,6 +44,8 @@ function formSubmit() {
 
     //logic to have a promoted login
     if (newPromoted === true) {
+      //set up sign in window
+
       alert('Please login with your promoter code to enable promotion ________')
     }
 
@@ -59,7 +62,7 @@ function formSubmit() {
         let newTagsArr = newTags.split(`, `)
         let convertedTagsArr = []
 
-        for (var i = 0; i < newTagsArr.length; i++) {
+        for (let i = 0; i < newTagsArr.length; i++) {
           if (newTagsArr[i] === "OUTDOORS") {
             convertedTagsArr.push(1)
           }
@@ -99,6 +102,10 @@ function formSubmit() {
           axios.post('/posts_tags', tagPostBody)
             .then((res) => {
               console.log(`Posted tags for post id ${post_id}`)
+              if (res) {
+                setTimeout(() => { successMessage.style.display = "inline" }, 3000)
+
+              }
               return res
             })
         })

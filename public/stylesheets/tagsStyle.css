@@ -1,4 +1,22 @@
+
 span.cardTags {
-  color: teal;
+  font-family: "Quicksand";
+  font-weight: bold;
+  color: rgb(40, 124, 44);
   margin: 5px;
+}
+
+.card {
+  color: rgb(44, 48, 48);
+  border-radius: 10px;
+  background-color: hsla(0, 0%, 98%);
+  border: 2px solid hsla(111, 50%, 20%, 0.35);
+}
+
+#createPostSuccessMessage {
+  width: 50%;
+  margin-left: 25%;
+  color: rgb(237, 237, 237);
+  font-weight: bold;
+  display: none;
 }

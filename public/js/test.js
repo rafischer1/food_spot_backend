@@ -1,5 +1,5 @@
-///test out random functionality
-
+// /test out random functionality
+// 
 // let testBtn = document.getElementById('testBtn')
 // 
 // testBtn.addEventListener('click', (e) => {

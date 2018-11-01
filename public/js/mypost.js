@@ -29,21 +29,21 @@ function editFunction(id) {
   modalFunction(id)
 }
 
-function deleteFunction(id){
+function deleteFunction(id) {
   if (confirm('Are you sure you want to delete this post?')) {
-      axios.delete(`https://food-seen.herokuapp.com/posts/${id}`)
-        .then((res) => {
-          console.log(`deleted`)
-          // ev.target.parentElement.parentElement.remove()
-          alert(`Deleted Event!`)
-        })
-        .catch((err) => {
-          //better error handling
-          console.log(err)
-        })
-    } else {
-      alert('Delete avoided!')
-    }
+    axios.delete(`https://food-seen.herokuapp.com/posts/${id}`)
+      .then((res) => {
+        console.log(`deleted`)
+        // ev.target.parentElement.parentElement.remove()
+        alert(`Deleted Event!`)
+      })
+      .catch((err) => {
+        //better error handling
+        console.log(err)
+      })
+  } else {
+    alert('Delete avoided!')
+  }
 }
 
 // populateMyPosts
@@ -60,7 +60,7 @@ function populateMyPosts() {
         let card = document.createElement('div')
         card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
-        cardTitle.className = 'grey-text textdarken-4'
+        cardTitle.className = 'textdarken-4'
         let cardImage = document.createElement('div')
         cardImage.className = 'card-image'
         let imgSrc = document.createElement('img')
@@ -89,7 +89,7 @@ function populateMyPosts() {
         //EDIT \\\\\\\\\\
         let edit = document.createElement('a')
         edit.className = "editBtn modal-trigger"
-        edit.href="#editModal"
+        edit.href = "#editModal"
         edit.innerText = "EDIT"
         edit.innerHTML = `<i class="material-icons" data-id=${posts.id}>edit</i>`
         edit.setAttribute('data-id', posts.id)
@@ -100,7 +100,7 @@ function populateMyPosts() {
 
         /////// DELETE \\\\\\\\
         let del = document.createElement('a')
-        del.href="#"
+        del.href = "#"
         del.innerHTML = `<i class="material-icons" data-id=${posts.id}>delete_forever</i>`
         del.setAttribute('data-id', posts.id)
         del.setAttribute('onclick', `deleteFunction(${del.getAttribute('data-id')})`)

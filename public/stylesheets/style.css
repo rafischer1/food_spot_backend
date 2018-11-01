@@ -1,16 +1,200 @@
 body {
+  font-family: "Quicksand";
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 1em;
+  /* overflow: hidden; */
+  background-image: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ea7aeb5fc4e3623a3f16af817ec12129&auto=format&fit=crop&w=1510&q=80");
+}
+
+.food {
+  font-family: "Economica";
+  text-transform: lowercase;
+  font-size: 330%;
+  font-weight: bolder;
+  margin-left: .01em;
+  width: 60%;
+  border-radius: 10%;
+  background-color: rgb(51, 140, 21);
+  color: white;
+}
+
+.seen {
+  font-family: "Economica";
+  text-transform: lowercase;
+  margin-top: -23%;
+  margin-left: 8%;
+  font-size: 3.3em;
+  font-weight: bolder;
+  width: 60%;
+  border-radius: 10%;
+  background-color: rgb(51, 140, 21);
+  color: white;
+}
+
+.sunRed {
+  margin-bottom: -4em;
+  margin-left: -2em;
+  width: 5em;
+  height: 5em;
+  background: rgb(240, 116, 1);
+  border-radius: 50%;
+}
+
+.sunYellow {
+  margin-bottom: -5.5em;
+  margin-left: -1em;
+  width: 4em;
+  height: 4em;
+  background: rgb(240, 196, 1);
+  border-radius: 50%;
+}
+
+.shape {
+  width: 0;
+  height: 0;
+  border: 4.38em solid transparent;
+  border-bottom: 1.25em solid rgb(255, 166, 0);
+  position: relative;
+  top: -3.13em;
+  margin-bottom: -6em;
+}
+
+.shape:after {
+  content: '';
+  position: absolute;
+  left: -3.13em;
+  top: 1.25em;
+  width: 0;
+  height: 0;
+  border: 3.13em solid transparent;
+  border-top: 4.38em solid rgb(255, 166, 0);
+}
+
+.logoRow {
+  margin-bottom: -.63em;
+}
+
+.buttons {
+  text-align: right;
+}
+
+.btn {
+  background-color: rgb(51, 140, 21);
+  height: 2.1em;
+}
+
+.row .buttons {
+  margin-bottom: 5em;
+}
+
+.hidden {
+  display: none;
+}
+
+.magnify {
+  height: 1.88em;
+  margin-top: -60%;
+}
+
+.searchbar {
+  height: 1.88em;
+  background-color: rgb(51, 140, 21);
+  border-radius: .13em;
+}
+
+.searchRow {
+  margin-bottom: -3em;
+}
+
+hr {
+  border: 0;
+  height: .13em;
+  background-image: -webkit-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
+  background-image: -moz-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
+  background-image: -ms-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
+  background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
+}
+
+.miniCards2 {
+  position: relative;
+  /* display:inline-block; */
+}
+
+/* start of create modal css */
+.createPostModal {
+  background: linear-gradient(to left, rgb(238, 215, 213), rgb(237, 240, 252));
+  border-radius: 5%;
+  border: 4px solid rgb(222, 197, 123);
+}
+
+.foodName {
+  margin: 1%;
+}
+
+.date {
+  padding: 5%;
+}
+
+.times {
+  padding: 5%;
+}
+
+.location {
+  margin: 3%;
+}
+
+.myPostsContainer {
+  display: none;
+}
+
+form {
+  color: rgb(222, 197, 123);
+}
+
+.input-field input+label {
+  font-size: 20px;
+  color: rgb(162, 62, 52);
+  text-transform: uppercase;
+}
+
+/* label focus color */
+.input-field input:focus+label {
+  font-size: 20px;
+  color: rgb(222, 197, 123) !important;
+}
+
+/* label underline focus color */
+.row .input-field input:focus {
+  border-bottom: 1px solid rgb(23, 3, 159);
+  box-shadow: 0 1px 0 0 blue !important
+}
+
+#startTime {
+  font-size: 110%;
+  margin-right: 10px;
+}
+
+#endTime {
+  font-size: 110%;
+  margin-left: 10px;
+}
+
+/* end of create modal css */
+/* iphone 6+, 6s+, 7+, 8+ */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+  body {
     font-family: "Quicksand";
-    text-transform: uppercase;
     font-size: 16px;
     text-align: center;
     padding-top: 1em;
-    /* overflow: hidden; */
+    overflow: hidden;
     background-image: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ea7aeb5fc4e3623a3f16af817ec12129&auto=format&fit=crop&w=1510&q=80");
   }
 
-.food {
+  .food {
     font-family: "Economica";
-    text-transform: lowercase;
     font-size: 330%;
     font-weight: bolder;
     margin-left: .01em;
@@ -18,11 +202,10 @@ body {
     border-radius: 10%;
     background-color: rgb(51, 140, 21);
     color: white;
-}
+  }
 
-.seen {
+  .seen {
     font-family: "Economica";
-    text-transform: lowercase;
     margin-top: -23%;
     margin-left: 8%;
     font-size: 3.3em;
@@ -31,27 +214,27 @@ body {
     border-radius: 10%;
     background-color: rgb(51, 140, 21);
     color: white;
-}
+  }
 
-.sunRed {
+  .sunRed {
     margin-bottom: -4em;
     margin-left: -2em;
     width: 5em;
     height: 5em;
     background: rgb(240, 116, 1);
     border-radius: 50%;
-}
+  }
 
-.sunYellow {
+  .sunYellow {
     margin-bottom: -5.5em;
     margin-left: -1em;
     width: 4em;
     height: 4em;
     background: rgb(240, 196, 1);
     border-radius: 50%;
-}
+  }
 
-.shape {
+  .shape {
     width: 0;
     height: 0;
     border: 4.38em solid transparent;
@@ -72,249 +255,62 @@ body {
     border-top: 4.38em solid rgb(255, 166, 0);
   }
 
-.logoRow {
+  .logoRow {
     margin-bottom: -.63em;
-}
+  }
 
-.buttons {
+  .buttons {
     text-align: right;
-}
+  }
 
-.btn {
+  .btn {
     background-color: rgb(51, 140, 21);
     height: 2.1em;
-}
+  }
 
-.row .buttons {
+  .row .buttons {
     margin-bottom: 5em;
-}
+  }
 
-.hidden {
+  .hidden {
     display: none;
-}
+  }
 
-.magnify {
+  .magnify {
     height: 1.88em;
     margin-top: -60%;
-}
+  }
 
-.searchbar {
+  .searchbar {
     height: 1.88em;
     background-color: rgb(51, 140, 21);
     border-radius: .13em;
-}
+  }
 
-.searchRow {
+  .searchRow {
     margin-bottom: -3em;
-}
+  }
 
-hr {
+  hr {
     border: 0;
     height: .13em;
     background-image: -webkit-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -moz-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -ms-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
-}
+  }
 
+  .mainCardImg {}
 
-.miniCards2 {
-    position: relative;
-    /* display:inline-block; */
-}
+  .rolodexCards {
+    width: 5em;
+    height: 6.25em;
+    margin: .13em;
+  }
 
-/* start of create modal css */
-.createPostModal {
-  background: linear-gradient(to left, rgb(238, 215, 213), rgb(237, 240, 252));
-  border-radius: 5%;
-  border: 4px solid rgb(222, 197, 123);
-}
-
-.foodName {
-    margin: 1%;
-}
-
-.date {
-    padding: 5%;
-}
-
-.times {
-    padding: 5%;
-}
-
-.location {
-    margin: 3%;
-}
-
-.myPostsContainer{
-  display: none;
-}
-
-form {
-  color: rgb(222, 197, 123);
-}
-
-.input-field input + label {
-  font-size: 20px;
-  color: rgb(162, 62, 52);
-  text-transform: uppercase;
-
-}
-
-/* label focus color */
- .input-field input:focus + label {
-   font-size: 20px;
-   color: rgb(222, 197, 123) !important;
- }
- /* label underline focus color */
- .row .input-field input:focus {
-   border-bottom: 1px solid rgb(23, 3, 159);
-   box-shadow: 0 1px 0 0 blue !important
- }
-
-#startTime {
-font-size: 110%;
-   margin-right: 10px;
- }
-
- #endTime {
-   font-size: 110%;
-   margin-left: 10px;
- }
-/* end of create modal css */
-
-
-/* iphone 6+, 6s+, 7+, 8+ */
-@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
-    body {
-        font-family: "Quicksand";
-        font-size: 16px;
-        text-align: center;
-        padding-top: 1em;
-        overflow: hidden;
-        background-image: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ea7aeb5fc4e3623a3f16af817ec12129&auto=format&fit=crop&w=1510&q=80");
-      }
-
-    .food {
-        font-family: "Economica";
-        font-size: 330%;
-        font-weight: bolder;
-        margin-left: .01em;
-        width: 60%;
-        border-radius: 10%;
-        background-color: rgb(51, 140, 21);
-        color: white;
-    }
-
-    .seen {
-        font-family: "Economica";
-        margin-top: -23%;
-        margin-left: 8%;
-        font-size: 3.3em;
-        font-weight: bolder;
-        width: 60%;
-        border-radius: 10%;
-        background-color: rgb(51, 140, 21);
-        color: white;
-    }
-
-    .sunRed {
-        margin-bottom: -4em;
-        margin-left: -2em;
-        width: 5em;
-        height: 5em;
-        background: rgb(240, 116, 1);
-        border-radius: 50%;
-    }
-
-    .sunYellow {
-        margin-bottom: -5.5em;
-        margin-left: -1em;
-        width: 4em;
-        height: 4em;
-        background: rgb(240, 196, 1);
-        border-radius: 50%;
-    }
-
-    .shape {
-        width: 0;
-        height: 0;
-        border: 4.38em solid transparent;
-        border-bottom: 1.25em solid rgb(255, 166, 0);
-        position: relative;
-        top: -3.13em;
-        margin-bottom: -6em;
-      }
-
-      .shape:after {
-        content: '';
-        position: absolute;
-        left: -3.13em;
-        top: 1.25em;
-        width: 0;
-        height: 0;
-        border: 3.13em solid transparent;
-        border-top: 4.38em solid rgb(255, 166, 0);
-      }
-
-    .logoRow {
-        margin-bottom: -.63em;
-    }
-
-    .buttons {
-        text-align: right;
-    }
-
-    .btn {
-        background-color: rgb(51, 140, 21);
-        height: 2.1em;
-    }
-
-    .row .buttons {
-        margin-bottom: 5em;
-    }
-
-    .hidden {
-        display: none;
-    }
-
-    .magnify {
-        height: 1.88em;
-        margin-top: -60%;
-    }
-
-    .searchbar {
-        height: 1.88em;
-        background-color: rgb(51, 140, 21);
-        border-radius: .13em;
-    }
-
-    .searchRow {
-        margin-bottom: -3em;
-    }
-
-    hr {
-        border: 0;
-        height: .13em;
-        background-image: -webkit-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
-        background-image: -moz-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
-        background-image: -ms-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
-        background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
-    }
-
-    .mainCardImg {
-
-    }
-
-    .rolodexCards {
-        width: 5em;
-        height: 6.25em;
-        margin: .13em;
-    }
-
-    .createPostModal {
-        background-image: url("");
-        background-size: cover;
-        border-radius: 5%;
-    }
+  .createPostModal {
+    background-image: url("");
+    background-size: cover;
+    border-radius: 5%;
+  }
 }

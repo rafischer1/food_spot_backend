@@ -297,7 +297,7 @@ form {
 
   hr {
     border: 0;
-    height: .13em;
+    height: 1em;
     background-image: -webkit-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -moz-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -ms-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));

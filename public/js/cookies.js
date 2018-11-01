@@ -15,3 +15,11 @@ if (myCookie == '') {
   seeMyPostsBtn.setAttribute("style", "display:inline");
   signInBtn.setAttribute("style", "display:none");
 }
+
+function showMyPosts(){
+  console.log("seemyposts");
+  let myPostsDiv = document.getElementById('myPostsContainer')
+  myPostsDiv.setAttribute("style", "display:inline")
+  let mainDiv = document.getElementById('addtome1')
+  mainDiv.setAttribute("style", "display:none")
+}

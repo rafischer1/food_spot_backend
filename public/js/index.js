@@ -1,13 +1,10 @@
-var token = document.location.href.split('#')[1]
+// var token = document.location.href.split('#')[1]
 
 document.addEventListener("DOMContentLoaded", function(event) {
   // console.log("DOM fully loaded and parsed")
 
   //materialize stuff
   M.AutoInit()
-
-
-
   //general function calls
   getPosts()
   formSubmit()
@@ -16,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 ////Main Card\\\\\
 let cardRow = document.createElement('div')
 cardRow.className = 'row'
-cardRow.id = 'addtome'
+cardRow.id = 'addtome1'
 let cardCol = document.createElement('div')
 cardCol.className = 'col s6 pull-s3 card mainCard'
 
@@ -25,6 +22,7 @@ function getPosts() {
   axios.get('https://food-seen.herokuapp.com/posts')
     .then((res) => {
       // handle success
+      console.log(res.data)
       res.data.forEach((posts) => {
         var tagPostId = posts.id
         ////////////set data into cards\\\\\\\\\\\\
@@ -48,7 +46,6 @@ function getPosts() {
         let dateOnCard = document.createElement('div')
         dateOnCard.className = 'date'
 
-
         ///////DATE MANIPULATION\\\\\\\
         let date = new Date(posts.date)
         let newDate = date.toString().split(' ').slice(0, 3)
@@ -58,7 +55,6 @@ function getPosts() {
         // console.log(month)
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
-
 
         ///////MINI CARDS\\\\\\
         let parentContainer = document.getElementById('parentContainer')
@@ -126,21 +122,15 @@ function getPosts() {
         location.style.display = 'none'
         tags.style.display = "none"
 
-
         card.addEventListener('click', (ev) => {
-          // console.log(typeof ev)
           if (ev && ev.target.className === "card hoverable") {
-
-
             cardCol.innerHTML = ev.target.innerHTML
             console.log(cardCol.childNodes)
             let myStuff = cardCol.childNodes
             myStuff.forEach(ele => {
               ele.setAttribute('style', 'display:inline')
             })
-
           } else {
-            // alert(`That didn't work for some reason`)
             if (ev.target.parentNode.className !== "card-image") {
               cardCol.innerHTML = ev.target.parentNode.innerHTML
               console.log(cardCol.childNodes)

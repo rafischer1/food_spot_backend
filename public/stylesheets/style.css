@@ -101,7 +101,10 @@ body {
   height: 1.88em;
   margin-top: -60%;
 }
-
+.img{
+  width:620px;
+  height:310px;
+}
 .searchbar {
   height: 1.88em;
   background-color: rgb(51, 140, 21);
@@ -111,7 +114,12 @@ body {
 .searchRow {
   margin-bottom: -3em;
 }
-
+#parentContainer{
+  display:inline;
+}
+#myPostsContainer{
+  display:none;
+}
 hr {
   border: 0;
   height: .13em;
@@ -148,6 +156,8 @@ hr {
 .location {
   margin: 3%;
 }
+
+
 
 .myPostsContainer {
   display: none;
@@ -283,12 +293,6 @@ form {
   .magnify {
     height: 1.88em;
     margin-top: -60%;
-  }
-
-  .searchbar {
-    height: 1.88em;
-    background-color: rgb(51, 140, 21);
-    border-radius: .13em;
   }
 
   .searchRow {

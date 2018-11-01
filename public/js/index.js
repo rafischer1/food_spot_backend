@@ -116,21 +116,32 @@ function getPosts() {
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
         
+
         ///////MINI CARDS\\\\\\
         let parentContainer = document.getElementById('parentContainer')
         let miniCardsColumn = document.getElementById('miniCards')
         let secondMiniCardsColumn = document.getElementById('miniCards2')
+        let thirdMiniCardsColumn = document.getElementById('miniCards3')
 
-        
+        cardRow.appendChild(thirdMiniCardsColumn)
         cardRow.appendChild(secondMiniCardsColumn)
         cardRow.appendChild(miniCardsColumn)
         miniCardsColumn.appendChild(card)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        if(miniCardsColumn.childNodes.length > 4){
+        
+        if (miniCardsColumn.childNodes.length > 4){
           secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
         }
 
+        if (secondMiniCardsColumn.childNodes.length > 4){
+          thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.childNodes[4])
+        }
+        console.log(thirdMiniCardsColumn.childNodes.length)
+        if (thirdMiniCardsColumn.childNodes.length > 4){
+          miniCardsColumn.appendChild(thirdMiniCardsColumn.childNodes[4])
+        }
+          
         ////////APPEND INFO TO CARDS\\\\\\\\\\
         parentContainer.appendChild(cardRow)
         card.appendChild(cardTitle)
@@ -142,6 +153,7 @@ function getPosts() {
         card.appendChild(location)
         cardImage.appendChild(imgSrc)
 
+        ////FIELDS FOR MINI CARDS\\\\
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
@@ -154,6 +166,8 @@ function getPosts() {
             cardCol.firstChild.childNodes[5].setAttribute('style', 'display:none');
             cardCol.firstChild.childNodes[6].setAttribute('style', 'display:none');
             miniCardsColumn.appendChild(cardCol.firstChild)
+            secondMiniCardsColumn.appendChild(miniCardsColumn.firstChild)
+            thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.firstChild)
           }
 
           if (ev) {

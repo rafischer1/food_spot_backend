@@ -2,6 +2,8 @@ const editPost = () => {
   console.log('editPost!')
 }
 // M.AutoInit()
+
+// LINE 89 !!!!!
 function modalFunction(id) {
   //need to grab id from somewhere
 
@@ -26,7 +28,7 @@ function modalFunction(id) {
       let formCountry = document.getElementById('editCountry')
       let formImgUrl = document.getElementById('editUrl')
       //tags and promoted cannot be edited!
-
+      
       formEventName.value = post.data[0].eventName
       formFoodname.value = post.data[0].foodName
       formDate.value = post.data[0].date

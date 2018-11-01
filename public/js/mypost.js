@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   if (myCookie == '') {
 
   } else {
-    console.log('hi')
+    // console.log('hi')
     populateMyPosts()
   }
 
@@ -27,8 +27,6 @@ function editFunction(id) {
   console.log('editfunciton')
   console.log(id)
   modalFunction(id)
-  //CODE TO PUT EDIT THINGY HERE
-  // showEdit()
 }
 
 function deleteFunction(id){
@@ -52,8 +50,8 @@ function deleteFunction(id){
 function populateMyPosts() {
   axios.get('/posts/1')
     .then((res) => {
-      console.log('in .then of ax.get')
-      console.log(res.data)
+      // console.log('in .then of ax.get')
+      // console.log(res.data)
       res.data.forEach((posts) => {
         var tagPostId = posts.id
         ////////////set data into cards\\\\\\\\\\\\
@@ -177,7 +175,6 @@ function populateMyPosts() {
         edit.style.display = "none"
         del.style.display = "none"
         tags.style.display = "none"
-
 
         card.addEventListener('click', (ev) => {
           // console.log(typeof ev)

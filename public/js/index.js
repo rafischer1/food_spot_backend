@@ -1,9 +1,6 @@
 // var token = document.location.href.split('#')[1]
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  // console.log("DOM fully loaded and parsed")
-
-  //materialize stuff
   M.AutoInit()
   //general function calls
   getPosts()
@@ -28,7 +25,7 @@ function getPosts() {
   axios.get('https://food-seen.herokuapp.com/posts')
     .then((res) => {
       // handle success
-      console.log('res.data:', res.data)
+      // console.log(res.data)
       res.data.forEach((posts) => {
         var tagPostId = posts.id
         ////////////set data into cards\\\\\\\\\\\\
@@ -51,7 +48,7 @@ function getPosts() {
         location.className = 'location'
         let dateOnCard = document.createElement('div')
         dateOnCard.className = 'date'
-        
+
 
         ///////DATE MANIPULATION\\\\\\\
         let date = new Date(posts.date)

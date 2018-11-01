@@ -45,7 +45,7 @@ const create = (id, body, tags) => {
 
 const updateOne = (id, body) => {
   let newPost = {}
-  if (body.EventName) {
+  if (body.eventName) {
     newPost.eventName = body.eventName
   }
   if (body.foodName) {

@@ -83,6 +83,7 @@ body {
 .btn {
   background-color: rgb(51, 140, 21);
   height: 2.1em;
+  border-radius: 5px;
 }
 
 .row .buttons {

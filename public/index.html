@@ -1,106 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Food Seen</title>
-  <!-- JavaScript -->
-  <script src="./js/index.js" charset="utf-8"></script>
-  <!-- Materialize -->
-  <link rel="stylesheet" href="stylesheets/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- CSS -->
-  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Economica" rel="stylesheet">
-  <link rel="stylesheet" href="stylesheets/style.css">
-  <link rel="stylesheet" href="stylesheets/tagsStyle.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+      content="ie=edge">
+    <title>Food Seen</title>
+    <!-- JavaScript -->
+    <script src="./js/index.js"
+      charset="utf-8"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet"
+      href="stylesheets/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Economica"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="stylesheets/style.css">
+    <link rel="stylesheet"
+      href="stylesheets/tagsStyle.css">
+  </head>
 
-<body>
-  <div class="container">
-    <!-- Logo -->
-    <div class="row logoRow">
-      <div class="sunRed"></div>
-      <div class="sunYellow"></div>
-      <div class="shape"></div>
-      <div class="col s3 pull-s1">
-        <h1 class="food">food</h1>
-        <h1 class="seen">seen</h1>
+  <body>
+    <div class="container">
+      <!-- Logo -->
+      <div class="row logoRow">
+        <div class="sunRed"></div>
+        <div class="sunYellow"></div>
+        <div class="shape"></div>
+        <div class="col s3 pull-s1">
+          <h1 class="food">food</h1>
+          <h1 class="seen">seen</h1>
+        </div>
       </div>
-    </div>
-    <div class="row searchRow">
-      <span class="col s4 offset-s2">
+      <div class="row searchRow">
+        <span class="col s4 offset-s2">
 
       </span>
-      <!-- Sign Up and Create Post -->
-      <span class="col s3 buttons">
+        <!-- Sign Up and Create Post -->
+        <span class="col s3 buttons">
         <a href="/auth/github" class="waves-effect waves-light btn" id="signInBtn">Sign In/Up</a>
         <a hidden>My Posts</a>
         <!-- Modal Trigger -->
         <a class="waves-effect waves-light btn modal-trigger" id="createBtn" href="#createModal">Create Post</a>
         <a class="btn" id="seeMyPostsBtn">See My Posts</a>
       </span>
-    </div>
+      </div>
 
-    <hr class="hr">
-    <!-- Main Cards Div -->
-    <div class="container" id="parentContainer">
-      <div class="col s3 pull-s3 miniCards2" id="miniCards2">
+      <hr class="hr">
+      <!-- Main Cards Div -->
+      <div class="container"
+        id="parentContainer">
+        <div class="col s3 pull-s3 miniCards2"
+          id="miniCards2">
+        </div>
+        <div class="col s3 pull-s5"
+          id="miniCards">
+        </div>
       </div>
-      <div class="col s3 pull-s5" id="miniCards">
-      </div>
-    </div>
 
-    <!-- My Posts -->
-    <!-- Hidden by defailt , css 149-->
-    <div class="container" id="myPostsContainer">
-      <div class="col s3 pull-s3 miniCards2" id="myMiniCards2">
+      <!-- My Posts -->
+      <!-- Hidden by defailt , css 149-->
+      <div class="container"
+        id="myPostsContainer">
+        <div class="col s3 pull-s3 miniCards2"
+          id="myMiniCards2">
+        </div>
+        <div class="col s3 pull-s5"
+          id="myMiniCards">
+        </div>
       </div>
-      <div class="col s3 pull-s5" id="myMiniCards">
-      </div>
-    </div>
 
-    <!-- Modal Structure -->
-    <div id="createModal" class="createPostModal modal modal-fixed-footer">
-      <div class="modal-content">
-        <div class="row">
-          <form class="col s12" id="createSubmit">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="event_name" type="text" class="validate inputs">
-                <label for="event_name">Event Name</label>
+      <!-- Modal Structure -->
+      <div id="createModal"
+        class="createPostModal modal modal-fixed-footer">
+        <div class="modal-content">
+          <div class="row">
+            <form class="col s12"
+              id="createSubmit">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="event_name"
+                    type="text"
+                    class="validate inputs">
+                  <label for="event_name">Event Name</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="foodName"
+                    type="text"
+                    class="validate inputs">
+                  <label for="foodName">Food Type</label>
+                </div>
               </div>
-              <div class="input-field col s12">
-                <input id="foodName" type="text" class="validate inputs">
-                <label for="foodName">Food Type</label>
+              <div class="date"><input type="date"
+                  id="start"
+                  name="trip"
+                  value="2018-10-31"
+                  min="2018-09-20"
+                  max="2020-12-31" />
               </div>
-            </div>
-            <div class="date"><input type="date" id="start" name="trip" value="2018-10-31" min="2018-09-20" max="2020-12-31" />
-            </div>
-            <!-- date! -->
-            <div class="row">
-              <div class="input-field col s3">
-                <input id="startTime" type="time" class="validate inputs">
-                <label for="startTime" required>Start Time</label>
+              <!-- date! -->
+              <div class="row">
+                <div class="input-field col s3">
+                  <input id="startTime"
+                    type="time"
+                    class="validate inputs">
+                  <label for="startTime"
+                    required>Start Time</label>
+                </div>
+                <div class="input-field col s3">
+                  <input id="endTime"
+                    type="time"
+                    class="validate inputs"
+                    required>
+                  <label for="endTime">End Time</label>
+                </div>
               </div>
-              <div class="input-field col s3">
-                <input id="endTime" type="time" class="validate inputs" required>
-                <label for="endTime">End Time</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="address" type="text" class="validate inputs">
-                <label for="address">Address</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="city" type="text" class="validate inputs">
-                <label for="city">City</label>
-              </div>
-              <div class="input-field col s12">
-                <select>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="address"
+                    type="text"
+                    class="validate inputs">
+                  <label for="address">Address</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="city"
+                    type="text"
+                    class="validate inputs">
+                  <label for="city">City</label>
+                </div>
+                <div class="input-field col s12">
+                  <select>
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
                   <option value="AR">AR</option>
@@ -153,23 +189,29 @@
                   <option value="WV">WV</option>
                   <option value="WY">WY</option>
                 </select>
-                <label for="state">State</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="zip" type="text" class="validate inputs">
-                <label for="zip">Zipcode</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="country" type="text" class="validate inputs">
-                <label for="country">Country</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="imageUrl" type="text" class="validate inputs">
-                <label for="imageUrl">imageUrl</label>
-              </div>
-              <!-- multiple select for tags -->
-              <div class="input-field col s12">
-                <select multiple>
+                  <label for="state">State</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="zip"
+                    type="text"
+                    class="validate inputs">
+                  <label for="zip">Zipcode</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="country"
+                    type="text"
+                    class="validate inputs">
+                  <label for="country">Country</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="imageUrl"
+                    type="text"
+                    class="validate inputs">
+                  <label for="imageUrl">imageUrl</label>
+                </div>
+                <!-- multiple select for tags -->
+                <div class="input-field col s12">
+                  <select multiple>
                   <option class="tagSelect" value=1 placeholder="1">OUTDOORS</option>
                   <option class="tagSelect" value="2">INDOORS</option>
                   <option class="tagSelect" value="3">21+</option>
@@ -180,30 +222,57 @@
                   <option class="tagSelect" value="8">FLASH EVENT</option>
                   <option class="tagSelect" value="9">COLLEGE/UNIVERSITY</option>
                 </select>
-                <label>Select Tags for Your Event</label>
-              </div>
-              <!-- Switch -->
-              <div>
-                <label>
+                  <label>Select Tags for Your Event</label>
+                </div>
+                <!-- Switch -->
+                <div>
+                  <label>
                   <input type="checkbox" id="tagCheckbox" />
                   <span>Promoted</span>
                 </label>
+                </div>
+                <br>
+                <hr>
+                <button class="btn"
+                  id="submitBtn">Create Post</button>
               </div>
-              <br>
-              <hr>
-              <button class="btn" id="submitBtn">Create Post</button>
-            </div>
+          </div>
+          </form>
         </div>
+      </div>
+      <!-- post succesfully created popup message -->
+      <div class="alert-card card-panel purple darken-2"
+        id="createPostSuccessMessage"> 🍕 New Event Created! 🍕</div>
+      <!-- generic error popup message -->
+      <div class=" alert-card card-panel amber darken-3"
+        id="generalErrorMessage"></div>
+      <!-- message for promoter login -->
+      <div class="alert-card card-panel teal accent-3"
+        id="promoterSubmitPopup">
+        <form action="">
+          <label for="promoter">Please login in with Promoter password:</label>
+          <input type="text"
+            pattern="promoter"
+            required>
+          <button class="btn"
+            id="promoterSubmit">Submit</button>
+
         </form>
       </div>
-    </div>
-    <div class="modal-footer">
-      <br>
-    </div>
-    <script src="js/materialize.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-    <script src="./js/createRoute.js"></script>
-    <script src="./js/cookies.js"></script>
-</body>
+
+      <div class="modal-footer">
+        <br>
+      </div>
+      <footer>
+        <button class="btn"
+          id="testBtn">Test</button>
+      </footer>
+      <script src="js/materialize.min.js"
+        charset="utf-8"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+      <script src="./js/createRoute.js"></script>
+      <script src="./js/cookies.js"></script>
+      <script src="./js/test.js"></script>
+  </body>
 
 </html>

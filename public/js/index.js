@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   getPosts()
   //general function calls
 })
-
+let errorMessage = document.getElementById('generalErrorMessage')
 let cardRow = document.createElement('div')
 cardRow.className = 'row'
 cardRow.id = 'addtome'
@@ -137,4 +137,15 @@ function getPosts() {
     .catch((error) => {
       console.log(error)
     })
+}
+
+
+//error handler - - change message text input for situation
+function errorMessageFunction(messageText) {
+  setTimeout(() => {
+    errorMessage.style.display = "inline"
+    errorMessage.innerText = messageText
+
+  }, 500)
+  errorMessage.style.animation = "fade-out 5s linear 1 forwards"
 }

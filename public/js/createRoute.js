@@ -5,12 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
 function formSubmit() {
   let createBtn = document.getElementById('createSubmit')
   if (!createBtn) {
-    throw new Error('no form present')
+    let messageText = 'Please close create window and try again'
+    errorMessageFunction(messageText)
   }
   createBtn.addEventListener('submit', (e) => {
     e.preventDefault()
     // grab all values from the form
     // let userID = ??????
+    let successMessage = document.getElementById('createPostSuccessMessage')
+    let promoterSubmit = document.getElementById('promoterSubmitPopup')
+    let promoterSubmitBtn = document.getElementById('promoterSubmit')
     let newEventName = e.target.elements[0].value
     let newFoodName = e.target.elements[1].value
     let newAddress = e.target.elements[5].value
@@ -43,8 +47,16 @@ function formSubmit() {
 
     //logic to have a promoted login
     if (newPromoted === true) {
-      alert('Please login with your promoter code to enable promotion ________')
+      setTimeout(() => {
+        promoterSubmit.style.display = "inline"
+
+      }, 500)
+      promoterSubmitBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        promoterSubmit.style.display = "none"
+      })
     }
+
 
     axios.post('/posts', newPostObj)
       .then((res) => {
@@ -98,13 +110,34 @@ function formSubmit() {
           }
           axios.post('/posts_tags', tagPostBody)
             .then((res) => {
-              console.log(`Posted tags for post id ${post_id}`)
+              if (res) {
+                setTimeout(() => {
+                  successMessage.style.display = "inline"
+
+                }, 500)
+                successMessage.style.animation = "fade-out 5s linear 1 forwards"
+
+              }
               return res
             })
         })
       })
       .catch((err) => {
+        let messageText = 'Create post error - please try again'
+        errorMessageFunction(messageText)
         console.log(err)
       })
   })
+}
+
+
+
+/////////error handler - - change message text input for situation\\\\\\\\\\\\\\
+function errorMessageFunction(messageText) {
+  setTimeout(() => {
+    errorMessage.style.display = "inline"
+    errorMessage.innerText = messageText
+
+  }, 500)
+  errorMessage.style.animation = "fade-out 5s linear 1 forwards"
 }

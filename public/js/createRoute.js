@@ -29,7 +29,7 @@ function formSubmit() {
     let newCountry = e.target.elements[10].value
     let newImageUrl
     if (e.target.elements[11].value === "") {
-      newImageUrl = "https://food-seen.herokuapp.com/images/foodseenlogo.png"
+      newImageUrl = "https://www.flickr.com/photos/145857699@N08/31795494678/in/dateposted-public/"
     } else {
       newImageUrl = e.target.elements[11].value
     }
@@ -112,13 +112,6 @@ function formSubmit() {
           axios.post('https://food-seen.herokuapp.com/posts_tags', tagPostBody)
             .then((res) => {
               console.log('in the posts_tags route')
-              if (res) {
-                setTimeout(() => {
-                  successMessage.style.display = "inline"
-                }, 500)
-                successMessage.style.animation = "fade-out 5s linear 1 forwards"
-              }
-              getPosts()
               return res
             })
         })
@@ -127,5 +120,12 @@ function formSubmit() {
         let messageText = `Create post error - please try again (${err})`
         errorMessageFunction(messageText)
       })
+    if (res) {
+      setTimeout(() => {
+        successMessage.style.display = "inline"
+      }, 500)
+      successMessage.style.animation = "fade-out 5s linear 1 forwards"
+    }
+    getPosts()
   })
 }

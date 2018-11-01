@@ -5,64 +5,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   //materialize stuff
   M.AutoInit()
-  setCookie()
+
 
 
   //general function calls
   getPosts()
   formSubmit()
-
-
-  //cookies and login and all the terrible things
-  // check the cookie with:
-  //1. axios.get to /users 
-  // 2. Set-Cookie: id=token; expires=..., secure; HttpOnly
-  let cookieBtn = document.getElementById('cookie')
-  cookieBtn.addEventListener('click', () => {
-    axios.request({
-        url: '/posts',
-        method: 'get',
-        withCredentials: true
-      })
-      .then((res) => {
-        console.log(res)
-      })
-
-  })
 })
-
-function setCookie() {
-
-
-  document.cookie = `token=${token}`
-  // console.log('in the setCookie:', token)
-
-}
-
-function getCookie() {
-  let x = document.cookie
-  alert(x);
-}
-
-//////should this be a getCardsforUserwithId()?\\\\\\\\
-
-
-function getUsers() {
-  axios.get('/users')
-    .then((res) => {
-      // console.log('users data:', res.data)
-      res.data.forEach((users) => {
-        /////// build profile card for users\\\\\\\
-        // let userDiv = document.getElementById('userDiv')
-        // let userH5 = document.createElement('h5')
-        // userH5.className = "usersText"
-        // userDiv.appendChild(userH5)
-        // userH5.innerText = `
-        // User: ${users.id}
-        // \n${users.first_name} ${users.last_name}\n ${users.location}  `
-      })
-    })
-}
 
 ////Main Card\\\\\
 let cardRow = document.createElement('div')
@@ -77,8 +26,9 @@ function getPosts() {
     .then((res) => {
       // handle success
       res.data.forEach((posts) => {
+        var tagPostId = posts.id
         ////////////set data into cards\\\\\\\\\\\\
-        
+
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let card = document.createElement('div')
         card.className = 'card hoverable'
@@ -97,7 +47,7 @@ function getPosts() {
         location.className = 'location'
         let dateOnCard = document.createElement('div')
         dateOnCard.className = 'date'
-        
+
 
         ///////DATE MANIPULATION\\\\\\\
         let date = new Date(posts.date)
@@ -123,17 +73,17 @@ function getPosts() {
         cardRow.appendChild(cardCol)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        if (miniCardsColumn.childNodes.length > 4){
+        if (miniCardsColumn.childNodes.length > 4) {
           secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
         }
 
-        if (secondMiniCardsColumn.childNodes.length > 4){
+        if (secondMiniCardsColumn.childNodes.length > 4) {
           thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.childNodes[4])
         }
-        if (thirdMiniCardsColumn.childNodes.length > 4){
+        if (thirdMiniCardsColumn.childNodes.length > 4) {
           miniCardsColumn.appendChild(thirdMiniCardsColumn.childNodes[4])
         }
-          
+
         ////////APPEND INFO TO CARDS\\\\\\\\\\
         parentContainer.appendChild(cardRow)
         card.appendChild(cardTitle)
@@ -144,6 +94,22 @@ function getPosts() {
         card.appendChild(endTime)
         card.appendChild(location)
         cardImage.appendChild(imgSrc)
+
+        ////tags for posts\\\\
+        let tags = document.createElement('div')
+        tags.innerHTML += "<br>"
+        card.appendChild(tags)
+        axios.get(`https://food-seen.herokuapp.com/tags_posts/${tagPostId}`)
+          .then((res) => {
+            let tagsArray = res.data
+            tagsArray.forEach((post) => {
+              let newTag = document.createElement('span')
+              newTag.className = "cardTags"
+              newTag.innerText = post.name
+              tags.appendChild(newTag)
+            })
+            tags.style.display = "none"
+          })
 
         ////FIELDS FOR CARDS\\\\
         cardTitle.innerText = posts.eventName
@@ -158,6 +124,7 @@ function getPosts() {
         startTime.style.display = 'none'
         endTime.style.display = 'none'
         location.style.display = 'none'
+        tags.style.display = "none"
 
 
         card.addEventListener('click', (ev) => {
@@ -174,14 +141,14 @@ function getPosts() {
 
           } else {
             // alert(`That didn't work for some reason`)
-            if(ev.target.parentNode.className !== "card-image"){
+            if (ev.target.parentNode.className !== "card-image") {
               cardCol.innerHTML = ev.target.parentNode.innerHTML
               console.log(cardCol.childNodes)
               let myStuff = cardCol.childNodes
               myStuff.forEach(ele => {
                 ele.setAttribute('style', 'display:inline')
               })
-            }else{
+            } else {
               cardCol.innerHTML = ev.target.parentNode.parentNode.innerHTML
               // console.log(cardCol.childNodes)
               console.log(ev.target.parentNode.parentNode)
@@ -203,28 +170,6 @@ function getPosts() {
     })
 }
 
-//////////// DELETE THIS RECORD! \\\\\\\\\\\\\\\\
-function deletePost() {
-  del_button.addEventListener('click', (ev) => {
-    ev.preventDefault()
-    //write better alerts for comfirm on foodseen
-    if (confirm('Are you sure you want to delete this post?')) {
-      axios.delete(`/posts/${posts.id}`)
-        .then((res) => {
-          console.log(`deleted`)
-          ev.target.parentElement.parentElement.remove()
-          alert(`Deleted!`)
-        })
-        .catch((err) => {
-          //better error handling
-          console.log(err)
-        })
-    } else {
-      alert('Delete avoided!')
-    }
-  })
-}
-
 
 function getAllTags() {
   let tagsArray = []
@@ -235,69 +180,4 @@ function getAllTags() {
       })
       console.log('tags:', tagsArray)
     })
-}
-
-//event listener on create btn that does an axios call to get total # of 
-//function for submitting create new post form
-function formSubmit() {
-  let createBtn = document.getElementById('createSubmit')
-  if (!createBtn) {
-    throw new Error('no form present')
-  }
-  createBtn.addEventListener('submit', (e) => {
-    e.preventDefault()
-    // grab all values from the form
-    // let userID = ??????
-    let newEventName = e.target.elements[0].value
-    let newFoodName = e.target.elements[1].value
-    let newAddress = e.target.elements[5].value
-    let newCity = e.target.elements[6].value
-    let newState = e.target.elements[7].value
-    let newZip = e.target.elements[8].value
-    let newCountry = e.target.elements[9].value
-    let newImageUrl = e.target.elements[10].value
-    let newStartTime = e.target.elements[2].value
-    let newEndTime = e.target.elements[3].value
-    let newDate = e.target.elements[4].value
-    let newTags = e.target.elements[11].value
-    console.log('newTags:', newTags)
-    // e.target.elements[11].getAttribute('name')
-    let newPromoted = document.getElementById('tagCheckbox').checked
-
-    let newPostObj = {
-      // id: postId.length + 1
-      eventName: newEventName,
-      foodName: newFoodName,
-      address: newAddress,
-      city: newCity,
-      zipcode: newZip,
-      country: newCountry,
-      state: newState,
-      imageUrl: newImageUrl,
-      startTime: newStartTime,
-      endTime: newEndTime,
-      date: newDate,
-      promoted: newPromoted
-    }
-
-    //logic to have a promoted login
-    // if (newPromoted === true) {
-    //   alert('Please login with your promoter code to enable promotion ________')
-    // }
-
-    console.log('post object:', newPostObj)
-    // axios.post that data to the correct backend route
-    axios.post('/posts', newPostObj)
-      .then((res) => {
-        console.log('create post res:', res)
-        if (res) {
-          alert(`Created New Event!`)
-        }
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-    axios.post('/posts_tags')
-    alert('Check your console logs!')
-  })
 }

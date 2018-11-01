@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let createBtn = document.getElementById('createSubmit')
+
   formSubmit()
 
   /////////error handler - - change message text input for situation\\\\\\\\\\\\\\
@@ -11,13 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     errorMessage.style.animation = "fade-out 5s linear 1 forwards"
   }
 })
+let createSubmitBtn = document.getElementById('createSubmit')
 
 function formSubmit() {
-  if (!createBtn) {
-    let messageText = 'Please close create window and try again'
-    errorMessageFunction(messageText)
-  }
-  createBtn.addEventListener('submit', (e) => {
+  createSubmitBtn.addEventListener('submit', (e) => {
     e.preventDefault()
     // grab all values from the form
     let successMessage = document.getElementById('createPostSuccessMessage')

@@ -29,7 +29,7 @@ function formSubmit() {
     let newCountry = e.target.elements[10].value
     let newImageUrl
     if (e.target.elements[11].value === "") {
-      newImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrq9vJgNnn-B9r-TcBTn-sCCnncQDv2klRIVAnIkK35nHEYTfw"
+      newImageUrl = "https://food-seen.herokuapp.com/images/foodseenlogo.png"
     } else {
       newImageUrl = e.target.elements[11].value
     }

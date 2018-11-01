@@ -44,13 +44,6 @@ function getCookie() {
   alert(x);
 }
 
-
-
-
-
-
-
-
 //////should this be a getCardsforUserwithId()?\\\\\\\\
 
 
@@ -76,7 +69,7 @@ let cardRow = document.createElement('div')
 cardRow.className = 'row'
 cardRow.id = 'addtome'
 let cardCol = document.createElement('div')
-cardCol.className = 'col s6 pull-s3'
+cardCol.className = 'col s6 pull-s3 mainCard'
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
@@ -115,7 +108,7 @@ function getPosts() {
         // console.log(month)
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
-        
+
 
         ///////MINI CARDS\\\\\\
         let parentContainer = document.getElementById('parentContainer')
@@ -129,7 +122,6 @@ function getPosts() {
         miniCardsColumn.appendChild(card)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        
         if (miniCardsColumn.childNodes.length > 4){
           secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
         }
@@ -137,7 +129,6 @@ function getPosts() {
         if (secondMiniCardsColumn.childNodes.length > 4){
           thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.childNodes[4])
         }
-        console.log(thirdMiniCardsColumn.childNodes.length)
         if (thirdMiniCardsColumn.childNodes.length > 4){
           miniCardsColumn.appendChild(thirdMiniCardsColumn.childNodes[4])
         }

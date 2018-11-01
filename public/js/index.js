@@ -11,7 +11,7 @@ let cardRow = document.createElement('span')
 cardRow.className = 'row cardRow'
 cardRow.id = 'addtome1'
 let cardCol = document.createElement('span')
-cardCol.className = 'col s6 pull-s1 card mainCard'
+cardCol.className = 'col s6 offset-s1 card mainCard'
 let defaultCardTitle = document.createElement('h4')
 defaultCardTitle.innerText = 'Welcome to'
 let defaultCardImg = document.createElement('img')
@@ -64,26 +64,26 @@ function getPosts() {
         ///////MINI CARDS\\\\\\
         let parentContainer = document.getElementById('parentContainer')
         let miniCardsColumn = document.getElementById('miniCards')
-        let secondMiniCardsColumn = document.getElementById('miniCards2')
-        let thirdMiniCardsColumn = document.getElementById('miniCards3')
-
-        cardRow.appendChild(thirdMiniCardsColumn)
-        cardRow.appendChild(secondMiniCardsColumn)
+        // let secondMiniCardsColumn = document.getElementById('miniCards2')
+        // let thirdMiniCardsColumn = document.getElementById('miniCards3')
+        // 
+        // cardRow.appendChild(thirdMiniCardsColumn)
+        // cardRow.appendChild(secondMiniCardsColumn)
         cardRow.appendChild(miniCardsColumn)
         miniCardsColumn.appendChild(card)
         cardRow.appendChild(cardCol)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        if (miniCardsColumn.childNodes.length > 4) {
-          secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
-        }
-
-        if (secondMiniCardsColumn.childNodes.length > 4) {
-          thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.childNodes[4])
-        }
-        if (thirdMiniCardsColumn.childNodes.length > 4) {
-          miniCardsColumn.appendChild(thirdMiniCardsColumn.childNodes[4])
-        }
+        // if (miniCardsColumn.childNodes.length > 4) {
+        //   secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
+        // }
+        // 
+        // if (secondMiniCardsColumn.childNodes.length > 4) {
+        //   thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.childNodes[4])
+        // }
+        // if (thirdMiniCardsColumn.childNodes.length > 4) {
+        //   miniCardsColumn.appendChild(thirdMiniCardsColumn.childNodes[4])
+        // }
 
         ////////APPEND INFO TO CARDS\\\\\\\\\\
         parentContainer.appendChild(cardRow)

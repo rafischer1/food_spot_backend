@@ -405,3 +405,9 @@ form {
     border-radius: 5%;
   }
 }
+
+@media only screen and (min-device-width: 900px) and (max-device-height: 900px)  {
+div.container {
+  padding-left: 5%;
+}  
+}

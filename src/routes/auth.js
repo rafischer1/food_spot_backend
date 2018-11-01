@@ -38,7 +38,8 @@ router.get('/github/redirect', passport.authenticate('github'), (req, res) => {
   res.cookie("token", token, {
     maxAge: 1728000 // 8 hours
   })
-  res.redirect('https://food-seen.herokuapp.com')
+  // res.redirect('https://food-seen.herokuapp.com')
+  res.redirect('/')
 });
 
 module.exports = router;

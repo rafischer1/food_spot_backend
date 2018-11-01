@@ -7,12 +7,46 @@ document.addEventListener("DOMContentLoaded", function(event) {
   getPosts()
   //general function calls
 })
-let errorMessage = document.getElementById('generalErrorMessage')
+
+function setCookie() {
+
+
+  document.cookie = `token=${token}`
+  // console.log('in the setCookie:', token)
+
+}
+
+function getCookie() {
+  let x = document.cookie
+  alert(x);
+}
+
+//////should this be a getCardsforUserwithId()?\\\\\\\\
+
+
+function getUsers() {
+  axios.get('/users')
+    .then((res) => {
+      // console.log('users data:', res.data)
+      res.data.forEach((users) => {
+        /////// build profile card for users\\\\\\\
+        // let userDiv = document.getElementById('userDiv')
+        // let userH5 = document.createElement('h5')
+        // userH5.className = "usersText"
+        // userDiv.appendChild(userH5)
+        // userH5.innerText = `
+        // User: ${users.id}
+        // \n${users.first_name} ${users.last_name}\n ${users.location}  `
+      })
+    })
+}
+
+////Main Card\\\\\
 let cardRow = document.createElement('div')
 cardRow.className = 'row'
 cardRow.id = 'addtome'
 let cardCol = document.createElement('div')
-cardCol.className = 'col s6 pull-s3'
+cardCol.className = 'col s6 pull-s3 card mainCard'
 
 ////////////get posts\\\\\\\\\\
 function getPosts() {
@@ -58,23 +92,33 @@ function getPosts() {
         let dayOfWeek = newDate[0].substr(0)
         let month = newDate.slice(1, 2)
         let numberDate = newDate.slice(2)
+        // console.log(numberDate)
 
-        /////////Generate info for cards and append Elements\\\\\\\\\\
-        cardTitle.innerText = posts.eventName
-        imgSrc.src = posts.imageUrl
-        foodName.innerText = posts.foodName
 
         ///////MINI CARDS\\\\\\
-        cardRow.appendChild(miniCardsColumn)
+        let parentContainer = document.getElementById('parentContainer')
+        let miniCardsColumn = document.getElementById('miniCards')
+        let secondMiniCardsColumn = document.getElementById('miniCards2')
+        let thirdMiniCardsColumn = document.getElementById('miniCards3')
+
+        cardRow.appendChild(thirdMiniCardsColumn)
         cardRow.appendChild(secondMiniCardsColumn)
         cardRow.appendChild(miniCardsColumn)
         miniCardsColumn.appendChild(card)
+        cardRow.appendChild(cardCol)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        if (miniCardsColumn.childNodes.length > 4) {
+        if (miniCardsColumn.childNodes.length > 4){
           secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
         }
 
+        if (secondMiniCardsColumn.childNodes.length > 4){
+          thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.childNodes[4])
+        }
+        if (thirdMiniCardsColumn.childNodes.length > 4){
+          miniCardsColumn.appendChild(thirdMiniCardsColumn.childNodes[4])
+        }
+          
         ////////APPEND INFO TO CARDS\\\\\\\\\\
         parentContainer.appendChild(cardRow)
         card.appendChild(cardTitle)
@@ -102,34 +146,51 @@ function getPosts() {
             tags.style.display = "none"
           })
 
+        ////FIELDS FOR CARDS\\\\
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
+        dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
+        startTime.innerText = 'Starts At: ' + posts.startTime
+        endTime.innerText = 'Ends At: ' + posts.endTime
+        location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
+
+        dateOnCard.style.display = 'none'
+        startTime.style.display = 'none'
+        endTime.style.display = 'none'
+        location.style.display = 'none'
+
 
         card.addEventListener('click', (ev) => {
+          // console.log(typeof ev)
+          if (ev && ev.target.className === "card hoverable") {
 
-          while (cardCol.hasChildNodes()) {
-            cardCol.firstChild.childNodes[3].setAttribute('style', 'display:none');
-            cardCol.firstChild.childNodes[4].setAttribute('style', 'display:none');
-            cardCol.firstChild.childNodes[5].setAttribute('style', 'display:none');
-            cardCol.firstChild.childNodes[6].setAttribute('style', 'display:none');
-            miniCardsColumn.appendChild(cardCol.firstChild)
-            tags.style.display = "none"
-          }
-          if (ev) {
-            cardRow.appendChild(cardCol)
-            cardCol.appendChild(card)
-            cardCol.firstChild.childNodes[3].setAttribute('style', 'display:inline');
-            cardCol.firstChild.childNodes[4].setAttribute('style', 'display:inline');
-            cardCol.firstChild.childNodes[5].setAttribute('style', 'display:inline');
-            cardCol.firstChild.childNodes[6].setAttribute('style', 'display:inline');
-            dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
-            startTime.innerText = 'Starts At: ' + posts.startTime
-            endTime.innerText = 'Ends At: ' + posts.endTime
-            location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
-            tags.style.display = "inline"
+
+            cardCol.innerHTML = ev.target.innerHTML
+            console.log(cardCol.childNodes)
+            let myStuff = cardCol.childNodes
+            myStuff.forEach(ele => {
+              ele.setAttribute('style', 'display:inline')
+            })
+
           } else {
-            alert(`That didn't work for some reason`)
+            // alert(`That didn't work for some reason`)
+            if(ev.target.parentNode.className !== "card-image"){
+              cardCol.innerHTML = ev.target.parentNode.innerHTML
+              console.log(cardCol.childNodes)
+              let myStuff = cardCol.childNodes
+              myStuff.forEach(ele => {
+                ele.setAttribute('style', 'display:inline')
+              })
+            }else{
+              cardCol.innerHTML = ev.target.parentNode.parentNode.innerHTML
+              // console.log(cardCol.childNodes)
+              console.log(ev.target.parentNode.parentNode)
+              let myStuff = cardCol.childNodes
+              myStuff.forEach(ele => {
+                ele.setAttribute('style', 'display:inline')
+              })
+            }
           }
         })
       })

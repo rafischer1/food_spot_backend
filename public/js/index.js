@@ -128,14 +128,20 @@ function getPosts() {
 
 
         card.addEventListener('click', (ev) => {
-          // console.log(typeof ev)
           if (ev && ev.target.className === "card hoverable") {
-
-
+            ////SET TARGET INFO TO MAIN CARD\\\\
             cardCol.innerHTML = ev.target.innerHTML
-            console.log(cardCol.childNodes)
-            let myStuff = cardCol.childNodes
-            myStuff.forEach(ele => {
+
+            card.forEach(card => {
+              if (ev.target.getAttribute('style', 'background-color:skyblue')){
+                ev.target.setAttribute('style', 'background-color:white')
+              }
+              ev.target.setAttribute('style', 'background-color:skyblue')
+            })
+
+            // console.log(cardCol.childNodes)
+            let cardElements = cardCol.childNodes
+            cardElements.forEach(ele => {
               ele.setAttribute('style', 'display:inline')
             })
 
@@ -143,15 +149,15 @@ function getPosts() {
             // alert(`That didn't work for some reason`)
             if (ev.target.parentNode.className !== "card-image") {
               cardCol.innerHTML = ev.target.parentNode.innerHTML
-              console.log(cardCol.childNodes)
-              let myStuff = cardCol.childNodes
-              myStuff.forEach(ele => {
+              // console.log(cardCol.childNodes)
+              let cardElements = cardCol.childNodes
+              cardElements.forEach(ele => {
                 ele.setAttribute('style', 'display:inline')
               })
             } else {
               cardCol.innerHTML = ev.target.parentNode.parentNode.innerHTML
-              let myStuff = cardCol.childNodes
-              myStuff.forEach(ele => {
+              let cardElements = cardCol.childNodes
+              cardElements.forEach(ele => {
                 ele.setAttribute('style', 'display:inline')
               })
             }

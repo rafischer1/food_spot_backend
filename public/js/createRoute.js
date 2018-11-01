@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  let createBtn = document.getElementById('createSubmit')
   formSubmit()
 
   /////////error handler - - change message text input for situation\\\\\\\\\\\\\\
@@ -12,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function formSubmit() {
-  let createBtn = document.getElementById('createSubmit')
   if (!createBtn) {
     let messageText = 'Please close create window and try again'
     errorMessageFunction(messageText)

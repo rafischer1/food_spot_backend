@@ -55,14 +55,7 @@ function formSubmit() {
 
     //logic to have a promoted login
     if (newPromoted === true) {
-      setTimeout(() => {
-        promoterSubmit.style.display = "inline"
-
-      }, 500)
-      promoterSubmitBtn.addEventListener('click', (e) => {
-        e.preventDefault()
-        promoterSubmit.style.display = "none"
-      })
+      confirm('Please enter promoter passcode to confirm event post___________')
     }
 
 

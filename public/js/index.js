@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //materialize stuff
   M.AutoInit()
 
-
-
   //general function calls
   getPosts()
   formSubmit()
@@ -15,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 ////Main Card\\\\\
 let cardRow = document.createElement('span')
-cardRow.className = 'row'
+cardRow.className = 'row cardRow'
 cardRow.id = 'addtome'
 let cardCol = document.createElement('span')
-cardCol.className = 'col s6 pull-s3 card mainCard'
+cardCol.className = 'col s6 pull-s1 card mainCard'
 let defaultCardTitle = document.createElement('h4')
 defaultCardTitle.innerText = 'Welcome to'
 let defaultCardImg = document.createElement('img')

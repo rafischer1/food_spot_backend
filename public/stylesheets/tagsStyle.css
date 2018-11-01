@@ -13,10 +13,21 @@ span.cardTags {
   border: 2px solid hsla(111, 50%, 20%, 0.35);
 }
 
-#createPostSuccessMessage {
+.alert-card {
+  font-family: "Quicksand";
   width: 50%;
   margin-left: 25%;
   color: rgb(237, 237, 237);
   font-weight: bold;
-  display: none;
+  border-radius: 10px;
+  
 }
+
+#createPostSuccessMessage{
+  
+}
+
+#generalErrorMessage {
+  
+}
+display: none;

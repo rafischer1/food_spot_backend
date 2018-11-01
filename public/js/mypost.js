@@ -4,21 +4,40 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   //materialize stuff
   M.AutoInit()
-  getPosts()
+  // getPosts()
   //general function calls
+  let myCookie = document.cookie
+  if(myCookie == ''){
+
+  }else{
+    console.log('hi')
+    populateMyPosts()
+  }
+
 })
 
-let cardRow = document.createElement('div')
-cardRow.className = 'row'
-cardRow.id = 'addtome'
-let cardCol = document.createElement('div')
-cardCol.className = 'col s6 pull-s3'
+// let cardRow = document.createElement('div')
+// cardRow.className = 'row'
+// cardRow.id = 'addtome'
+// let cardCol = document.createElement('div')
+// cardCol.className = 'col s6 pull-s3'
 
+// populateMyPosts
+
+function populateMyPosts () {
+  axios.get('/posts/1')
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
 ////////////get posts\\\\\\\\\\
-function getPosts() {
+function getPosts123() {
   axios.get('https://food-seen.herokuapp.com/posts')
     .then((res) => {
-      // console.log('res in main post:', res)
+      console.log('res in main post:', res)
 
       // handle success
       res.data.forEach((posts) => {

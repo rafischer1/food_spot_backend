@@ -1,7 +1,7 @@
 /////////COOKIE FUNCTIONS!!!!\\\\\\\\\
 
 let myCookie = document.cookie
-console.log('cookie: ', myCookie)
+// console.log('cookie: ', myCookie)
 let signInBtn = document.getElementById('signInBtn')
 let createBtn = document.getElementById('createBtn')
 let seeMyPostsBtn = document.getElementById('seeMyPostsBtn')

@@ -56,78 +56,82 @@
       </div>
 
       <hr class="hr">
-      <div class="container" id="parentContainer">
-        <div class="col s2 pull-s3 miniCards3" id="miniCards3">
+      <div class="container"
+        id="parentContainer">
+        <div class="col s2 pull-s3 miniCards3"
+          id="miniCards3">
 
         </div>
-        <div class="col s2 pull-s4 miniCards2" id="miniCards2">
+        <div class="col s2 pull-s4 miniCards2"
+          id="miniCards2">
 
         </div>
-        <div class="col s2 pull-s5" id="miniCards">
+        <div class="col s2 pull-s5"
+          id="miniCards">
 
         </div>
       </div>
 
-          <!-- Modal Structure -->
-          <div id="createModal"
-            class="createPostModal modal modal-fixed-footer">
-            <div class="modal-content">
+      <!-- Modal Structure -->
+      <div id="createModal"
+        class="createPostModal modal modal-fixed-footer">
+        <div class="modal-content">
+          <div class="row">
+            <form class="col s12"
+              id="createSubmit">
               <div class="row">
-                <form class="col s12"
-                  id="createSubmit">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="event_name"
-                        type="text"
-                        class="validate inputs">
-                      <label for="event_name">Event Name</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <input id="foodName"
-                        type="text"
-                        class="validate inputs">
-                      <label for="foodName">Food Type</label>
-                    </div>
-                  </div>
-                  <div class="date"><input type="date"
-                      id="start"
-                      name="trip"
-                      value="2018-11-02"
-                      min="2018-10-20"
-                      max="2020-12-31" />
-                  </div>
-                  <!-- date! -->
-                  <div class="row">
-                    <div class="input-field col s3">
-                      <input id="startTime"
-                        type="time"
-                        class="validate inputs">
-                      <label for="startTime"
-                        required>Start Time</label>
-                    </div>
-                    <div class="input-field col s3">
-                      <input id="endTime"
-                        type="time"
-                        class="validate inputs"
-                        required>
-                      <label for="endTime">End Time</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="address"
-                        type="text"
-                        class="validate inputs">
-                      <label for="address">Address</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <input id="city"
-                        type="text"
-                        class="validate inputs">
-                      <label for="city">City</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <select>
+                <div class="input-field col s12">
+                  <input id="event_name"
+                    type="text"
+                    class="validate inputs">
+                  <label for="event_name">Event Name</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="foodName"
+                    type="text"
+                    class="validate inputs">
+                  <label for="foodName">Food Type</label>
+                </div>
+              </div>
+              <div class="date"><input type="date"
+                  id="start"
+                  name="trip"
+                  value="2018-11-02"
+                  min="2018-10-20"
+                  max="2020-12-31" />
+              </div>
+              <!-- date! -->
+              <div class="row">
+                <div class="input-field col s3">
+                  <input id="startTime"
+                    type="time"
+                    class="validate inputs">
+                  <label for="startTime"
+                    required>Start Time</label>
+                </div>
+                <div class="input-field col s3">
+                  <input id="endTime"
+                    type="time"
+                    class="validate inputs"
+                    required>
+                  <label for="endTime">End Time</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="address"
+                    type="text"
+                    class="validate inputs">
+                  <label for="address">Address</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="city"
+                    type="text"
+                    class="validate inputs">
+                  <label for="city">City</label>
+                </div>
+                <div class="input-field col s12">
+                  <select>
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
                   <option value="AR">AR</option>
@@ -180,29 +184,29 @@
                   <option value="WV">WV</option>
                   <option value="WY">WY</option>
                 </select>
-                      <label for="state">State</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <input id="zip"
-                        type="text"
-                        class="validate inputs">
-                      <label for="zip">Zipcode</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <input id="country"
-                        type="text"
-                        class="validate inputs">
-                      <label for="country">Country</label>
-                    </div>
-                    <div class="input-field col s12">
-                      <input id="imageUrl"
-                        type="text"
-                        class="validate inputs">
-                      <label for="imageUrl">imageUrl</label>
-                    </div>
-                    <!-- multiple select for tags -->
-                    <div class="input-field col s12">
-                      <select multiple>
+                  <label for="state">State</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="zip"
+                    type="text"
+                    class="validate inputs">
+                  <label for="zip">Zipcode</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="country"
+                    type="text"
+                    class="validate inputs">
+                  <label for="country">Country</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="imageUrl"
+                    type="text"
+                    class="validate inputs">
+                  <label for="imageUrl">imageUrl</label>
+                </div>
+                <!-- multiple select for tags -->
+                <div class="input-field col s12">
+                  <select multiple>
                   <option class="tagSelect" value=1 placeholder="1">OUTDOORS</option>
                   <option class="tagSelect" value="2">INDOORS</option>
                   <option class="tagSelect" value="3">21+</option>
@@ -213,45 +217,45 @@
                   <option class="tagSelect" value="8">FLASH EVENT</option>
                   <option class="tagSelect" value="9">COLLEGE/UNIVERSITY</option>
                 </select>
-                      <label>Select Tags for Your Event</label>
-                    </div>
-                    <!-- Switch -->
-                    <div>
-                      <label>
+                  <label>Select Tags for Your Event</label>
+                </div>
+                <!-- Switch -->
+                <div>
+                  <label>
                   <input type="checkbox" id="tagCheckbox" />
                   <span>Promoted</span>
                 </label>
-                    </div>
-                    <br>
-                    <hr>
-                    <button class="btn"
-                      id="submitBtn">Create Post</button>
-                  </div>
+                </div>
+                <br>
+                <hr>
+                <button class="btn"
+                  id="submitBtn">Create Post</button>
               </div>
-              </form>
-            </div>
           </div>
-          <!-- post succesfully created popup message -->
-          <div class="alert-card card-panel purple darken-2"
-            id="createPostSuccessMessage"> 🍕 New Event Created! 🍕</div>
-          <!-- generic error popup message -->
-          <div class=" alert-card card-panel amber darken-3"
-            id="generalErrorMessage"></div>
+          </form>
+        </div>
+      </div>
+      <!-- post succesfully created popup message -->
+      <div class="alert-card card-panel purple darken-2"
+        id="createPostSuccessMessage"> 🍕 New Event Created! 🍕</div>
+      <!-- generic error popup message -->
+      <div class=" alert-card card-panel amber darken-3"
+        id="generalErrorMessage"></div>
 
 
-          <div class="modal-footer">
-            <br>
-          </div>
-          <footer>
+      <div class="modal-footer">
+        <br>
+      </div>
+      <!-- <footer>
             <button class="btn"
               id="testBtn">Test</button>
-          </footer>
-          <script src="js/materialize.min.js"
-            charset="utf-8"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-          <script src="./js/createRoute.js"></script>
-          <script src="./js/cookies.js"></script>
-          <script src="./js/test.js"></script>
+          </footer> -->
+      <script src="js/materialize.min.js"
+        charset="utf-8"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+      <script src="./js/createRoute.js"></script>
+      <script src="./js/cookies.js"></script>
+      <script src="./js/test.js"></script>
   </body>
 
 </html>

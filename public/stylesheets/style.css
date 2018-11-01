@@ -7,7 +7,7 @@ body {
     /* overflow: hidden; */
     background-image: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ea7aeb5fc4e3623a3f16af817ec12129&auto=format&fit=crop&w=1510&q=80");
   }
-  
+
 .food {
     font-family: "Economica";
     text-transform: lowercase;
@@ -60,7 +60,7 @@ body {
     top: -3.13em;
     margin-bottom: -6em;
   }
-  
+
   .shape:after {
     content: '';
     position: absolute;
@@ -71,20 +71,20 @@ body {
     border: 3.13em solid transparent;
     border-top: 4.38em solid rgb(255, 166, 0);
   }
-  
+
 .logoRow {
     margin-bottom: -.63em;
 }
-  
+
 .buttons {
     text-align: right;
 }
-  
+
 .btn {
     background-color: rgb(51, 140, 21);
     height: 2.1em;
 }
-  
+
 .row .buttons {
     margin-bottom: 5em;
 }
@@ -92,12 +92,12 @@ body {
 .hidden {
     display: none;
 }
-  
+
 .magnify {
     height: 1.88em;
     margin-top: -60%;
 }
-  
+
 .searchbar {
     height: 1.88em;
     background-color: rgb(51, 140, 21);
@@ -107,9 +107,9 @@ body {
 .searchRow {
     margin-bottom: -3em;
 }
-  
+
 hr {
-    border: 0; 
+    border: 0;
     height: .13em;
     background-image: -webkit-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -moz-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
@@ -146,6 +146,10 @@ hr {
     margin: 3%;
 }
 
+.myPostsContainer{
+  display: none;
+}
+
 form {
   color: rgb(222, 197, 123);
 }
@@ -167,12 +171,12 @@ form {
    border-bottom: 1px solid rgb(23, 3, 159);
    box-shadow: 0 1px 0 0 blue !important
  }
- 
+
 #startTime {
 font-size: 110%;
    margin-right: 10px;
  }
- 
+
  #endTime {
    font-size: 110%;
    margin-left: 10px;
@@ -190,7 +194,7 @@ font-size: 110%;
         overflow: hidden;
         background-image: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ea7aeb5fc4e3623a3f16af817ec12129&auto=format&fit=crop&w=1510&q=80");
       }
-      
+
     .food {
         font-family: "Economica";
         font-size: 330%;
@@ -201,7 +205,7 @@ font-size: 110%;
         background-color: rgb(51, 140, 21);
         color: white;
     }
-    
+
     .seen {
         font-family: "Economica";
         margin-top: -23%;
@@ -213,7 +217,7 @@ font-size: 110%;
         background-color: rgb(51, 140, 21);
         color: white;
     }
-    
+
     .sunRed {
         margin-bottom: -4em;
         margin-left: -2em;
@@ -222,7 +226,7 @@ font-size: 110%;
         background: rgb(240, 116, 1);
         border-radius: 50%;
     }
-    
+
     .sunYellow {
         margin-bottom: -5.5em;
         margin-left: -1em;
@@ -231,7 +235,7 @@ font-size: 110%;
         background: rgb(240, 196, 1);
         border-radius: 50%;
     }
-    
+
     .shape {
         width: 0;
         height: 0;
@@ -241,7 +245,7 @@ font-size: 110%;
         top: -3.13em;
         margin-bottom: -6em;
       }
-      
+
       .shape:after {
         content: '';
         position: absolute;
@@ -252,62 +256,62 @@ font-size: 110%;
         border: 3.13em solid transparent;
         border-top: 4.38em solid rgb(255, 166, 0);
       }
-      
+
     .logoRow {
         margin-bottom: -.63em;
     }
-      
+
     .buttons {
         text-align: right;
     }
-      
+
     .btn {
         background-color: rgb(51, 140, 21);
         height: 2.1em;
     }
-      
+
     .row .buttons {
         margin-bottom: 5em;
     }
-    
+
     .hidden {
         display: none;
     }
-      
+
     .magnify {
         height: 1.88em;
         margin-top: -60%;
     }
-      
+
     .searchbar {
         height: 1.88em;
         background-color: rgb(51, 140, 21);
         border-radius: .13em;
     }
-    
+
     .searchRow {
         margin-bottom: -3em;
     }
-      
+
     hr {
-        border: 0; 
+        border: 0;
         height: .13em;
         background-image: -webkit-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
         background-image: -moz-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
         background-image: -ms-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
         background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     }
-    
+
     .mainCardImg {
-    
+
     }
-      
+
     .rolodexCards {
         width: 5em;
         height: 6.25em;
         margin: .13em;
     }
-    
+
     .createPostModal {
         background-image: url("");
         background-size: cover;

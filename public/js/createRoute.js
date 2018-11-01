@@ -63,7 +63,7 @@ function formSubmit() {
     //   confirm('Please enter promoter passcode to confirm event post___________')
     // }
 
-
+    console.log(newPostObj)
     axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
       .then((res) => {
         post_id = res.data

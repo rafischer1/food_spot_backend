@@ -31,7 +31,7 @@ function formSubmit() {
     let newZip = e.target.elements[9].value
     let newCountry = e.target.elements[10].value
     let newImageUrl
-    if (e.target.elements[11].value == '') {
+    if (e.target.elements[11].value === "") {
       newImageUrl = "https://www.flickr.com/photos/145857699@N08/31780527108/in/dateposted-public/"
     } else {
       newImageUrl = e.target.elements[11].value
@@ -59,9 +59,9 @@ function formSubmit() {
     var post_id
 
     //logic to have a promoted login
-    if (newPromoted === true) {
-      confirm('Please enter promoter passcode to confirm event post___________')
-    }
+    // if (newPromoted === true) {
+    //   confirm('Please enter promoter passcode to confirm event post___________')
+    // }
 
 
     axios.post('/posts', newPostObj)

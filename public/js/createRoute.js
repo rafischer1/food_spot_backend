@@ -64,7 +64,7 @@ function formSubmit() {
     // }
 
 
-    axios.post('/posts', newPostObj)
+    axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
       .then((res) => {
         post_id = res.data
       })
@@ -111,7 +111,7 @@ function formSubmit() {
             post_id: post_id,
             tag_id: tag
           }
-          axios.post('/posts_tags', tagPostBody)
+          axios.post('https://food-seen.herokuapp.com/posts_tags', tagPostBody)
             .then((res) => {
               if (res) {
                 setTimeout(() => {

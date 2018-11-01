@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
   formSubmit()
+
+  /////////error handler - - change message text input for situation\\\\\\\\\\\\\\
+  const errorMessageFunction = (messageText) => {
+    setTimeout(() => {
+      errorMessage.style.display = "inline"
+      errorMessage.innerText = messageText
+    }, 500)
+    errorMessage.style.animation = "fade-out 5s linear 1 forwards"
+  }
 })
 
 function formSubmit() {
@@ -121,12 +130,4 @@ function formSubmit() {
         errorMessageFunction(messageText)
       })
   })
-}
-/////////error handler - - change message text input for situation\\\\\\\\\\\\\\
-const errorMessageFunction = (messageText) => {
-  setTimeout(() => {
-    errorMessage.style.display = "inline"
-    errorMessage.innerText = messageText
-  }, 500)
-  errorMessage.style.animation = "fade-out 5s linear 1 forwards"
 }

@@ -9,11 +9,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 })
 
 function setCookie() {
-
-
   document.cookie = `token=${token}`
   // console.log('in the setCookie:', token)
-
 }
 
 function getCookie() {
@@ -61,8 +58,6 @@ function getPosts() {
 
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let parentContainer = document.getElementById('parentContainer')
-        let miniCardsColumn = document.getElementById('miniCards')
-        let secondMiniCardsColumn = document.getElementById('miniCards2')
         let cardRow = document.createElement('div')
         cardRow.className = 'row'
         let cardCol = document.createElement('div')
@@ -96,7 +91,6 @@ function getPosts() {
 
 
         ///////MINI CARDS\\\\\\
-        let parentContainer = document.getElementById('parentContainer')
         let miniCardsColumn = document.getElementById('miniCards')
         let secondMiniCardsColumn = document.getElementById('miniCards2')
         let thirdMiniCardsColumn = document.getElementById('miniCards3')
@@ -108,17 +102,17 @@ function getPosts() {
         cardRow.appendChild(cardCol)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        if (miniCardsColumn.childNodes.length > 4){
+        if (miniCardsColumn.childNodes.length > 4) {
           secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
         }
 
-        if (secondMiniCardsColumn.childNodes.length > 4){
+        if (secondMiniCardsColumn.childNodes.length > 4) {
           thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.childNodes[4])
         }
-        if (thirdMiniCardsColumn.childNodes.length > 4){
+        if (thirdMiniCardsColumn.childNodes.length > 4) {
           miniCardsColumn.appendChild(thirdMiniCardsColumn.childNodes[4])
         }
-          
+
         ////////APPEND INFO TO CARDS\\\\\\\\\\
         parentContainer.appendChild(cardRow)
         card.appendChild(cardTitle)
@@ -175,14 +169,14 @@ function getPosts() {
 
           } else {
             // alert(`That didn't work for some reason`)
-            if(ev.target.parentNode.className !== "card-image"){
+            if (ev.target.parentNode.className !== "card-image") {
               cardCol.innerHTML = ev.target.parentNode.innerHTML
               console.log(cardCol.childNodes)
               let myStuff = cardCol.childNodes
               myStuff.forEach(ele => {
                 ele.setAttribute('style', 'display:inline')
               })
-            }else{
+            } else {
               cardCol.innerHTML = ev.target.parentNode.parentNode.innerHTML
               // console.log(cardCol.childNodes)
               console.log(ev.target.parentNode.parentNode)

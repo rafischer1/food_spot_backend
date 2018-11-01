@@ -1,16 +1,42 @@
 var token = document.location.href.split('#')[1]
+
 document.addEventListener("DOMContentLoaded", function(event) {
-  console.log("DOM fully loaded and parsed")
+  // console.log("DOM fully loaded and parsed")
 
   //materialize stuff
   M.AutoInit()
-  getPosts()
+  setCookie()
+
+
   //general function calls
+  getPosts()
+  formSubmit()
+
+
+  //cookies and login and all the terrible things
+  // check the cookie with:
+  //1. axios.get to /users 
+  // 2. Set-Cookie: id=token; expires=..., secure; HttpOnly
+  let cookieBtn = document.getElementById('cookie')
+  cookieBtn.addEventListener('click', () => {
+    axios.request({
+        url: '/posts',
+        method: 'get',
+        withCredentials: true
+      })
+      .then((res) => {
+        console.log(res)
+      })
+
+  })
 })
 
 function setCookie() {
+
+
   document.cookie = `token=${token}`
   // console.log('in the setCookie:', token)
+
 }
 
 function getCookie() {
@@ -49,19 +75,11 @@ cardCol.className = 'col s6 pull-s3 card mainCard'
 function getPosts() {
   axios.get('https://food-seen.herokuapp.com/posts')
     .then((res) => {
-      // console.log('res in main post:', res)
-
       // handle success
       res.data.forEach((posts) => {
-        var tagPostId = posts.id
         ////////////set data into cards\\\\\\\\\\\\
-
+        
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
-        let parentContainer = document.getElementById('parentContainer')
-        let cardRow = document.createElement('div')
-        cardRow.className = 'row'
-        let cardCol = document.createElement('div')
-        cardCol.className = 'col s7'
         let card = document.createElement('div')
         card.className = 'card hoverable'
         let cardTitle = document.createElement('span')
@@ -79,18 +97,21 @@ function getPosts() {
         location.className = 'location'
         let dateOnCard = document.createElement('div')
         dateOnCard.className = 'date'
-
+        
 
         ///////DATE MANIPULATION\\\\\\\
         let date = new Date(posts.date)
         let newDate = date.toString().split(' ').slice(0, 3)
         let dayOfWeek = newDate[0].substr(0)
+        // console.log(dayOfWeek)
         let month = newDate.slice(1, 2)
+        // console.log(month)
         let numberDate = newDate.slice(2)
         // console.log(numberDate)
 
 
         ///////MINI CARDS\\\\\\
+        let parentContainer = document.getElementById('parentContainer')
         let miniCardsColumn = document.getElementById('miniCards')
         let secondMiniCardsColumn = document.getElementById('miniCards2')
         let thirdMiniCardsColumn = document.getElementById('miniCards3')
@@ -102,17 +123,17 @@ function getPosts() {
         cardRow.appendChild(cardCol)
 
         ////////SET CARDS TO LEFT MINIATURE COLUMN\\\\\\\\
-        if (miniCardsColumn.childNodes.length > 4) {
+        if (miniCardsColumn.childNodes.length > 4){
           secondMiniCardsColumn.appendChild(miniCardsColumn.childNodes[4])
         }
 
-        if (secondMiniCardsColumn.childNodes.length > 4) {
+        if (secondMiniCardsColumn.childNodes.length > 4){
           thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.childNodes[4])
         }
-        if (thirdMiniCardsColumn.childNodes.length > 4) {
+        if (thirdMiniCardsColumn.childNodes.length > 4){
           miniCardsColumn.appendChild(thirdMiniCardsColumn.childNodes[4])
         }
-
+          
         ////////APPEND INFO TO CARDS\\\\\\\\\\
         parentContainer.appendChild(cardRow)
         card.appendChild(cardTitle)
@@ -123,22 +144,6 @@ function getPosts() {
         card.appendChild(endTime)
         card.appendChild(location)
         cardImage.appendChild(imgSrc)
-
-        ////tags for posts\\\\
-        let tags = document.createElement('div')
-        tags.innerHTML += "<br>"
-        card.appendChild(tags)
-        axios.get(`/tags_posts/${tagPostId}`)
-          .then((res) => {
-            let tagsArray = res.data
-            tagsArray.forEach((post) => {
-              let newTag = document.createElement('span')
-              newTag.className = "cardTags"
-              newTag.innerText = post.name
-              tags.appendChild(newTag)
-            })
-            tags.style.display = "none"
-          })
 
         ////FIELDS FOR CARDS\\\\
         cardTitle.innerText = posts.eventName
@@ -169,14 +174,14 @@ function getPosts() {
 
           } else {
             // alert(`That didn't work for some reason`)
-            if (ev.target.parentNode.className !== "card-image") {
+            if(ev.target.parentNode.className !== "card-image"){
               cardCol.innerHTML = ev.target.parentNode.innerHTML
               console.log(cardCol.childNodes)
               let myStuff = cardCol.childNodes
               myStuff.forEach(ele => {
                 ele.setAttribute('style', 'display:inline')
               })
-            } else {
+            }else{
               cardCol.innerHTML = ev.target.parentNode.parentNode.innerHTML
               // console.log(cardCol.childNodes)
               console.log(ev.target.parentNode.parentNode)
@@ -190,17 +195,109 @@ function getPosts() {
       })
     })
     .catch((error) => {
-      console.log(error)
+      // handle error
+      console.log(error);
+    })
+    .then(() => {
+      // always executed
     })
 }
 
+//////////// DELETE THIS RECORD! \\\\\\\\\\\\\\\\
+function deletePost() {
+  del_button.addEventListener('click', (ev) => {
+    ev.preventDefault()
+    //write better alerts for comfirm on foodseen
+    if (confirm('Are you sure you want to delete this post?')) {
+      axios.delete(`/posts/${posts.id}`)
+        .then((res) => {
+          console.log(`deleted`)
+          ev.target.parentElement.parentElement.remove()
+          alert(`Deleted!`)
+        })
+        .catch((err) => {
+          //better error handling
+          console.log(err)
+        })
+    } else {
+      alert('Delete avoided!')
+    }
+  })
+}
 
-//error handler - - change message text input for situation
-function errorMessageFunction(messageText) {
-  setTimeout(() => {
-    errorMessage.style.display = "inline"
-    errorMessage.innerText = messageText
 
-  }, 500)
-  errorMessage.style.animation = "fade-out 5s linear 1 forwards"
+function getAllTags() {
+  let tagsArray = []
+  axios.get('/tags')
+    .then((tags) => {
+      tags.data.forEach((tag) => {
+        tagsArray.push(tag)
+      })
+      console.log('tags:', tagsArray)
+    })
+}
+
+//event listener on create btn that does an axios call to get total # of 
+//function for submitting create new post form
+function formSubmit() {
+  let createBtn = document.getElementById('createSubmit')
+  if (!createBtn) {
+    throw new Error('no form present')
+  }
+  createBtn.addEventListener('submit', (e) => {
+    e.preventDefault()
+    // grab all values from the form
+    // let userID = ??????
+    let newEventName = e.target.elements[0].value
+    let newFoodName = e.target.elements[1].value
+    let newAddress = e.target.elements[5].value
+    let newCity = e.target.elements[6].value
+    let newState = e.target.elements[7].value
+    let newZip = e.target.elements[8].value
+    let newCountry = e.target.elements[9].value
+    let newImageUrl = e.target.elements[10].value
+    let newStartTime = e.target.elements[2].value
+    let newEndTime = e.target.elements[3].value
+    let newDate = e.target.elements[4].value
+    let newTags = e.target.elements[11].value
+    console.log('newTags:', newTags)
+    // e.target.elements[11].getAttribute('name')
+    let newPromoted = document.getElementById('tagCheckbox').checked
+
+    let newPostObj = {
+      // id: postId.length + 1
+      eventName: newEventName,
+      foodName: newFoodName,
+      address: newAddress,
+      city: newCity,
+      zipcode: newZip,
+      country: newCountry,
+      state: newState,
+      imageUrl: newImageUrl,
+      startTime: newStartTime,
+      endTime: newEndTime,
+      date: newDate,
+      promoted: newPromoted
+    }
+
+    //logic to have a promoted login
+    // if (newPromoted === true) {
+    //   alert('Please login with your promoter code to enable promotion ________')
+    // }
+
+    console.log('post object:', newPostObj)
+    // axios.post that data to the correct backend route
+    axios.post('/posts', newPostObj)
+      .then((res) => {
+        console.log('create post res:', res)
+        if (res) {
+          alert(`Created New Event!`)
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    axios.post('/posts_tags')
+    alert('Check your console logs!')
+  })
 }

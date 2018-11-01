@@ -29,7 +29,7 @@ function formSubmit() {
     let newCountry = e.target.elements[10].value
     let newImageUrl
     if (e.target.elements[11].value === "") {
-      newImageUrl = "https://www.flickr.com/photos/145857699@N08/31780527108/in/dateposted-public/"
+      newImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrq9vJgNnn-B9r-TcBTn-sCCnncQDv2klRIVAnIkK35nHEYTfw"
     } else {
       newImageUrl = e.target.elements[11].value
     }
@@ -60,9 +60,10 @@ function formSubmit() {
     //   confirm('Please enter promoter passcode to confirm event post___________')
     // }
 
-    console.log(newPostObj)
+    console.log("new post object:", newPostObj)
     axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
       .then((res) => {
+        console.log('in the post route')
         post_id = res.data
       })
       .then(() => {
@@ -110,6 +111,7 @@ function formSubmit() {
           }
           axios.post('https://food-seen.herokuapp.com/posts_tags', tagPostBody)
             .then((res) => {
+              console.log('in the posts_tags route')
               if (res) {
                 setTimeout(() => {
                   successMessage.style.display = "inline"

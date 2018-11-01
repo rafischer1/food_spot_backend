@@ -118,6 +118,7 @@ function formSubmit() {
                 }, 500)
                 successMessage.style.animation = "fade-out 5s linear 1 forwards"
               }
+              getPosts()
               return res
             })
         })

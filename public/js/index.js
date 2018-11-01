@@ -5,12 +5,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   //materialize stuff
   M.AutoInit()
-
-
-
   //general function calls
   getPosts()
-  formSubmit()
 })
 
 ////Main Card\\\\\

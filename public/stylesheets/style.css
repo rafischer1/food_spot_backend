@@ -127,12 +127,6 @@ hr {
     display: inline;
 }
 
-
-.miniCards2 {
-    position: relative;
-    /* display:inline-block; */
-}
-
 /* start of create modal css */
 .createPostModal {
   background: linear-gradient(to left, rgb(238, 215, 213), rgb(237, 240, 252));

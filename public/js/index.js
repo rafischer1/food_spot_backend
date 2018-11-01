@@ -145,7 +145,7 @@ function getPosts() {
         card.appendChild(location)
         cardImage.appendChild(imgSrc)
 
-        ////FIELDS FOR MINI CARDS\\\\
+        ////FIELDS FOR CARDS\\\\
         cardTitle.innerText = posts.eventName
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
@@ -160,36 +160,36 @@ function getPosts() {
         location.style.display = 'none'
 
 
-
-        // card.firstChild.childNodes[3].setAttribute('style', 'display:none');
-        // card.firstChild.childNodes[4].setAttribute('style', 'display:none');
-        // card.firstChild.childNodes[5].setAttribute('style', 'display:none');
-        // card.firstChild.childNodes[6].setAttribute('style', 'display:none');
-
-
         card.addEventListener('click', (ev) => {
+          // console.log(typeof ev)
+          if (ev && ev.target.className === "card hoverable") {
 
-          // while(cardCol.hasChildNodes()){
 
-          //   miniCardsColumn.appendChild(cardCol.firstChild)
-          //   secondMiniCardsColumn.appendChild(miniCardsColumn.firstChild)
-          //   thirdMiniCardsColumn.appendChild(secondMiniCardsColumn.firstChild)
-          // }
-
-          if (ev) {
-            // cardRow.appendChild(cardCol)
-            // cardCol.appendChild(card)
-            // cardCol.firstChild.childNodes[3].setAttribute('style', 'display:inline');
-            // cardCol.firstChild.childNodes[4].setAttribute('style', 'display:inline');
-            // cardCol.firstChild.childNodes[5].setAttribute('style', 'display:inline');
-            // cardCol.firstChild.childNodes[6].setAttribute('style', 'display:inline');
-            dateOnCard.style.display = 'inline'
-            startTime.style.display = 'inline'
-            endTime.style.display = 'inline'
-            location.style.display = 'inline'
             cardCol.innerHTML = ev.target.innerHTML
+            console.log(cardCol.childNodes)
+            let myStuff = cardCol.childNodes
+            myStuff.forEach(ele => {
+              ele.setAttribute('style', 'display:inline')
+            })
+
           } else {
-            alert(`That didn't work for some reason`)
+            // alert(`That didn't work for some reason`)
+            if(ev.target.parentNode.className !== "card-image"){
+              cardCol.innerHTML = ev.target.parentNode.innerHTML
+              console.log(cardCol.childNodes)
+              let myStuff = cardCol.childNodes
+              myStuff.forEach(ele => {
+                ele.setAttribute('style', 'display:inline')
+              })
+            }else{
+              cardCol.innerHTML = ev.target.parentNode.parentNode.innerHTML
+              // console.log(cardCol.childNodes)
+              console.log(ev.target.parentNode.parentNode)
+              let myStuff = cardCol.childNodes
+              myStuff.forEach(ele => {
+                ele.setAttribute('style', 'display:inline')
+              })
+            }
           }
         })
       })

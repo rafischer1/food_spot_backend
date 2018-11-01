@@ -52,7 +52,7 @@ cardCol.className = 'col s6 pull-s3 card mainCard'
 function getPosts() {
   axios.get('https://food-seen.herokuapp.com/posts')
     .then((res) => {
-      console.log('res in main post:', res)
+      // console.log('res in main post:', res)
 
       // handle success
       res.data.forEach((posts) => {

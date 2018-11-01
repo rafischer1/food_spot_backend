@@ -11,6 +11,7 @@ const getAll = (req, res, next) => {
 }
 
 const getPostsByUserId = (req, res, next) => {
+  console.log("in getpostbyuserid controller");
   let myId = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET).id
   return model.getPostsByUserId(myId)
     .catch(error => {

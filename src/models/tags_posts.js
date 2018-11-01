@@ -8,11 +8,11 @@ const getTagsFromPost = (id) => {
     .select('tag_id')
     .where('post_id', id)
     .then(tagIds => {
-      console.log(`tagIds`, tagIds)
+      // console.log(`tagIds`, tagIds)
       for (var i = 0; i < tagIds.length; i++) {
         tags.push(tagIds[i].tag_id)
       }
-      console.log('tags arr:', tags)
+      // console.log('tags arr:', tags)
       return Promise.all(tags.map(id => {
         return tagsModel.getOneTag(id)
       }))

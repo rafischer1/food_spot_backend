@@ -4,10 +4,10 @@ body {
   font-size: 16px;
   text-align: center;
   padding-top: 1em;
-  /* overflow: hidden; */
-  /* background-image: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ea7aeb5fc4e3623a3f16af817ec12129&auto=format&fit=crop&w=1510&q=80"); */
-  background-image: url("https://i-h1.pinimg.com/564x/94/a7/b3/94a7b34de945105e6b295675389d286c.jpg");
-  background-repeat: repeat;
+  overflow: hidden;
+  background-image: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ea7aeb5fc4e3623a3f16af817ec12129&auto=format&fit=crop&w=1510&q=80");
+  /* background-image: url("https://i-h1.pinimg.com/564x/94/a7/b3/94a7b34de945105e6b295675389d286c.jpg"); */
+  background-repeat: no-repeat;
   /* background-size: cover; */
 }
 
@@ -76,7 +76,7 @@ body {
 }
 
 .logoRow {
-  margin-bottom: -.63em;
+  margin-bottom: -3em;
 }
 
 .buttons {
@@ -101,18 +101,9 @@ body {
   height: 1.88em;
   margin-top: -60%;
 }
-.img{
-  width:620px;
-  height:310px;
-}
-.searchbar {
-  height: 1.88em;
-  background-color: rgb(51, 140, 21);
-  border-radius: .13em;
-}
 
-.searchRow {
-  margin-bottom: -3em;
+.hrRow {
+  margin-bottom: -7%;
 }
 #parentContainer{
   display:inline;
@@ -129,9 +120,53 @@ hr {
   background-image: -o-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
 }
 
-.miniCards2 {
-  position: relative;
-  /* display:inline-block; */
+.cardRow {
+  margin-top: -10%;
+}
+
+/* .miniCardContainer {
+  margin-top: -10%;
+} */
+
+
+.miniCards {
+  margin-top: -6%;
+  margin-left: 5%;
+}
+
+h4 {
+  font-weight: bolder;
+  letter-spacing: .2em;
+}
+
+.mainCard {
+  margin-top: -5%;
+}
+
+.defaultCardImg {
+  width: 14em;
+  height: 9.5em;
+}
+
+.card {
+  color: white;
+  background-image: -webkit-linear-gradient(left, rgb(51, 140, 21), rgb(51, 140, 21), rgb(68, 185, 29));
+  background-image: -moz-linear-gradient(left, rgb(51, 140, 21), rgb(51, 140, 21), rgb(68, 185, 29));
+  background-image: -ms-linear-gradient(left, rgb(51, 140, 21), rgb(51, 140, 21), rgb(68, 185, 29));
+  background-image: -o-linear-gradient(left, rgb(51, 140, 21), rgb(51, 140, 21), rgb(68, 185, 29));
+  border-radius: 10px;
+  border: 3px solid rgb(240, 196, 1);
+  margin-bottom: -1%;
+  overflow: hidden;
+}
+
+.cardTags {
+  color: rgb(255, 251, 0);
+  margin: 5%;
+}
+
+.title {
+  font-weight: bolder;
 }
 
 /* start of create modal css */
@@ -301,7 +336,7 @@ form {
 
   hr {
     border: 0;
-    height: .13em;
+    height: 1em;
     background-image: -webkit-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -moz-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
     background-image: -ms-linear-gradient(left, rgb(219, 217, 212), rgb(51, 140, 21), rgb(219, 217, 212));
@@ -311,10 +346,10 @@ form {
 .card {
     color: rgb(44, 48, 48);
     border-radius: 10px;
-    border: 2px solid hsla(111, 30%, 20%, 0.05);
+    border: 3px solid hsla(110, 91%, 49%, 0.05);
   }
 
-.mainCard {
+  .mainCard {
     display: inline;
 }
 
@@ -351,8 +386,6 @@ form {
   text-transform: uppercase;
 
 }
-
-  .mainCardImg {}
 
   .rolodexCards {
     width: 5em;

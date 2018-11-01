@@ -20,7 +20,8 @@ exports.seed = (knex, Promise) => {
             id: 4,
             post_id: 6,
             tag_id: 8
-          } {
+          },
+          {
             id: 5,
             post_id: 6,
             tag_id: 2

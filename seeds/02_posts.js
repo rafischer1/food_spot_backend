@@ -89,7 +89,7 @@ exports.seed = function(knex, Promise) {
           startTime: "2018-11-02T00:59:00.000Z",
           endTime: "2018-11-02T00:59:00.000Z",
           zipcode: '80302',
-          imageUrl: 'https://images.unsplash.com/photo-1535603559364-796ee09cc2e7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3311d6531822b414b7ede4bf5d7f1eb9&auto=format&fit=crop&w=800&q=60',
+          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRra7xdrL4LP_v4tJgNtcRZa4AQ7drciJKz2KvxlfH6Qb-nph0qLg',
           promoted: true,
           date: '2018-10-31'
         },

@@ -2,7 +2,6 @@ const knex = require('../../knex')
 const postsModel = require('../models/posts')
 const tagsModel = require('../models/tags')
 
-//get post from tag - -works!
 const getTagsFromPost = (id) => {
   let tags = []
   return knex('posts_tags')

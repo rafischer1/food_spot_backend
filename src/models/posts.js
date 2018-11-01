@@ -1,7 +1,6 @@
 // Model
 const knex = require('../../knex')
 
-//get all works!
 const getAll = () => {
   return knex('posts')
     .then(posts => {
@@ -9,7 +8,6 @@ const getAll = () => {
     })
     .catch(err => Promise.reject(err))
 }
-
 
 const getOnePost = (id) => {
   return knex('posts')
@@ -20,9 +18,8 @@ const getOnePost = (id) => {
       Promise.reject(err)
     })
 }
-//works!
-const getPostsByUserId = (user_id) => {
 
+const getPostsByUserId = (user_id) => {
   return knex('posts')
     .where('user_id', user_id)
     .then(post => {
@@ -31,13 +28,9 @@ const getPostsByUserId = (user_id) => {
     .catch(err => Promise.reject(err))
 }
 
-//create works!
-
 const create = (id, body, tags) => {
-
   let myobj = body
   myobj.user_id = id
-
   return knex('posts')
     .insert(myobj)
     .returning('id')
@@ -50,7 +43,6 @@ const create = (id, body, tags) => {
     })
 }
 
-//works!
 const updateOne = (id, body) => {
   let newPost = {}
   if (body.foodName) {
@@ -97,7 +89,6 @@ const updateOne = (id, body) => {
     })
 }
 
-// works!
 const deleteOne = (id) => {
   return knex('posts')
     .where('id', id)

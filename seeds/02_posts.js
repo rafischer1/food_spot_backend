@@ -89,7 +89,7 @@ exports.seed = function(knex, Promise) {
           startTime: "2018-11-02T00:59:00.000Z",
           endTime: "2018-11-02T00:59:00.000Z",
           zipcode: '80302',
-          imageUrl: 'https://images.unsplash.com/photo-1537477810903-b72e0b747293?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b6d93cdc3425be692701700a62a17548&auto=format&fit=crop&w=1400&q=60',
+          imageUrl: 'https://images.unsplash.com/photo-1535603559364-796ee09cc2e7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3311d6531822b414b7ede4bf5d7f1eb9&auto=format&fit=crop&w=800&q=60',
           promoted: true,
           date: '2018-10-31'
         },

@@ -38,7 +38,7 @@ exports.seed = (knex, Promise) => {
           {
             id: 9,
             name: "College/University"
-          }
+          },
         ])
         .then(() => {
           // After SQL INSERT, update the autoincrementing id counter

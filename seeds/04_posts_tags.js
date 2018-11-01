@@ -15,6 +15,15 @@ exports.seed = (knex, Promise) => {
             id: 3,
             post_id: 2,
             tag_id: 4
+          },
+          {
+            id: 4,
+            post_id: 6,
+            tag_id: 8
+          } {
+            id: 5,
+            post_id: 6,
+            tag_id: 2
           }
         ])
         .then(() => {

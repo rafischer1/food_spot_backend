@@ -17,6 +17,7 @@ const postsRouter = require('./src/routes/posts')
 const tagsRouter = require('./src/routes/tags')
 const posts_tagsRouter = require('./src/routes/posts_tags')
 const tags_postsRouter = require('./src/routes/tags_posts')
+const post_idRouter = require('./src/routes/post_id')
 
 // Express
 var app = express()
@@ -38,5 +39,7 @@ app.use('/posts', postsRouter)
 app.use('/tags', tagsRouter)
 app.use('/posts_tags', posts_tagsRouter)
 app.use('/tags_posts', tags_postsRouter)
+app.use('/post_id', post_idRouter)
+
 
 module.exports = app

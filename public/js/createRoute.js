@@ -124,6 +124,6 @@ function formSubmit() {
       successMessage.style.display = "inline"
     }, 500)
     successMessage.style.animation = "fade-out 5s linear 1 forwards"
-    getPosts()
+
   })
 }

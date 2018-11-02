@@ -41,12 +41,25 @@
         <div class="sunRed"></div>
         <div class="sunYellow"></div>
         <div class="shape"></div>
+        <marquee id="marquee"
+          behavior=""
+          direction="">PIZZA! FUN! COLLEGE! follow on twitter @foodseen-Boulder
+        </marquee>
+
         <div class="col s3 pull-s1">
           <a href="/"><h1 class="food">food</h1></a>
           <a href="/"><h1 class="seen">seen</h1></a>
 
         </div>
+        <!-- post succesfully created popup message -->
+        <div class="alert-card card-panel purple darken-2"
+          id="createPostSuccessMessage"> 🍕 New Event Created! 🍕</div>
+        <!-- generic error popup message -->
+        <div class=" alert-card card-panel amber darken-3"
+          id="generalErrorMessage"></div>
+
       </div>
+
       <div class="row hrRow">
         <span class="col s4 offset-s2">
 
@@ -61,7 +74,8 @@
         <a class="waves-effect waves-light btn modal-trigger" id="createBtn" href="#createModal">Create Post</a>
         <!-- <a class="btn" id="seeMyPostsBtn">See My Posts</a> -->
         <button class="btn" id="seeMyPostsBtn" onclick="showMyPosts()" type="button" name="button">See My Posts</button>
-      </span>
+      
+    </span>
       </div>
 
       <hr class="hr">
@@ -264,7 +278,7 @@
         class="editPostModal modal modal-fixed-footer">
         <div class="modal-content">
           <div class="row">
-            <form class="col s12"
+            <form class="col s12 modal-close"
               id="editSubmit">
               <div class="row">
                 <div class="input-field col s12">
@@ -397,8 +411,9 @@
                   <label for="imageUrl">imageUrl</label>
                 </div>
                 <br>
+
                 <hr>
-                <button class="btn modal-close"
+                <button class="modal-close btn"
                   id="modalSubmitEdit">Edit Post</button>
               </div>
           </div>
@@ -406,12 +421,7 @@
         </div>
       </div>
 
-      <!-- post succesfully created popup message -->
-      <div class="alert-card card-panel purple darken-2"
-        id="createPostSuccessMessage"> 🍕 New Event Created! 🍕</div>
-      <!-- generic error popup message -->
-      <div class=" alert-card card-panel amber darken-3"
-        id="generalErrorMessage"></div>
+
       <div class="modal-footer">
         <br>
       </div>
@@ -420,7 +430,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
       <script src="./js/createRoute.js"></script>
       <script src="./js/cookies.js"></script>
-      <script src="./js/test.js"></script>
+      <script src="./js/getTags.js"></script>
   </body>
 
 </html>

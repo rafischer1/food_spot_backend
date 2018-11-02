@@ -28,13 +28,20 @@ function getPosts() {
       // console.log(res.data)
       res.data.forEach((posts) => {
         var tagPostId = posts.id
+        console.log('int he posts promoted:', posts.promoted)
+
         ////////////set data into cards\\\\\\\\\\\\
 
         ///////////////GENERATE CARDS\\\\\\\\\\\\\\
         let card = document.createElement('div')
         card.className = 'card hoverable'
+
         let cardTitle = document.createElement('span')
         cardTitle.className = 'title'
+        console.log('posts.promoted', posts.promoted)
+        if (posts.promoted === true) {
+          cardTitle.className = 'promoted'
+        }
         let cardImage = document.createElement('div')
         cardImage.className = 'card-image'
         let imgSrc = document.createElement('img')
@@ -113,12 +120,18 @@ function getPosts() {
           })
 
         ////FIELDS FOR CARDS\\\\
-        cardTitle.innerText = posts.eventName
+        if (posts.promoted === true) {
+          cardTitle.innerText = `${posts.eventName} 👑`
+        } else {
+          cardTitle.innerText = posts.eventName
+        }
+
         imgSrc.src = posts.imageUrl
         foodName.innerText = posts.foodName
         dateOnCard.innerText = dayOfWeek + ' ' + month + ', ' + numberDate
+        dateOnCard.innerHTML = '<br>'
         startTime.innerText = 'Starts At: ' + posts.startTime.split('T')[1].split('.')[0].slice(0, -3)
-        endTime.innerText = 'Ends At: ' + posts.endTime.split('T')[1].split('.')[0].slice(0, -3)
+        endTime.innerText = `Ends At: ${posts.endTime.split('T')[1].split('.')[0].slice(0, -3)}`
         location.innerText = posts.address + ', ' + posts.city + ', ' + posts.state + ', ' + posts.zipcode
 
         dateOnCard.style.display = 'none'
@@ -162,17 +175,5 @@ function getPosts() {
     })
     .then(() => {
       // always executed
-    })
-}
-
-
-function getAllTags() {
-  let tagsArray = []
-  axios.get('/tags')
-    .then((tags) => {
-      tags.data.forEach((tag) => {
-        tagsArray.push(tag)
-      })
-      console.log('tags:', tagsArray)
     })
 }

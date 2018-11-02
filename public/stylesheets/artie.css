@@ -2,20 +2,25 @@ a.btn {
   font-family: "Quicksand";
   padding: 8px 12px 4px 12px;
   margin-top: 7; 
-  color: white;
+  color: black;
 }
 
 marquee {
   width: 90%;
-  text-shadow: 15px 15px 20px rgba(218, 223, 127, 0.75);
-    font-family: "Quicksand";
-    color: rgb(255, 91, 62);
+  text-shadow: 5px 5px 2px white;
+    font-family: monospace;
+    color: rgb(255, 0, 0);
     font-weight: bolder;
-    font-size: 24px;
+    font-size: 30px;
+    background-color: rgb(255, 245, 0);
+    border: 4px dashed rgb(166, 0, 255);
 }
 
 .promoted {
-
   text-shadow: 1px 1px 1px rgb(236, 120, 55);
   font-weight: bold;
+}
+
+.messages {
+  width: 100%;
 }

@@ -3,14 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   formSubmit()
 
   /////////error handler - - change message text input for situation\\\\\\\\\\\\\\
-  const errorMessageFunction = (messageText) => {
-    setTimeout(() => {
-      errorMessage.style.display = "inline"
-      errorMessage.innerText = messageText
-    }, 500)
-    errorMessage.style.animation = "fade-out 5s linear 1 forwards"
-  }
+
 })
+let errorMessage = document.getElementById('generalErrorMessage')
 let createSubmitBtn = document.getElementById('createSubmit')
 
 function formSubmit() {
@@ -55,10 +50,10 @@ function formSubmit() {
     }
     var post_id
 
-    //logic to have a promoted login
-    // if (newPromoted === true) {
-    //   confirm('Please enter promoter passcode to confirm event post___________')
-    // }
+    // logic to have a promoted login
+    if (newPromoted === true) {
+      confirm('Please enter promoter passcode to confirm event post___________')
+    }
 
     console.log("new post object:", newPostObj)
     axios.post('https://food-seen.herokuapp.com/posts', newPostObj)
@@ -117,6 +112,7 @@ function formSubmit() {
         })
       })
       .catch((err) => {
+        console.log('In the error route')
         let messageText = `Create post error - please try again (${err})`
         errorMessageFunction(messageText)
       })
@@ -126,4 +122,12 @@ function formSubmit() {
     successMessage.style.animation = "fade-out 5s linear 1 forwards"
 
   })
+}
+
+const errorMessageFunction = (messageText) => {
+  setTimeout(() => {
+    errorMessage.style.display = "inline"
+    errorMessage.innerText = messageText
+  }, 300)
+  errorMessage.style.animation = "fade-out 8s linear 1 forwards"
 }

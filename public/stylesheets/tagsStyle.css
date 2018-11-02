@@ -10,10 +10,12 @@
 }
 
 #createPostSuccessMessage{
+
   display: none;
 }
 
 #generalErrorMessage {
+
   display: none;
 }
 
